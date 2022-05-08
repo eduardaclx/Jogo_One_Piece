@@ -1,0 +1,150 @@
+/* FONTES */
+@font-face {
+    font-family: raleway-regular;
+    src: url(../fonte/Raleway-Regular.ttf);
+}
+@font-face {
+    font-family: raleway-semi-bold;
+    src: url(../fonte/Raleway-SemiBold.ttf);
+}
+@font-face {
+    font-family: raleway;
+    src: url(../fonte/Raleway-Medium.ttf);
+}
+
+
+/* CONFIGURAÇÕES GERAIS */
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    background-color: #0b0a0a;
+    font-family: raleway;
+}
+
+/* CONFIGURAÇÃO DO SCROLL */
+::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+}
+
+/* CONFIGURAÇÃO DO FOOTER */
+.footer{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    /* background: linear-gradient(to top, #008aff, #00ffe7) */
+}
+.logo{
+    display: flex;
+    padding-right: 5%;
+    padding-left: 3%;
+    background: transparent;
+}
+.logo h4 {
+    align-items: center;
+    padding-left: 8px;
+    background: transparent;
+    margin-top: 5px;
+}
+#icone-marca{
+    width: 50px;
+    height: 50px;
+    background: transparent;
+}
+.footer {
+    display: flex;
+    align-items: center;
+}
+.footer input {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    /* border-radius: 20px; */
+    border: #ccc solid 3px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.footer button {
+    border: none;
+    /* background: #000; */
+    padding: 8.1px;
+    border-end-end-radius:  20px;
+    border-top-right-radius: 20px;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 20s linear infinite;
+}
+#iconeLupa {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    padding-right: 5px;
+    background: transparent;
+}
+.icone {
+    display: flex;
+    margin-left: 20px;
+    padding-right: 5px;
+}
+#iconeCoracao {
+    width: 45px;
+    height: 45px;
+    margin-left: 10%;
+}
+#iconeCarrinho{
+    width: 50px;
+    height: 50px;
+    margin-right: 5%;
+}
+#iconeUser{
+    margin-right: 5%;
+    height: 60px;
+    width: 60px;
+}
+
+/* CONFIGURAÇÃO DA DIV RGB BRILHANDO */
+.rgbBolado{
+    position: fixed;
+    width: 100%;
+    height: 10px;
+    border: none;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 20s linear infinite;
+}
+/* CRIAÇÃO DA ANIMAÇÃO */
+@keyframes animacaoRGB{
+    0%, 100%{
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(360deg);
+    }
+}
+/* TRAZENDO O EFEITO BLUR (sem as positions e o content não funciona)*/
+.rgbBolado::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(10px);
+}
+/* CONFIGURAÇÃO DO MENU */
+.menu {
+    width: 100%;
+    height: 20%;
+    background-color: #ccc;
+    font-size: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
