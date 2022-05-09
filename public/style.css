@@ -1,88 +1,172 @@
+/* FONTES */
 @font-face {
-    font-family: sans regular;
-    src: url(../font/SourceSansPro-Regular.ttf);
+    font-family: raleway-regular;
+    src: url(../fonte/Raleway-Regular.ttf);
 }
 @font-face {
-    font-family: sans light;
-    src: url(../font/SourceSansPro-Light.ttf);
+    font-family: raleway-semi-bold;
+    src: url(../fonte/Raleway-SemiBold.ttf);
 }
 @font-face {
-    font-family: sans semi-bold;
-    src: url(../font/SourceSansPro-SemiBold.ttf);
+    font-family: raleway;
+    src: url(../fonte/Raleway-Medium.ttf);
 }
+
+
 /* CONFIGURAÇÕES GERAIS */
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: white;
+    background-color: #0A0E11;
+    font-family: raleway;
+}
+* img {
+    background: transparent;
+}
+
+/* CONFIGURAÇÃO DO SCROLL */
 ::-webkit-scrollbar {
-    display: none;
+    width: 8px;
+    border-radius: 5px;
 }
-::-webkit-input-placeholder {
-    color: #000000;
-}
-
-body {
-    background-color: #73B2D9;
-    font-family: sans light;
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    border-radius: 5px;
+    background: linear-gradient(to top, #008aff, #00ffe7);
 }
 
-/* CONFIGURAÇÃO DO header */
+/* CONFIGURAÇÃO DO HEADER */
 .header {
     display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: flex-start;
     align-items: center;
-    /* border: solid red 3px; */
-    background-color: rgba(4, 51, 70, 0.30);
-    border-radius: 30px;
+    flex-direction: row;
+    background-color: #151819;
 }
-.play {
-    width: 30px;
-    height: 30px;
-    padding-top: 15px;
-    padding-left: 10px;
-    padding-right: 40px;
-}
-.navmasc{
-    position: fixed;
-}
-.imagemLogo {
+.logo {
     display: flex;
-    height: 80px;
-    width: 240px;
-    padding-left: 30px;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-right: 5%;
+    padding-left: 3%;
+    background: transparent;
 }
-.textoHeader {
+.logo h4 {
+    align-items: center;
+    padding-left: 8px;
+    background: transparent;
+    margin-top: 5px;
+}
+.header input {
     display: flex;
-    width: 80%;
-    justify-content: flex-end;
-    padding-right: 60px;
+    width: 0vw;
+    height: 0vh;
+    visibility: hidden;
+    /* border-radius: 20px; */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition: 2s;
 }
-.header h3 {
-    color: white;
-    padding-left: 20px;
-    font-size: 18px;
+.header ::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    padding-left: 15px;
+    font-family: raleway-regular;
 }
-
-/* BANNER DO VIDEO */
-.banner {
-    display: flex;
-    width: 100%;
-    height: 465px;
-    justify-content: flex-end;
-}
-
-/* CONFIGURAÇÃO DO VIDEO DA HOME */
-.banner .bg_video {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: -1000;
-    background-size: cover;
+.header button {
+    border: none;
+    padding: 9.6px;
     border-radius: 20px;
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.5), rgba(0, 255, 231, 0.5));
+    animation: animacaoRGB 15s linear infinite;
+    transition: 3s;
+}
+#iconeLupa {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background: transparent;
+}
+.icone {
+    display: flex;
+    margin-left: 20px;
+    padding-right: 5px;
+}
+#iconeCoracao {
+    width: 35px;
+    height: 35px;
+}
+#iconeCarrinho {
+    width: 35px;
+    height: 35px;
+    margin-right: 5%;
+}
+#iconeUser{
+    margin-right: 5%;
+    height: 50px;
+    width: 50px;
+}
+.icones {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 1%;
 }
 
-
-.container {
+/* CONFIGURAÇÃO DA DIV RGB BRILHANDO */
+.rgbBolado {
+    position: absolute;
+    width: 100%;
+    height: 1vh;
+    border: none;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 15s linear infinite;
+}
+/* CRIAÇÃO DA ANIMAÇÃO */
+@keyframes animacaoRGB{
+    0%, 100%{
+        filter: hue-rotate(0deg);
+    }
+    50%{
+        filter: hue-rotate(360deg);
+    }
+}
+/* TRAZENDO O EFEITO BLUR (sem as positions e o content não funciona)*/
+.rgbBolado::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(10px);
+}
+/* CONFIGURAÇÃO DO MENU */
+.menu {
     display: flex;
     width: 100%;
-    height: 600px;
+    height: 80px;
+    background-color: #151819;
+    font-size: 10px;
+    align-items: center;
+    justify-content:space-around;
+    border-end-end-radius: 10px;
+    border-end-start-radius: 10px;
 }
+.menu span {
+    background: transparent;
+}
+
+/* CONFIGURAÇÃO DO BANNER*/
+.banner {
+    width: 100%;
+    height: 68vh;
+}
+.banner img {
+    width: 100%;
+    height: 68vh;
+}
+
+/* CONFIGURAÇÃO DOS CARD*/
+

@@ -5,35 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Piece</title>
+    <title>Nerd Shop</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../imagens/icone-marca.png">
 </head>
 
 <body>
-        <div class="header">
-            <img id="logo" src="../imagens/logo.png" class="imagemLogo">
-            <div class="textoHeader">
-                <h3 onclick="parar()">PARAR VÍDEO</h3> <img src="../imagens/botao-play.png" class="play">
-                <h3>HISTÓRIA</h3>
-                <h3>PERSONAGENS</h3>
-                <h3>QUIZ</h3>
-            </div>
+    <section class="header">
+        <div class="logo">
+            <!-- <img src="../imagens/icone-marca.png" id="icone-marca"> -->
+            <h4>NERD<br>SHOP</h4>
         </div>
+        <input id="pesquisarInput" placeholder="O que você está procurando?">
+        <button id="pesquisarBtn" onclick="pesquisar()"><img src="../imagens/lupa.png" id="iconeLupa"></button>
+        <div class="header  icones">
+            <img src="../imagens/coracao.png" class="icone" id="iconeCoracao">
+            <img src="../imagens/carrinho.png" class="icone" id="iconeCarrinho">
+            <img src="../imagens/user.png" class="icone" id="iconeUser">
+        </div>
+    </section>
 
-    <div class="banner">
-        <video autoplay muted loop poster="../imagens/background-video.webp" class="bg_video">
-            <source src="../video/background.mp4" type="video/mp4">
-            <source src="../video/background.webm" type="video/webm">
-        </video>
-    </div>
-    <div class="container">
-        <div class=""></div>        
-    </div>
-    <div class="container">
+    <div class="rgbBolado"></div>
 
-    </div>
+    <section class="menu">
+        <span>Todos os Itens</span>
+        <span>Mangá</span>
+        <span>Figure Action</span>
+        <span>Camisetas</span>
+        <span>Garrafas e Canecas</span>
+    </section>
+    </section>
+
+    <section class="banner" style="background-color: #ccc">
+        <!-- <img src="../imagens/"> -->
+    </section>
+
+
+
+
 
 
 </body>
 
 </html>
+<!-- <img src="../imagens/historia.png" class="icone" id="iconeHistoria"> -->
+
+<script>
+    function pesquisar() {
+        pesquisarInput.style.visibility = "visible";
+        pesquisarInput.style.width = "135vw";
+        pesquisarInput.style.height = "40px";
+        pesquisarInput.style.border = "#ccc solid 2px";
+        pesquisarBtn.style.borderRadius = "0px";
+        iconeCoracao.style.marginLeft = "10%";
+        pesquisarBtn.style.borderEndEndRadius = "20px";
+        pesquisarBtn.style.borderTopRightRadius = "20px";
+    }
+
+    var imagens = ["../imagens/", "../imagens/"];
+    var imagemAtual = 0;
+
+    function trocaImagemBanner() {
+        imagemAtual = (imagemAtual + 1) % 2;
+        document.querySelector('.banner img').src = imagens[imagemAtual];
+    }
+    setInterval(trocaImagemBanner, 2500);
+</script>
