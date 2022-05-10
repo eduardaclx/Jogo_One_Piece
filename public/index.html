@@ -12,79 +12,116 @@
 
 <body>
     <section class="header">
-        <div class="logo">
-            <!-- <img src="../imagens/icone-marca.png" id="icone-marca"> -->
-            <h4>ONE<br>SHOP</h4>
-        </div>
-        <input id="pesquisarInput" placeholder="O que você está procurando?">
-        <button id="pesquisarBtn" onclick="pesquisar()"><img src="../imagens/lupa.png" id="iconeLupa"></button>
-        <div class="header  icones">
-            <img src="../imagens/coracao.png" class="icone" id="iconeCoracao">
-            <img src="../imagens/carrinho.png" class="icone" id="iconeCarrinho">
-            <img src="../imagens/user.png" class="icone" id="iconeUser">
+        <div class=" header navMask">
+
+            <div class="logo">
+                <!-- <img src="../imagens/icone-marca.png" id="icone-marca"> -->
+                <h4>ONE<br>SHOP</h4>
+            </div>
+            <input id="pesquisarInput" placeholder="O que você está procurando?">
+            <button id="pesquisarBtn" onclick="pesquisar()"><img src="../imagens/lupa.png" id="iconeLupa"></button>
+            <div class="header  icones">
+                <img src="../imagens/coracao.png" class="icone" id="iconeCoracao">
+                <img src="../imagens/carrinho.png" class="icone" id="iconeCarrinho">
+                <img src="../imagens/user.png" class="icone" id="iconeUser">
+            </div>
         </div>
     </section>
-
     <div class="rgbBolado"></div>
 
+    
     <section class="menu">
-        <span>Todos os Itens</span>
-        <span>Mangá</span>
-        <span>Figure Action</span>
-        <span>Camisetas</span>
-        <span>Garrafas e Canecas</span>
+        <span>Todos os Itens <img id="seta" src="../imagens/seta-menu.png"></span>
+        <span>Mangá <img src="../imagens/seta-menu.png"></span>
+        <span>Figure Action <img src="../imagens/seta-menu.png"></span>
+        <span>Camisetas <img src="../imagens/seta-menu.png"></span>
+        <span>Personagens <img src="../imagens/seta-menu.png"></span>
     </section>
-    </section>
+</section>
 
-    <section class="banner" style="background-color: #ccc">
+<section class="banner" style="background-color: #ccc">
         <img src="../imagens/banner-nico.png">
     </section>
+    
+    <div class="tituloCard">
+        <h1>Figure Actions Mais Vendidos:</h1>
 
+    </div>
+    
     <div class="container">
         <div class="card">
             <div class="imagemCard">
                 <img src="../imagens/png-teste.png">
             </div>
             <div class="box">
-                <h2>Camiseta Luffy</h2>
+                <h2>Figure Action</h2>
                 <div class="tamanho">
-                    <span>PP</span>
-                    <span>P</span>
-                    <span>M</span>
-                    <span>G</span>
-                    <span>GG</span>
+                    <span id="descricao">figure action articulavel do <br> Monkey D. Luffy</span>
                 </div>
                 <div class="cores">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span>R$ 180,00</span>
                 </div>
             </div>
-
         </div>
+        <div class="card">
+            <div class="imagemCard">
+                <img src="../imagens/png-teste.png">
+            </div>
+            <div class="box">
+                <h2>Figure Action</h2>
+                <div class="tamanho">
+                    <span id="descricao">figure action articulavel do <br> Monkey D. Luffy</span>
+                </div>
+                <div class="cores">
+                    <span>R$ 180,00</span>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="imagemCard">
+                <img src="../imagens/png-teste.png">
+            </div>
+            <div class="box">
+                <h2>Figure Action</h2>
+                <div class="tamanho">
+                    <span id="descricao">figure action articulavel do <br> Monkey D. Luffy</span>
+                </div>
+                <div class="cores">
+                    <span id="preco_card">R$ 180,00</span>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
-
-
-
-
+    <div class="rgbBolado"></div>
+    
+    
+    
+    
+    
+    
 </body>
 
 </html>
 <!-- <img src="../imagens/historia.png" class="icone" id="iconeHistoria"> -->
 
+
+<!-- ANIMAÇÃO DA BARRA DE PESQUISA -->
 <script>
     function pesquisar() {
         pesquisarInput.style.visibility = "visible";
         pesquisarInput.style.width = "135vw";
-        pesquisarInput.style.height = "40px";
-        pesquisarInput.style.border = "#ccc solid 2px";
+        pesquisarInput.style.height = "7vh";
+        pesquisarInput.style.border = "#ccc solid 0.1vh";
         pesquisarBtn.style.borderRadius = "0px";
         iconeCoracao.style.marginLeft = "10%";
         pesquisarBtn.style.borderEndEndRadius = "20px";
         pesquisarBtn.style.borderTopRightRadius = "20px";
     }
+
+</script>
+
+<script>
 
     var imagens = ["../imagens/banner-luffy-crianca.png", "../imagens/banner-nico.png"];
     var imagemAtual = 0;

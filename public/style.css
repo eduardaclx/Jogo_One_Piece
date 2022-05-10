@@ -17,7 +17,7 @@
 * {
     padding: 0;
     margin: 0;
-    font-size: 18px;
+    font-size: 3vh;
     color: white;
     background-color: #0A0E11;
     font-family: raleway;
@@ -28,24 +28,30 @@
 
 /* CONFIGURAÇÃO DO SCROLL */
 ::-webkit-scrollbar {
-    width: 8px;
-    border-radius: 5px;
+    width: 0.4vw;
+    border-radius: 2vw;
 }
 ::-webkit-scrollbar-thumb{
-    width: 10px;
-    border-radius: 5px;
-    background: linear-gradient(to top, #008aff, #00ffe7);
+    width: 0.7vw;
+    border-radius: 2vw;
+    background: linear-gradient(to top, #bf51ce ,#008aff);
 }
 
 /* CONFIGURAÇÃO DO HEADER */
 .header {
     display: flex;
     width: 100%;
-    height: 100px;
+    height: 13vh;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    background-color: #151819;
+    background-color: #232323;
+}
+.header .navMask {
+    position: fixed;
+    top: 0;
+    z-index: 101;
+    background: rgba(35, 35, 35, 0.6);
 }
 .logo {
     display: flex;
@@ -55,64 +61,62 @@
 }
 .logo h4 {
     align-items: center;
-    padding-left: 8px;
+    padding-left: 1vw;
     background: transparent;
-    margin-top: 5px;
+    margin-top: 0.2vw;
 }
 .header input {
     display: flex;
     width: 0vw;
     height: 0vh;
     visibility: hidden;
-    /* border-radius: 20px; */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    border-top-left-radius: 3vh;
+    border-bottom-left-radius: 3vh;
     transition: 2s;
 }
 .header ::placeholder {
     color: rgba(255, 255, 255, 0.3);
-    padding-left: 15px;
+    padding-left: 2vh;
     font-family: raleway-regular;
 }
 .header button {
     border: none;
-    padding: 9.6px;
-    border-radius: 20px;
+    padding: 0.7vw;
+    border-radius: 6vh;
     background: linear-gradient(to top, rgba(0, 138, 255, 0.5), rgba(0, 255, 231, 0.5));
     animation: animacaoRGB 15s linear infinite;
     transition: 3s;
 }
 #iconeLupa {
     display: flex;
-    width: 25px;
-    height: 25px;
-    padding-left: 5px;
-    padding-right: 5px;
-    background: transparent;
+    width: 2vw;
+    height: 4.5vh;
+    padding-left: 0.2vh;
+    padding-right: 0.2vh;
 }
 .icone {
     display: flex;
-    margin-left: 20px;
-    padding-right: 5px;
+    margin-left: 1.5vw;
 }
 #iconeCoracao {
-    width: 35px;
-    height: 35px;
+    height: 5vh;
+    width: 2.2vw;
 }
 #iconeCarrinho {
-    width: 35px;
-    height: 35px;
-    margin-right: 5%;
+    height: 5vh;
+    width: 2.2vw;
+    margin-right: 3vw;
 }
 #iconeUser{
+    height: 8vh;
+    width: 4vw;
     margin-right: 5%;
-    height: 50px;
-    width: 50px;
 }
 .icones {
     display: flex;
     justify-content: flex-end;
     margin-right: 1%;
+    background: transparent;
 }
 
 /* CONFIGURAÇÃO DA DIV RGB BRILHANDO */
@@ -123,39 +127,43 @@
     border: none;
     background: linear-gradient(to top, #008aff, #00ffe7);
     animation: animacaoRGB 15s linear infinite;
+    z-index: 100;
 }
 /* CRIAÇÃO DA ANIMAÇÃO */
 @keyframes animacaoRGB{
     0%, 100%{
         filter: hue-rotate(0deg);
+        border: none;
     }
     50%{
-        filter: hue-rotate(360deg);
+        filter: hue-rotate(180deg);
+        border: none;
     }
 }
 /* TRAZENDO O EFEITO BLUR (sem as positions e o content não funciona)*/
 .rgbBolado::before {
     position: absolute;
     content: '';
-    width: 100%;
     height: 100%;
+    width: 100%;
     background: linear-gradient(to top, #008aff, #00ffe7);
-    filter: blur(10px);
+    filter: blur(2vh);
 }
 /* CONFIGURAÇÃO DO MENU */
 .menu {
     display: flex;
+    height: 10vh;
     width: 100%;
-    height: 80px;
-    background-color: #151819;
-    font-size: 10px;
     align-items: center;
     justify-content:space-around;
-    border-end-end-radius: 10px;
-    border-end-start-radius: 10px;
+    background-color: #232323;
 }
 .menu span {
     background: transparent;
+}
+.menu img {
+    height: 2.2vh;
+    width: 2.2vh;
 }
 
 /* CONFIGURAÇÃO DO BANNER*/
@@ -168,22 +176,31 @@
     height: 75vh;
 }
 
+/* CONFIGURAÇÃO DO TÍTULO DO CARD  */
+.tituloCard {
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    padding-left: 2vw;
+}
+
+
 /* CONFIGURAÇÃO DOS CARD*/
 .container {
     display: flex;
     position: relative;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 2vh;
+    margin-bottom: 10vh;
     align-items: center;
     background-color: transparent;
 }
 .container .card {
     position: relative;
-    width: 320px;
-    height: 450px;
-    border-radius: 20px;
+    width: 19.5vw;
+    height: 50vh;
+    border-radius: 5vh;
     background-color: #232323;
-    overflow: hidden;
+    overflow: hidden; /*esconde o que passa do card */
 }
 .container .card:before {
     content: '';
@@ -192,47 +209,71 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #008aff;
-    clip-path: circle(150px at 80% 20%);
+    clip-path: circle(25vh at 80% 20%);
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.6), rgba(0, 255, 231, 0.6));
+    animation: animacaoRGB 15s linear infinite;
+}
+.container .card:hover {
+    transition: 2s;
+    width: 25vw;
+    height: 55vh;
 }
 .container .card:hover:before {
-    clip-path: circle(300px at 80% -20%);
+    clip-path: circle(40vh at 80% -10%);
+    transition: 2s;
 }
 .container .card:after {
     content: 'One Piece';
-    position: absolute;
-    top: 30%;
-    left: -20%;
-    font-size: 10em;
+    position: relative;
+    top: 4%;
+    right: 10%;
+    font-size: 9vw;
     font-weight: 800;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.05);  
 }
-.container .card .imagemCard {
+.container .card img{
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10000;
-    width: 100%;
-    height: 220px;
-    transition: 0.5;
+    width: 14vw;
+    height: 30vh;
+    z-index: 1000;
+    margin-left: 6vw;
 }
-.container .card:hover .imagemCard {
-    top: 0%;
-    transform: translateY(0%);
-}
-.container .card .imagemCard img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width:270px;
+.container .card img:hover{
+    width: 22vw;
+    height: 44vh;
+    right: 2vw;
+    transition: 2s ease-in-out;
 }
 .container .card .box {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100px;
     text-align: center;
     transition: 1s;
-    z-index: 10;
+    z-index: 1000;
+    background: transparent;
+    padding-bottom: 2vh;
 }
+.box h2 {
+    font-size: 4vh;
+    background-color: transparent;
+}
+.box .tamanho {
+    background-color: transparent;
+}
+.box .cores {
+    font-size: 1vh;
+    background-color: transparent;
+    padding-bottom: 2vh;
+}
+.box span{
+    font-size: 2.5vh;
+    background-color: transparent;
+}
+#descricao {
+    font-size: 2vh;
+    font-family: raleway-regular;
+    margin-bottom: 3vh;
+}
+
