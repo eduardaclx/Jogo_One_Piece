@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nerd Shop</title>
+    <title>One Shop</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../imagens/icone-marca.png">
 </head>
@@ -14,7 +14,7 @@
     <section class="header">
         <div class="logo">
             <!-- <img src="../imagens/icone-marca.png" id="icone-marca"> -->
-            <h4>NERD<br>SHOP</h4>
+            <h4>ONE<br>SHOP</h4>
         </div>
         <input id="pesquisarInput" placeholder="O que você está procurando?">
         <button id="pesquisarBtn" onclick="pesquisar()"><img src="../imagens/lupa.png" id="iconeLupa"></button>
@@ -37,7 +37,7 @@
     </section>
 
     <section class="banner" style="background-color: #ccc">
-        <img src="../imagens/banner-nico-robin.png">
+        <img src="../imagens/banner-nico.png">
     </section>
 
 
@@ -62,12 +62,12 @@
         pesquisarBtn.style.borderTopRightRadius = "20px";
     }
 
-    var imagens = ["../imagens/", "../imagens/"];
+    var imagens = ["../imagens/banner-luffy-crianca.png", "../imagens/banner-nico.png"];
     var imagemAtual = 0;
 
     function trocaImagemBanner() {
         imagemAtual = (imagemAtual + 1) % 2;
         document.querySelector('.banner img').src = imagens[imagemAtual];
     }
-    setInterval(trocaImagemBanner, 2500);
+    setInterval(trocaImagemBanner, 3500);
 </script>
