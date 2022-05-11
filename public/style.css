@@ -196,7 +196,7 @@ a {
 }
 
 
-/* CONFIGURAÇÃO DOS CARD*/
+/* CONFIGURAÇÃO DOS CARDS*/
 .container {
     display: flex;
     position: relative;
@@ -288,24 +288,70 @@ a {
     font-family: raleway-regular;
     margin-bottom: 3vh;
 }
-.menuFlutuante {
-    display: flex;
-    position: absolute;
-    z-index: 10000;
-    width: 100%;
-    height: 3vh;
-}
-.menuFlutuante houver {
-    display: flex;
-    position: absolute;
-    z-index: 10000;
-    width: 100%;
-    height: 3vh;
-}
 
 /* ------------------------------------ Página Mangá--------------------------------------------- */
 .tituloCard {
     font-weight: bold;
+    font-size: 3.5vh;
 }
 
+.containerProduto {
+    height: 600vh;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
 /* CONFIGURAÇÃO DO MENU LATERAL ESQUERDO */
+.containerMenuLateral {
+
+    display: flex;
+    justify-items: flex-start;
+    height: 65vh;
+    width: 16vw;
+    flex-direction: column;
+    background: #232323;
+    border-radius: 2vw;
+    margin-left: 3vw;
+}
+.containerMenuLateral span {
+    display: flex;
+    justify-items: flex-start;
+    width: 5vw;
+    background: transparent;
+    padding: 1.5vw;
+    font-size: 3vh;
+    font-family: raleway-semi-bold;
+}
+.menuLateral {
+    display: flex;
+    /* border: #008aff solid 3px; */
+    align-items: center;
+    flex-direction: column;
+    background: transparent;
+}
+.menuLateral p {
+    padding: 1.5vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    background: transparent;
+    margin-top: 0.8vh;
+    margin-bottom: 0.8vh;
+    font-family: raleway-regular;
+}
+.menuSelecionadoLateral:hover {
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 10s linear infinite;
+    border-radius: 2.5vw;
+}
+
+/* CONFIGURAÇÃO DO BANNER DOS PRODUTOS */
+
+.containerCardProdutos {
+    display: flex;
+    position: relative;
+    align-self: flex-start;
+    width: 40vw;
+    height: 20vh;
+    background: #232323;
+    border-radius: 2vw;
+}
