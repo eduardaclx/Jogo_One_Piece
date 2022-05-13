@@ -31,9 +31,10 @@ a {
     text-decoration: none;
 }
 
+
 /* CONFIGURAÇÃO DO SCROLL */
 ::-webkit-scrollbar {
-    width: 0.4vw;
+    width: 0.3vw;
     border-radius: 2vw;
 }
 ::-webkit-scrollbar-thumb{
@@ -41,6 +42,7 @@ a {
     border-radius: 2vw;
     background: linear-gradient(to top, #bf51ce ,#008aff);
 }
+
 
 /* CONFIGURAÇÃO DO HEADER */
 .header {
@@ -124,6 +126,20 @@ a {
     background: transparent;
 }
 
+/* CONFIGURAÇÃO DO FOOTER */
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ------------------------------------ PÁGINA INDEX--------------------------------------------- */
 /* CONFIGURAÇÃO DA DIV RGB BRILHANDO */
 .rgbBolado {
@@ -135,6 +151,8 @@ a {
     animation: animacaoRGB 10s linear infinite;
     z-index: 100;
 }
+
+
 /* CRIAÇÃO DA ANIMAÇÃO */
 @keyframes animacaoRGB{
     0%, 100%{
@@ -146,6 +164,8 @@ a {
         border: none;
     }
 }
+
+
 /* TRAZENDO O EFEITO BLUR (sem as positions e o content não funciona)*/
 .rgbBolado::before {
     position: absolute;
@@ -155,6 +175,8 @@ a {
     background: linear-gradient(to top, #008aff, #00ffe7);
     filter: blur(2vh);
 }
+
+
 /* CONFIGURAÇÃO DO MENU */
 .menu {
     display: flex;
@@ -179,6 +201,7 @@ a {
     animation: animacaoRGB 10s linear infinite;
 }
 
+
 /* CONFIGURAÇÃO DO BANNER*/
 .banner {
     width: 100%;
@@ -188,6 +211,7 @@ a {
     width: 100%;
     height: 75vh;
 }
+
 
 /* CONFIGURAÇÃO DO TÍTULO DO CARD  */
 .tituloCard {
@@ -269,13 +293,13 @@ a {
     padding-bottom: 2vh;
 }
 .box h2 {
-    font-size: 4vh;
+    font-size: 3vh;
     background-color: transparent;
 }
 .box .tamanho {
     background-color: transparent;
 }
-.box .cores {
+.box .preco {
     font-size: 1vh;
     background-color: transparent;
     padding-bottom: 2vh;
@@ -290,21 +314,146 @@ a {
     margin-bottom: 3vh;
 }
 
-/* ------------------------------------ PÁGINA MANGÁ    --------------------------------------------- */
+
+/* CONFIGURAÇÃO DOS PRODUTOS PRINCIPAIS DA INDEX */
+#containerTituloCard {
+    display: flex;
+    width: 98%;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 10s infinite linear;
+    margin-bottom: 5vh;
+}
+#tituloTodosProdutosIndex {
+    font-size: 4vh;
+    font-weight: bold;
+    background: transparent;
+}
+
+
+
+
+/* CONFIGURAÇÃO DOS PRODUTOS PRINCIPAIS DA INDEX */
+#containerTituloCard {
+    display: flex;
+    width: 98%;
+    height: 8vh;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 10s infinite linear;
+    margin-bottom: 5vh;
+}
+#tituloTodosProdutosIndex {
+    font-size: 4vh;
+    font-weight: bold;
+    background: transparent;
+}
+
+
+
+/* ------------------------------------ PÁGINA DE PRODUTOS (MANGÁ, CAMISETAS, FIGURE ACTION E PARTE INFERIOR NA INDEX)    --------------------------------------------- */
 .tituloCard {
     font-weight: bold;
     font-size: 4vh;
-    margin-left: 50vw;
+    margin-left: 38vw;
     margin-top: 4vh;
     margin-bottom: 4vh;
 }
-
 .containerProduto {
     display: flex;
     height: 600vh;
     width: 100%;
     align-items: flex-start;
 }
+
+/*OBS: O DISPLAY GRID SERVE PARA ORGANIZAR VÁRIOS ELEMENTOS DE UMA VEZ (NO CASO DEIXAR 2 LUFFYS POR LINHA);
+O GRID-TEMPLATE-COLUMNS É O QUE DEFINE O LAYOUT DOS CARD (EU COLOQUEI POR UM DETERMINADO ESPAÇO,
+MAS PODE USAR DETERMINANDO QUANTOS ITENS POR LINHA VOCÊ DESEJA);
+O GRIP-COLUMN-GAP É PARA DAR UM ESPAÇAMENTO PARA O LADO (SEMELHANTE AO MARGIN);
+O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTTOM);*/
+
+.containerPrincipaisProdutos {
+    display: grid;
+    grid-template-columns: 27vw 27vw 27vw;
+    grid-row-gap: 8vh;
+    margin: 3vh;
+    margin-top: 4vw;
+    background-color: transparent;
+}
+.containerPrincipaisProdutos .cardPrincipaisProdutos {
+    position: relative;
+    width: 18vw;
+    height: 50vh;
+    border-radius: 5vh;
+    background-color: #0A0E11;
+    overflow: hidden; /*esconde o que passa do card */
+}
+.containerPrincipaisProdutos .cardPrincipaisProdutos:hover {
+    filter: drop-shadow(8px 8px 8px #121212);
+}
+/* AQUI É A CRIAÇÃO DO CIRCULO E A ANIMAÇÃO DELE */
+.cardPrincipaisProdutos:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: circle(25vh at 80% 20%);
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.6), rgba(0, 255, 231, 0.6));
+    animation: animacaoRGB 10s linear infinite;
+}
+/* AQUI É A CRIAÇÃO DO "ONE PIECE" NO FUNDO */
+.cardPrincipaisProdutos:after {
+    content: 'One Piece';
+    position: relative;
+    top: 4%;
+    right: 10%;
+    font-size: 9vw;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.05);  
+}
+.cardPrincipaisProdutos img{
+    position: absolute;
+    width: 18vw;
+    height: 35vh;
+    z-index: 1000;
+}
+.boxPrincipaisProdutos {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    transition: 1s;
+    z-index: 1000;
+    background: transparent;
+    padding-bottom: 2vh;
+}
+.boxPrincipaisProdutos h2 {
+    font-size: 2.7vh;
+    background-color: transparent;
+}
+.boxPrincipaisProdutos .tamanhoPrincipaisProdutos {
+    background-color: transparent;
+}
+.boxPrincipaisProdutos span{
+    padding-bottom: 2vh;
+    font-size: 2.5vh;
+    background-color: transparent;
+}
+#descricaoPrincipaisProdutos {
+    font-size: 2.2vh;
+    font-family: raleway-regular;
+    margin-bottom: 3vh;
+}
+
+
 /* CONFIGURAÇÃO DO MENU LATERAL ESQUERDO */
 .containerMenuLateral {
     height: 65vh;
@@ -346,6 +495,7 @@ a {
     border-radius: 2.5vw;
 }
 
+
 /* CONFIGURAÇÃO DO BANNER DOS PRODUTOS */
 .cardProdutos {
     width: 75vw;
@@ -355,6 +505,7 @@ a {
     float: right;
     margin-right: 1vw;
 }
+
 
 /* CONFIGURAÇÃO DA DIV RGB QUE FICA DENTRO DO CARD */
 #rgbCard {
@@ -366,21 +517,9 @@ a {
     border-radius: 2vw;
 }
 
-/* CONFIGURAÇÃO DO SEGUNDO CARD DE PRODUTOS */
 
 /* for(var contador = 0; contador < 5; contador++) {
 } */
 #cardProdutos2 {
     margin-top: 10vh;
-}
-
-#load {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: url('http://i.imgur.com/zAD2y29.gif') 50% 50% no-repeat white;
-
 }
