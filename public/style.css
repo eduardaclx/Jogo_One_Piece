@@ -20,7 +20,7 @@
     font-size: 3vh;
     color: white;
     background-color: #0A0E11;
-    font-family: raleway;
+    font-family: raleway-regular;
 }
 * img {
     background: transparent;
@@ -125,19 +125,6 @@ a {
     margin-right: 1%;
     background: transparent;
 }
-
-/* CONFIGURAÇÃO DO FOOTER */
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ------------------------------------ PÁGINA INDEX--------------------------------------------- */
@@ -282,6 +269,20 @@ a {
     right: 2vw;
     transition: 2s;
 }
+/* CONFIGURAÇÃO PARA FIGURES ACTIONS EM PÉ */
+.container .card .imagemCardVertical img{
+    position: absolute;
+    width: 15vw;
+    height: 40vh;
+    z-index: 1000;
+    margin-left: 6vw;
+}
+.container .card .imagemCardVertical img:hover{
+    width: 22vw;
+    height: 55vh;
+    right: 2vw;
+    transition: 1.5s;
+}
 .container .card .box {
     position: absolute;
     bottom: 0;
@@ -390,7 +391,7 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     width: 18vw;
     height: 50vh;
     border-radius: 5vh;
-    background-color: #0A0E11;
+    background-color: rgba(10, 14, 17, 0.5);
     overflow: hidden; /*esconde o que passa do card */
 }
 .containerPrincipaisProdutos .cardPrincipaisProdutos:hover {
@@ -451,7 +452,12 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     font-size: 2.2vh;
     font-family: raleway-regular;
     margin-bottom: 3vh;
+    background-color: transparent;
 }
+.cardProdutos .preco {
+    background: transparent;
+}
+.mudarPagina;
 
 
 /* CONFIGURAÇÃO DO MENU LATERAL ESQUERDO */
@@ -522,4 +528,25 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
 } */
 #cardProdutos2 {
     margin-top: 10vh;
+}
+
+
+/* CONFIGURAÇÃO DO FOOTER */
+.footer {
+    display: flex;
+    width: 100%;
+    height: 13vh;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #232323;
+    margin-top: 195vh;
+}
+.conteudoFooter {
+    background: transparent;
+
+}
+.footer span {
+    font-size: medium;
+    font-family: raleway-regular;
+    background: transparent;
 }
