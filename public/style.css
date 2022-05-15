@@ -79,11 +79,11 @@ a {
     visibility: hidden;
     border-top-left-radius: 3vh;
     border-bottom-left-radius: 3vh;
+    padding-left: 2vh;
     transition: 2s;
 }
 .header ::placeholder {
     color: rgba(255, 255, 255, 0.3);
-    padding-left: 2vh;
     font-family: raleway-regular;
 }
 .header button {
@@ -103,7 +103,7 @@ a {
 }
 .icone {
     display: flex;
-    margin-left: 1.5vw;
+    margin-left: 2vw;
 }
 #iconeCoracao {
     height: 5vh;
@@ -117,7 +117,7 @@ a {
 #iconeUser{
     height: 8vh;
     width: 4vw;
-    margin-right: 5%;
+    margin-right: 4vw;
 }
 .icones {
     display: flex;
@@ -125,6 +125,51 @@ a {
     margin-right: 1%;
     background: transparent;
 }
+
+
+/* CONFIGURAÇÃO DO FOOTER DA INDEX (CONFIG DE TAMANHO ESPECIAL) */
+.footer {
+    display: flex;
+    width: 100%;
+    height: 13vh;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #232323;
+    margin-top: 195vh;
+}
+.conteudoFooter {
+    background: transparent;
+}
+.footer span {
+    font-size: medium;
+    font-family: raleway-regular;
+    background: transparent;
+}
+
+
+/* CONFIGURAÇÃO DO FOOTER GERAL */
+.footerComum {
+    display: flex;
+    width: 100%;
+    height: 13vh;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #232323;
+    margin-top: 5vh;
+}
+.conteudoFooterComum {
+    background: transparent;
+}
+.footerComum span {
+    font-size: medium;
+    font-family: raleway-regular;
+    background: transparent;
+}
+.footerComum img {
+    width: 2.5vw;
+    height: 5vh;
+}
+
 
 
 /* ------------------------------------ PÁGINA INDEX--------------------------------------------- */
@@ -143,17 +188,17 @@ a {
 /* CRIAÇÃO DA ANIMAÇÃO */
 @keyframes animacaoRGB{
     0%, 100%{
-        filter: hue-rotate(0deg);
+        filter: hue-rotate(15deg);
         border: none;
     }
     50%{
-        filter: hue-rotate(180deg);
+        filter: hue-rotate(80deg);
         border: none;
     }
 }
 
 
-/* TRAZENDO O EFEITO BLUR (sem as positions e o content não funciona)*/
+/* TRAZENDO O EFEITO BLUR (sem a position e o content não funciona)*/
 .rgbBolado::before {
     position: absolute;
     content: '';
@@ -175,7 +220,7 @@ a {
 }
 .menu span {
     background: transparent;
-    padding: 1.5vw;
+    padding: 1.65vw;
     padding-left: 2.5vw;
     padding-right: 2.5vw;
 }
@@ -261,7 +306,7 @@ a {
     width: 14vw;
     height: 30vh;
     z-index: 1000;
-    margin-left: 6vw;
+    margin-left: 3vw;
 }
 .container .card img:hover{
     width: 22vw;
@@ -269,19 +314,20 @@ a {
     right: 2vw;
     transition: 2s;
 }
+
 /* CONFIGURAÇÃO PARA FIGURES ACTIONS EM PÉ */
 .container .card .imagemCardVertical img{
     position: absolute;
     width: 15vw;
     height: 40vh;
     z-index: 1000;
-    margin-left: 6vw;
+    margin-left: 3vw;
 }
 .container .card .imagemCardVertical img:hover{
     width: 22vw;
     height: 55vh;
-    right: 2vw;
-    transition: 1.5s;
+    right: 0vw;
+    transition: 2s initial;
 }
 .container .card .box {
     position: absolute;
@@ -314,27 +360,6 @@ a {
     font-family: raleway-regular;
     margin-bottom: 3vh;
 }
-
-
-/* CONFIGURAÇÃO DOS PRODUTOS PRINCIPAIS DA INDEX */
-#containerTituloCard {
-    display: flex;
-    width: 98%;
-    height: 8vh;
-    align-items: center;
-    justify-content: center;
-    padding: 2vh;
-    background: linear-gradient(to top, #008aff, #00ffe7);
-    animation: animacaoRGB 10s infinite linear;
-    margin-bottom: 5vh;
-}
-#tituloTodosProdutosIndex {
-    font-size: 4vh;
-    font-weight: bold;
-    background: transparent;
-}
-
-
 
 
 /* CONFIGURAÇÃO DOS PRODUTOS PRINCIPAIS DA INDEX */
@@ -409,6 +434,8 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     background: linear-gradient(to top, rgba(0, 138, 255, 0.6), rgba(0, 255, 231, 0.6));
     animation: animacaoRGB 10s linear infinite;
 }
+
+
 /* AQUI É A CRIAÇÃO DO "ONE PIECE" NO FUNDO */
 .cardPrincipaisProdutos:after {
     content: 'One Piece';
@@ -506,7 +533,7 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
 .menuSelecionadoLateral:hover {
     background: linear-gradient(to top, #008aff, #00ffe7);
     animation: animacaoRGB 10s linear infinite;
-    border-radius: 2.5vw;
+    border-radius: 1vw;
 }
 
 
@@ -539,22 +566,67 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
 }
 
 
-/* CONFIGURAÇÃO DO FOOTER */
-.footer {
+/* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE CADASTRO -------------------------------------------- */
+.containerCadastroLogin {
     display: flex;
-    width: 100%;
-    height: 13vh;
-    align-items: center;
+    width: 99.7%;
+    height: 86vh;
     justify-content: space-around;
-    background-color: #232323;
-    margin-top: 195vh;
 }
-.conteudoFooter {
+.containerCadastro {
+    display: flex;
+    width: 30vw;
+    height: 78vh;
+    border-radius: 2vw;
+    background: rgba(35, 35, 35, 0.6);
+    margin-top: 3vw;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.boxCadastro {
+    width: 18vw;
+    height: 50vh;
     background: transparent;
-
 }
-.footer span {
-    font-size: medium;
+.boxCadastro h3 {
+    margin-bottom: 2.8vh;
+    background: transparent;
+}
+.boxCadastro span{
+    font-size: 2.5vh;
+    display: flex;
+    padding-bottom: 1.5vh;
+    background: transparent;
+}
+.boxCadastro input{
+    display: flex;
+    width: 18vw;
+    height: 4vh;
+    margin-bottom: 2vh;
+    padding-left: 1vw;
+    border-radius: 3vh;
+    display: flex;
+    border: none;
+    font-size: 2vh;
+}
+.boxCadastro ::placeholder {
+    color: rgba(255, 255, 255, 0.3);
     font-family: raleway-regular;
-    background: transparent;
+    font-size: 2.4vh;
 }
+.containerCadastroLogin button {
+    display: flex;
+    justify-items: center;
+    margin-top: 12vh;
+    padding: 1.5vh;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    border-radius: 1vw;
+    border: none;
+}
+.containerCadastroLogin button:hover {
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.8), rgba(0, 255, 231, 0.8));
+    animation: animacaoRGB 10s linear infinite;
+}
+
