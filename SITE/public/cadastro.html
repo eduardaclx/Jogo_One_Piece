@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="../imagens/icone-marca.png">
+</head>
+
+<body>
+    <section class="header">
+        <div class=" header navMask">
+
+            <div class="logo">
+                <!-- <img src="../imagens/icone-marca.png" id="icone-marca"> -->
+                <a href="index.html">
+                    <h4>ONE<br>SHOP</h4>
+                </a>
+            </div>
+            <input id="pesquisarInput" placeholder="O que você está procurando?">
+            <button id="pesquisarBtn" onclick="pesquisar()"><img src="../imagens/lupa.png" id="iconeLupa"></button>
+            <div class="header  icones">
+                <a href="favoritos.html"><img src="../imagens/coracao.png" class="icone" id="iconeCoracao"></a>
+                <a href="carrinho.html"><img src="../imagens/carrinho.png" class="icone" id="iconeCarrinho"></a>
+                <a href="cadastro.html"><img src="../imagens/user.png" class="icone" id="iconeUser"></a>
+            </div>
+        </div>
+    </section>
+    <div class="rgbBolado"></div>
+
+    <div class="containerCadastroLogin">
+        <div class="containerCadastro">
+            <div class="boxCadastro">
+                <h3>Cadastrar</h3>
+                <span>Nome:</span>
+                <input type="text" id="input_nome" placeholder="Digite seu nome...">
+                <span>E-mail:</span>
+                <input type="text" id="input_email" placeholder="Digite seu email...">
+                <span>Celular:</span>
+                <input type="number" id="input_celular" placeholder="(00) 00000-0000">
+                <span>Senha:</span>
+                <input type="text" id="input_senha" placeholder="Digite sua senha...">
+                <span>Confirme sua senha:</span>
+                <input type="text" id="input_confirmacao_senha" placeholder="Digite novamente sua senha...">
+            </div>
+            <button onclick="cadastar()">Cadastrar</button>
+        </div>
+
+        <div class="containerCadastro">
+            <div class="boxCadastro">
+                <h3>Já tem cadastro?</h3>
+                <span>E-mail:</span>
+                <input type="text" name="" id="input_email" placeholder="Digite seu email...">
+                <span>Senha:</span>
+                <input type="text" name="" id="input_senha" placeholder="Digite sua senha...">
+            </div>
+            <button onclick="logar()">Logar</button>
+        </div>
+    </div>
+    <div id="cardErro" style="display: none;">
+        <div id="mensagem_erro"></div>
+    </div>
+
+    <section title="footerComum">
+        <div class="footerComum">
+            <div class="logo">
+                <a href="index.html">
+                    <h4>ONE<br>SHOP</h4>
+                </a>
+            </div>
+            <span>feito por: Eduarda Calixto</span>
+            <a href="https://github.com/eduardaclx"><img src="../imagens/github.png"></a>
+            <a href="https://www.linkedin.com/in/eduarda-calixto/"><img src="../imagens/linkedin.png"></a>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+<script src="funcoes.js"></script>
+
+<script>
+    function cadastrar() {
+        var nomeVar = input_nome.value;
+        var emailVar = input_email.value;
+        var telefoneVar = input_telefone.value;
+        var senhaVar = input_senha;
+        var confirmacaoSenhaVar = input_confirmacao_senha.value;
+
+        if (nomeVar == "" || emailVar == "" || telefoneVar =="" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos!";
+            finalizarAguardar();
+            return false;
+        } else if (senhaVar = !confirmacaoSenhaVar) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Senhas diferentes!";
+            finalizarAguardar();
+            return false;
+        } else if (emailVar.indexOf('@') == -1) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "E-mail Inválido!";
+            finalizarAguardar();
+            return false;
+
+        } else if (telefoneVar > 11 || telefoneVar < 11) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Telefone Inválido!";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                telefoneServer: telefoneVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
+
+<script>
+    function logar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos!";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
