@@ -59,16 +59,16 @@
             </div>
             <button onclick="logar()">Logar</button>
         </div>
+        <div id="cardErro" class="cardErro" style="display: none;">
+            <div id="mensagem_erro"></div>
+        </div>
+    
+        <div id="div_aguardar" class="loading-div">
+            <img src="./assets/circle-loading.gif" id="loading-gif">
+        </div>
+        <!-- MUDAR A GIF -->
+        <div id="div_erros_login">
     </div>
-    <div id="cardErro" class="cardErro" style="display: none;">
-        <div id="mensagem_erro"></div>
-    </div>
-
-    <div id="div_aguardar" class="loading-div">
-        <img src="./assets/circle-loading.gif" id="loading-gif">
-    </div>
-
-    <div id="div_erros_login">
 
     </div>
 
@@ -109,16 +109,6 @@
             mensagem_erro.innerHTML = "Senhas diferentes!";
             finalizarAguardar();
             return false;
-        } else if (emailVar.indexOf('@') < 0 || emailVar.endsWith (".com")) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "E-mail Inválido!";
-            finalizarAguardar();
-            return false;
-        } else if (telefoneVar > 11 || telefoneVar < 11) {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Telefone Inválido!";
-            finalizarAguardar();
-            return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
@@ -145,10 +135,10 @@
             if (resposta.ok) {
                 cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "cadastro.html";
                 }, "2000")
 
                 limparFormulario();
@@ -167,6 +157,7 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
+    
 </script>
 
 <script>
