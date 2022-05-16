@@ -40,13 +40,13 @@
                 <span>E-mail:</span>
                 <input type="text" id="input_email" placeholder="Digite seu email...">
                 <span>Celular:</span>
-                <input type="number" id="input_celular" placeholder="(00) 00000-0000">
+                <input type="number" id="input_telefone" placeholder="(00) 00000-0000">
                 <span>Senha:</span>
                 <input type="text" id="input_senha" placeholder="Digite sua senha...">
                 <span>Confirme sua senha:</span>
                 <input type="text" id="input_confirmacao_senha" placeholder="Digite novamente sua senha...">
             </div>
-            <button onclick="cadastar()">Cadastrar</button>
+            <button onclick="cadastrar()">Cadastrar</button>
         </div>
 
         <div class="containerCadastro">
@@ -60,7 +60,7 @@
             <button onclick="logar()">Logar</button>
         </div>
     </div>
-    <div id="cardErro" style="display: none;">
+    <div id="cardErro" class="cardErro" style="display: none;">
         <div id="mensagem_erro"></div>
     </div>
 
@@ -81,7 +81,7 @@
 
 </html>
 
-<script src="funcoes.js"></script>
+<script src="js/funcoes.js"></script>
 
 <script>
     function cadastrar() {
@@ -101,7 +101,7 @@
             mensagem_erro.innerHTML = "Senhas diferentes!";
             finalizarAguardar();
             return false;
-        } else if (emailVar.indexOf('@') == -1) {
+        } else if (emailVar.indexOf('@') == -1 || emailVar.endsWith (".com")) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "E-mail Inválido!";
             finalizarAguardar();
