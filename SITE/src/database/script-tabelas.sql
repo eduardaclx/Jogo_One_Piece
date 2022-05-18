@@ -19,9 +19,7 @@ idCliente INT PRIMARY KEY AUTO_INCREMENT,
 nomeCliente VARCHAR(45) NOT NULL,
 email VARCHAR(45) NOT NULL UNIQUE,
 telefoneCelular CHAR(11) NOT NULL,
-senha VARCHAR(20) NOT NULL,
-fkEndereco INT,
-FOREIGN KEY (fkEndereco) REFERENCES Endereco(idEndereco)
+senha VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Compra (

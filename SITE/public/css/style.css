@@ -179,28 +179,32 @@ a {
 }
 
 /* CONFIGURAÇÃO DO CARD DE ERROS */
-.card_erro {
+.cardErro {
     display: none;
-    background-color: #fff;
-    color: black;
-    width: 230px;
+    color: white;
+    width: 12vw;
     position: fixed;
-    border-radius: 4px;
-    border: #e6005a 3px solid;
-    padding: 10px;
-    margin-right: 10%;
+    border-radius: 1vw;
+    text-align: center;
+    padding: 1.5vw;
+    margin-left: 75vw;
+    margin-top: 3vw;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 10s linear infinite;
   }
   
-  .card_erro #mensagem_erro{
+  .cardErro #mensagem_erro{
     font-weight: 500;
     font-size: 20px;
+    background-color: transparent;
   }
 
   /* CONFIGURAÇÕES DA DIV LOADING */
   .loading-div {
-    width: 50px;
+    width: 4vw;
     margin: auto;
     display: none;
+    background: transparent;
   }
   
   .loading-div img {
@@ -612,11 +616,24 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
 
 
 /* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE CADASTRO -------------------------------------------- */
+.cointainerImgCadastro{
+    /* border: red 2px solid; */
+    width: 28vw;
+    height: 76vh;
+    display: flex;
+    margin-right: 20vw;
+}
+.cointainerImgCadastro img{
+    display: flex;
+    margin-top: 15vh;
+}
+
 .containerCadastroLogin {
     display: flex;
     width: 99.7%;
     height: 86vh;
-    justify-content: space-around;
+    justify-content: center;
+    /* border: red 2px solid; */
 }
 .containerCadastro {
     display: flex;
@@ -628,6 +645,7 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    margin-right: 10vw;
 }
 .boxCadastro {
     width: 18vw;
