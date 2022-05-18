@@ -1,4 +1,13 @@
 // sessão
+
+
+    if (sessionStorage.ID_USUARIO == undefined || sessionStorage.ID_USUARIO == "" ){
+        teste.style.border = "10px red solid"
+    } else{
+        teste.style.border = "none"
+    }
+
+
 function validarSessao() {
     // aguardar();
 

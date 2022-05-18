@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <section class="header">
+    <section class="header" >
         <div class=" header navMask">
 
             <div class="logo">
                 <!-- <img src="imagens/icone-marca.png" id="icone-marca"> -->
-                <a href="index.html"><h4>ONE<br>SHOP</h4></a>
+                <a href="index.html"><h4 id="teste">ONE<br>SHOP</h4></a>
             </div>
             <input id="pesquisarInput" placeholder="O que você está procurando?">
             <button id="pesquisarBtn" onclick="pesquisar()"><img src="imagens/lupa.png" id="iconeLupa"></button>
@@ -106,7 +106,7 @@
             <!-- INSERÇÃO DOS CARD DE PRODUTO -->
 
             <div class="containerPrincipaisProdutos">
-                <div class="cardPrincipaisProdutos">
+                <div class="cardPrincipaisProdutos" id="produtoSabo">
                     <div id="imagemCardVerticalSabo">
                         <img src="imagens/sabo-figure-action.png">
                     </div>
@@ -121,7 +121,7 @@
                     </div>
                 </div>
 
-                <div class="cardPrincipaisProdutos">
+                <div class="cardPrincipaisProdutos"  id="produtoLuffy">
                     <div class="imagemCardPrincipaisProdutos">
                         <img src="imagens/ace-figure-action.png">
                     </div>
@@ -258,5 +258,11 @@
 
 </html>
 
-<script src="funcoes.js"></script>
-<script src="funcoesIndex.js"></script>
+<script src="./js/funcoes.js"></script>
+<script src="./js/funcoesIndex.js"></script>
+
+<script>
+    function favoritarGuardarValores() {
+        
+    }
+</script>
