@@ -21,9 +21,10 @@
             <input id="pesquisarInput" placeholder="O que você está procurando?">
             <button id="pesquisarBtn" onclick="pesquisar()"><img src="imagens/lupa.png" id="iconeLupa"></button>
             <div class="header  icones">
-                <a href="favoritos.html"><img src="imagens/coracao.png" class="icone" id="iconeCoracao"></a>
-                <a href="carrinho.html"><img src="imagens/carrinho.png" class="icone" id="iconeCarrinho"></a>
-                <a href="cadastro.html"><img src="imagens/user.png" class="icone" id="iconeUser"></a>
+                <a href="favoritos.html"> <img src="imagens/coracao.png" class="icone" id="iconeCoracao"> </a>
+                <span id="mudarCarrinho" style="background-color: transparent;"><a href="login.html">Já tem Login?</a></span>
+                <img src="imagens/sair.png" class="icone" id="iconeSair" onclick="limparSessao()"> 
+                <span id="trocaImagem"><a href="cadastro.html">Cadastre-se</span></a>
             </div>
         </div>
     </section>
@@ -46,7 +47,7 @@
     </div>
 
     <div class="container">
-        <div class="card">
+        <div class="card" >
             <div class="imagemCardVertical">
                 <img src="imagens/sabo-figure-action.png">
             </div>
@@ -56,7 +57,8 @@
                     <span id="descricao">figure action <br> Sabo</span>
                 </div>
                 <div class="preco">
-                    <span>R$ 170,00</span>
+                    <span>R$ 170,00 <button onclick="favoritarFigureSabo()"><img src="./imagens/coracaoProduto.png" id="coracaoProduto"></button></span>
+                    
                 </div>
             </div>
         </div>
@@ -107,7 +109,7 @@
 
             <div class="containerPrincipaisProdutos">
                 <div class="cardPrincipaisProdutos" id="produtoSabo">
-                    <div id="imagemCardVerticalSabo">
+                    <!-- <div id="imagemCardVerticalSabo">
                         <img src="imagens/sabo-figure-action.png">
                     </div>
                     <div class="boxPrincipaisProdutos">
@@ -117,8 +119,9 @@
                         </div>
                         <div class="preco">
                             <span>R$ 170,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureSabo()">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="cardPrincipaisProdutos"  id="produtoLuffy">
@@ -132,6 +135,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 180,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureAce()">
                         </div>
                     </div>
                 </div>
@@ -148,6 +152,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 220,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureLuffy()">
                         </div>
                     </div>
                 </div>

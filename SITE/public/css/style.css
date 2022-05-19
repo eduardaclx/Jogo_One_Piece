@@ -124,6 +124,13 @@ a {
     width: 4vw;
     margin-right: 4vw;
 }
+#iconeSair{
+    height: 3vh;
+    width: 1.5vw;
+}
+#trocaImagem{
+    background-color: transparent;
+}
 .icones {
     display: flex;
     justify-content: flex-end;
@@ -443,6 +450,12 @@ a {
     height: 600vh;
     width: 100%;
     align-items: flex-start;
+}
+#coracaoProduto{
+    width: 2vw;
+    height: 4vh;
+    top: 10vh;
+    right: 1vw;
 }
 
 /*OBS: O DISPLAY GRID SERVE PARA ORGANIZAR VÁRIOS ELEMENTOS DE UMA VEZ (NO CASO DEIXAR 2 LUFFYS POR LINHA);
