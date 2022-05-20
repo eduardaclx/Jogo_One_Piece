@@ -1,0 +1,26 @@
+<title>Document</title>
+</head>
+<body>
+    Filmes preferidos <input type="text" id="input_filme">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <div id="resultado"></div>
+    
+</body>
+</html>
+
+<script>
+    var listaFilme = []
+    function cadastrar() {
+        var filme = input_filme.value
+        listaFilme.push(filme)
+        
+        resultado.innerHTML = ""
+        for (i = 0;  i < listaFilme.length; i ++){
+
+        resultado.innerHTML += listaFilme[i] + "<br>"
+
+      }
+    }
+</script>
