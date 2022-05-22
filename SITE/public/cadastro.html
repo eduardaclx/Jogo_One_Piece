@@ -11,21 +11,20 @@
 </head>
 
 <body>
-    <section class="header">
+    <section class="header" >
         <div class=" header navMask">
 
             <div class="logo">
                 <!-- <img src="imagens/icone-marca.png" id="icone-marca"> -->
-                <a href="index.html">
-                    <h4>ONE<br>SHOP</h4>
-                </a>
+                <a href="index.html"><h4 id="teste">ONE<br>SHOP</h4></a>
             </div>
             <input id="pesquisarInput" placeholder="O que você está procurando?">
             <button id="pesquisarBtn" onclick="pesquisar()"><img src="imagens/lupa.png" id="iconeLupa"></button>
             <div class="header  icones">
-                <a href="favoritos.html"><img src="imagens/coracao.png" class="icone" id="iconeCoracao"></a>
-                <a href="carrinho.html"><img src="imagens/carrinho.png" class="icone" id="iconeCarrinho"></a>
-                <a href="cadastro.html"><img src="imagens/user.png" class="icone" id="iconeUser"></a>
+                <a href="favoritos.html"> <img src="imagens/coracao.png" class="icone" id="iconeCoracao"> </a>
+                <span id="mudarCarrinho" style="background-color: transparent;"><a href="login.html">Já tem Login?</a></span>
+                <img src="imagens/sair.png" class="icone" id="iconeSair" onclick="limparSessao()"> 
+                <span id="trocaImagem"><a href="cadastro.html">Cadastre-se</span></a>
             </div>
         </div>
     </section>

@@ -57,7 +57,7 @@ a {
 .header .navMask {
     position: fixed;
     top: 0;
-    z-index: 101;
+    z-index: 1000;
     background: rgba(35, 35, 35, 0.6);
 }
 .logo {
@@ -137,7 +137,26 @@ a {
     margin-right: 1%;
     background: transparent;
 }
-
+#jaLogin {
+    display: flex;
+    margin-right: 2vw;
+}
+#jaCadastro:hover {
+    display: flex;
+    margin-right: 2vw;
+    padding: 2vh;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 10s linear infinite;
+    border-radius: 1vw;
+}
+#jaCadastro {
+    display: flex;
+    margin-right: 2vw;
+    padding: 2vh;
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.5), rgba(0, 255, 231, 0.5));
+    animation: animacaoRGB 10s linear infinite;
+    border-radius: 1vw;
+}
 
 /* CONFIGURAÇÃO DO FOOTER DA INDEX (CONFIG DE TAMANHO ESPECIAL) */
 .footer {
@@ -457,7 +476,24 @@ a {
     top: 10vh;
     right: 1vw;
 }
-
+#coracaoProduto:hover{
+    width: 3vw;
+    height: 6vh;
+    top: 8vh;
+    right: 1vw;
+}
+#selectFiltro {
+    display: flex;
+    margin-left: 65vw;
+    margin-top: 8vh;
+    border-radius: 2vw;
+    padding: 0.5vh;
+    text-align: center;
+    font-size: 3.5vh;
+    border: none;
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.6), rgba(0, 255, 231, 0.6));
+    animation: animacaoRGB 10s linear infinite;
+}
 /*OBS: O DISPLAY GRID SERVE PARA ORGANIZAR VÁRIOS ELEMENTOS DE UMA VEZ (NO CASO DEIXAR 2 LUFFYS POR LINHA);
 O GRID-TEMPLATE-COLUMNS É O QUE DEFINE O LAYOUT DOS CARD (EU COLOQUEI POR UM DETERMINADO ESPAÇO,
 MAS PODE USAR DETERMINANDO QUANTOS ITENS POR LINHA VOCÊ DESEJA);
@@ -469,7 +505,7 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     grid-template-columns: 27vw 27vw 27vw;
     grid-row-gap: 8vh;
     margin: 3vh;
-    margin-top: 4vw;
+    margin-top: 2vw;
     background-color: transparent;
     margin-right: 8vw;
 }
@@ -602,11 +638,12 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
 /* CONFIGURAÇÃO DO BANNER DOS PRODUTOS */
 .cardProdutos {
     width: 75vw;
-    height: 180vh;
+    height: 200vh;
     background: #232323;
     border-radius: 3vw;
     float: right;
     margin-right: 12vw;
+    margin-bottom: 5vh;
 }
 
 
@@ -627,6 +664,15 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     margin-top: 10vh;
 }
 
+/* CONFIGURAÇÃO DOS PERSONAGENS */
+.containerPersonagens {
+    width: 97%;
+    display: flex;
+    height: 80vh;
+}
+.containerPersonagens img {
+    width: 33vw;
+}
 
 /* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE CADASTRO -------------------------------------------- */
 .cointainerImgCadastro{

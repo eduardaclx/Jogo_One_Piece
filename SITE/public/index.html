@@ -22,9 +22,9 @@
             <button id="pesquisarBtn" onclick="pesquisar()"><img src="imagens/lupa.png" id="iconeLupa"></button>
             <div class="header  icones">
                 <a href="favoritos.html"> <img src="imagens/coracao.png" class="icone" id="iconeCoracao"> </a>
-                <span id="mudarCarrinho" style="background-color: transparent;"><a href="login.html">Já tem Login?</a></span>
+                <span id="mudarCarrinho" style="background-color: transparent;"><a id="jaLogin" href="login.html">Já tem Login?</a></span>
                 <img src="imagens/sair.png" class="icone" id="iconeSair" onclick="limparSessao()"> 
-                <span id="trocaImagem"><a href="cadastro.html">Cadastre-se</span></a>
+                <span id="trocaImagem"><a id="jaCadastro" href="cadastro.html">Cadastre-se</span></a>
             </div>
         </div>
     </section>
@@ -57,9 +57,10 @@
                     <span id="descricao">figure action <br> Sabo</span>
                 </div>
                 <div class="preco">
-                    <span>R$ 170,00 <button onclick="favoritarFigureSabo()"><img src="./imagens/coracaoProduto.png" id="coracaoProduto"></button></span>
-                    
+                    <span>R$ 170,00</span>
+                    <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureSabo()">
                 </div>
+                
             </div>
         </div>
         <div class="card">
@@ -73,6 +74,7 @@
                 </div>
                 <div class="preco">
                     <span>R$ 220,00</span>
+                    <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureLuffy()">
                 </div>
             </div>
         </div>
@@ -87,9 +89,29 @@
                 </div>
                 <div class="preco">
                     <span id="preco_card">R$ 180,00</span>
+                    <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureAce()">
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="containerPersonagens">
+        <div class="imagemPersonagem"> <img src="./imagens/jinbei-fundo.png"></div>
+        <div class="imagemPersonagem"> <img src="./imagens/robin-fundo.png"></div>
+        <div class="imagemPersonagem"> <img src="./imagens/luffy-fundo-ataque-sorrindo.png"></div>
+    </div>
+    <div class="containerPersonagens"><
+        <div class="imagemPersonagem"> <img src="./imagens/sanji-fundo-sobamask.png"></div>
+        <div class="imagemPersonagem"> <img src="./imagens/zoro-fundo.png"></div>
+        <div class="imagemPersonagem"> <img src="./imagens/usopp-fundo-ataque.png"></div>
+    </div>
+    <div class="containerPersonagens">
+        <div class="imagemPersonagem"> <img src="./imagens/nami-fundo-ataque.png"></div>
+        <div class="imagemPersonagem"> <img src="./imagens/chopper-fundo-segurando-seringa.png"></div>
+        <div class="imagemPersonagem"> <img src="./imagens/frank-fundo.png"></div>
+    </div>
+    <div class="containerPersonagens">
+        <div class="imagemPersonagem"> <img src="./imagens/brook-fundo-ataque.png"></div>
 
     </div>
 
@@ -102,14 +124,26 @@
         <div class="cardProdutos">
             <div class="rgbBolado" id="rgbCard"></div>
 
-            <select name="Filtrar" id="">
-                <option value="">Filtrar</option>
+            <select name="Filtrar" id="selectFiltro">
+                <option value="0">Filtrar</option>
+                <option value="1">Luffy</option>
+                <option value="2">Robin</option>
+                <option value="3">Sabo</option>
+                <option value="4">Ace</option>
+                <option value="5">Zoro</option>
+                <option value="6">Chopper</option>
+                <option value="7">Nami</option>
+                <option value="8">Sanji</option>
+                <option value="9">Usopp</option>
+                <option value="10">Brook</option>
+                <option value="11">Frank</option>
+                <option value="12">Jinbe</option>
             </select>
             <!-- INSERÇÃO DOS CARD DE PRODUTO -->
 
             <div class="containerPrincipaisProdutos">
                 <div class="cardPrincipaisProdutos" id="produtoSabo">
-                    <!-- <div id="imagemCardVerticalSabo">
+                    <div id="imagemCardVerticalSabo">
                         <img src="imagens/sabo-figure-action.png">
                     </div>
                     <div class="boxPrincipaisProdutos">
@@ -121,7 +155,7 @@
                             <span>R$ 170,00</span>
                             <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureSabo()">
                         </div>
-                    </div> -->
+                    </div>
                 </div>
 
                 <div class="cardPrincipaisProdutos"  id="produtoLuffy">
@@ -168,6 +202,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 170,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureSabo()">
                         </div>
                     </div>
                 </div>
@@ -182,6 +217,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 180,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureAce()">
                         </div>
                     </div>
                 </div>
@@ -197,6 +233,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 220,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureLuffy()">
                         </div>
                     </div>
                 </div>
@@ -212,6 +249,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 170,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureSabo()">
                         </div>
                     </div>
                 </div>
@@ -226,6 +264,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 180,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureAce()">
                         </div>
                     </div>
                 </div>
@@ -241,6 +280,7 @@
                         </div>
                         <div class="preco">
                             <span>R$ 220,00</span>
+                            <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureLuffy()">
                         </div>
                     </div>
                 </div>
@@ -266,8 +306,3 @@
 <script src="./js/funcoes.js"></script>
 <script src="./js/funcoesIndex.js"></script>
 
-<script>
-    function favoritarGuardarValores() {
-        
-    }
-</script>
