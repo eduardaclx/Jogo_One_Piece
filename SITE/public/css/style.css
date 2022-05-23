@@ -157,6 +157,12 @@ a {
     animation: animacaoRGB 10s linear infinite;
     border-radius: 1vw;
 }
+#divBotao {
+    background-color: transparent
+}
+#mudarCarrinho{
+    background-color: transparent
+}
 
 /* CONFIGURAÇÃO DO FOOTER DA INDEX (CONFIG DE TAMANHO ESPECIAL) */
 .footer {
@@ -223,6 +229,31 @@ a {
     font-weight: 500;
     font-size: 20px;
     background-color: transparent;
+  }
+  #div_erros_login{
+    display: none;
+    color: white;
+    width: 12vw;
+    position: fixed;
+    border-radius: 1vw;
+    text-align: center;
+    padding: 1.5vw;
+    margin-left: 75vw;
+    margin-top: 3vw;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    animation: animacaoRGB 10s linear infinite;
+  }
+  #div_aguardar{
+    display: none;
+    color: white;
+    width: 12vw;
+    position: fixed;
+    border-radius: 1vw;
+    text-align: center;
+    padding: 1.5vw;
+    margin-left: 37vw;
+    margin-top: 27vw;
+    background: none;
   }
 
   /* CONFIGURAÇÕES DA DIV LOADING */
@@ -471,6 +502,7 @@ a {
     align-items: flex-start;
 }
 #coracaoProduto{
+    display: none;
     width: 2vw;
     height: 4vh;
     top: 10vh;
@@ -708,20 +740,71 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
 }
 .boxCadastro {
     width: 18vw;
-    height: 50vh;
+    height: 52vh;
     background: transparent;
 }
 .boxCadastro h3 {
-    margin-bottom: 2.8vh;
+    margin-bottom: 2.5vh;
     background: transparent;
 }
 .boxCadastro span{
     font-size: 2.5vh;
     display: flex;
-    padding-bottom: 1.5vh;
+    padding-bottom: 2vh;
     background: transparent;
 }
 .boxCadastro input{
+    display: flex;
+    width: 18vw;
+    height: 4vh;
+    margin-bottom: 2.5vh;
+    padding-left: 1vw;
+    border-radius: 3vh;
+    display: flex;
+    border: none;
+    font-size: 2vh;
+}
+.boxCadastro ::placeholder {
+    color: rgba(255, 255, 255, 0.15);
+    font-family: raleway-regular;
+    font-size: 2.4vh;
+}
+.containerCadastroLogin button {
+    display: flex;
+    justify-items: center;
+    margin-top: 13vh;
+    padding: 1.5vh;
+    padding-left: 2.5vw;
+    padding-right: 2.5vw;
+    border-radius: 1vw;
+    border: none;
+}
+.containerCadastroLogin button:hover {
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.8), rgba(0, 255, 231, 0.8));
+    animation: animacaoRGB 10s linear infinite;
+}
+
+/* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE LOGIN ------------------------ */
+.boxLogin {
+    width: 18vw;
+    height: 50vh;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+}
+.boxLogin h3 {
+    margin-bottom: 3vh;
+    margin-top: 12vh;
+    background: transparent;
+}
+.boxLogin span{
+    font-size: 2.5vh;
+    display: flex;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    background: transparent;
+}
+.boxLogin input{
     display: flex;
     width: 18vw;
     height: 4vh;
@@ -732,12 +815,12 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     border: none;
     font-size: 2vh;
 }
-.boxCadastro ::placeholder {
+.boxLogin ::placeholder {
     color: rgba(255, 255, 255, 0.3);
     font-family: raleway-regular;
     font-size: 2.4vh;
 }
-.containerCadastroLogin button {
+.containerLoginLogin button {
     display: flex;
     justify-items: center;
     margin-top: 12vh;
@@ -751,4 +834,3 @@ O GRIP-ROW-GAP É PARA DAR UM ESPAÇAMENTO PARA BAIXO (SEMELHANTE AO MARGIN BOTT
     background: linear-gradient(to top, rgba(0, 138, 255, 0.8), rgba(0, 255, 231, 0.8));
     animation: animacaoRGB 10s linear infinite;
 }
-

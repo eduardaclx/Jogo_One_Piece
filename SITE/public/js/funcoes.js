@@ -73,8 +73,8 @@ function limparSessao() {
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "flex";
-    
+    divAguardar.style.display = "block";
+    div_erros_login.style.display = "none";
 }
     
 
@@ -84,6 +84,7 @@ function finalizarAguardar(texto) {
 
     var divErrosLogin = document.getElementById("div_erros_login");
     if (texto) {
+        div_erros_login.style.display = "block";
         divErrosLogin.innerHTML = texto;
     }
 }
@@ -109,7 +110,10 @@ function pesquisar() {
     iconeCoracao.style.marginLeft = "10%";
     pesquisarBtn.style.borderEndEndRadius = "20px";
     pesquisarBtn.style.borderTopRightRadius = "20px";
+
 }
+
+
 
 
 
@@ -234,3 +238,24 @@ listarProdutos()
 
 //         return false;
 //     }
+
+function pegarValorDigitado() {
+    var pesquisa = pesquisarInput.value;
+    sessionStorage.PRODUTO = pesquisa;
+    divBotao.innerHTML = `
+    <style>
+    .btnStyle{
+        border-end-end-radius: 20px;
+        border-top-rigt-radius: 20px;
+    }
+    </style>
+    <a href="todosItens.html"><button id="pesquisarBtn" onclick="pesquisa()" class="btnStyle"><img src="imagens/lupa.png" id="iconeLupa"></button></a>
+    `
+    pesquisarInput.style.visibility = "visible";
+    pesquisarInput.style.width = "135vw";
+    pesquisarInput.style.height = "7vh";
+    pesquisarInput.style.border = "none";
+    pesquisarBtn.style.borderRadius = "0px";
+    iconeCoracao.style.marginLeft = "10%";
+    
+}

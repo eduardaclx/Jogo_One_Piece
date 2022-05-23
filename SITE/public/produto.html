@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="imagens/icone-marca.png">
 </head>
-    
 <body>
     <section class="header" >
         <div class=" header navMask">
@@ -18,17 +17,22 @@
                 <!-- <img src="imagens/icone-marca.png" id="icone-marca"> -->
                 <a href="index.html"><h4 id="teste">ONE<br>SHOP</h4></a>
             </div>
-            <input id="pesquisarInput" placeholder="O que você está procurando?">
-            <button id="pesquisarBtn" onclick="pesquisar()"><img src="imagens/lupa.png" id="iconeLupa"></button>
+            <input id="pesquisarInput" placeholder="O que você está procurando?" onChange="pegarValorDigitado()">
+            <div id="divBotao">
+                <button id="pesquisarBtn" onclick="pesquisar()"><img src="imagens/lupa.png" id="iconeLupa"></button>
+            </div>
             <div class="header  icones">
                 <a href="favoritos.html"> <img src="imagens/coracao.png" class="icone" id="iconeCoracao"> </a>
-                <span id="mudarCarrinho" style="background-color: transparent;"><a href="login.html">Já tem Login?</a></span>
+                <span id="mudarCarrinho" style="background-color: transparent;"><a id="jaLogin" href="login.html">Já tem Login?</a></span>
                 <img src="imagens/sair.png" class="icone" id="iconeSair" onclick="limparSessao()"> 
-                <span id="trocaImagem"><a href="cadastro.html">Cadastre-se</span></a>
+                <span id="trocaImagem"><a id="jaCadastro" href="cadastro.html">Cadastre-se</span></a>
             </div>
         </div>
     </section>
     <div class="rgbBolado"></div>
 
+
 </body>
 </html>
+
+<script src="./js/funcoes.js"></script>
