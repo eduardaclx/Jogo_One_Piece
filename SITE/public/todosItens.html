@@ -35,7 +35,7 @@
 
     
     <div class="tituloCard" id="tituloManga">
-        <span id="valorTitulo"></span>
+        
     </div>
     
     <div class="cardProdutos">
@@ -177,10 +177,10 @@
 <script>
     titulo()
     function titulo() {
-        if (sessionStorage.PRODUTO == "") {
-            valorTitulo.innerHTML = `Todos os Itens`
+        if (sessionStorage.PRODUTO == "" || sessionStorage.PRODUTO == undefined ) {
+            tituloManga.innerHTML = `Todos os Itens`
         } else {
-            valorTitulo.innerHTML =  `Você pesquisou por: "${sessionStorage.PRODUTO}" `
+            tituloManga.innerHTML =  `Você pesquisou por: "${sessionStorage.PRODUTO}" `
         }
     }
 </script>
