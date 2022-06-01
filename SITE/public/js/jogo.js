@@ -1,30 +1,23 @@
-let personagem = document.querySelector('#personagem')
-let quadrado = document.querySelector('#quadrado')
+var jump = false
 
-function pular(){
-    if(personagem.classList != 'animar'){
-        personagem.classList.add('animar')
+function jump1(){
+    var player = document.getElementById("player")
+    var obstaculo = document.getElementById("obstaculo")
+
+    if(player.className != "jump"){
+        player.classList.add("jump")
+        setTimeout(()=>{
+            player.classList.remove("jump")
+            jump=false
+        }, 800)
+
+        function dead() {
+            var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"))
+
+            if(obstaculo1 < 20 && jump == false){
+                alert("game over")
+            }
+        }
+        // setInterval(dead, 80)
     }
-
-    setTimeout(function(){
-        personagem.classList.remove('animar')
-    }, 500)
 }
-
-var testarColisao = setInterval( function(){
-
-    var topoPersonagem = parseInt(
-     window.getComputedStyle(personagem).getPropertyValue('top')
-    )
-    var EsquerdaQuadrado = parseInt(
-        window.getComputedStyle(quadrado).getPropertyValue('left')
-       )
-
-       if(EsquerdaQuadrado < 20 && EsquerdaQuadrado > 0 && topoPersonagem >= 130){
-        quadrado.style.animation = 'none'
-        quadrado.style.display = 'none'
-        alert('Você perdeu!')
-    }
-    
-
-}, 10)

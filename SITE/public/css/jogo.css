@@ -1,44 +1,55 @@
-*{
-    margin: 0;
-    padding: 0;
+#player > img{
+    width: 40vh;
 }
 
+#obstaculo > img{
+    width: 10vh;
+}
 #game{
-    width: 500px;
-    height: 200px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
-
-#personagem{
-    width: 20px;
-    height: 50px;
-    background-color: red;
+#obstaculo{
+    left: 100vh;
+    top: 0vh;
     position: relative;
-    top: 150px;
+    animation: obstaculo 2s infinite linear;
 }
 
-.animar{
-    animation: personagem 500ms infinite;
+#player{
+    position: relative;
+    top: 10vw;
 }
-
-@keyframes personagem{
-    0%{top: 150px;}
-    30%{top: 100px;}
-    70%{top: 100px;}
-    100%{top: 150px;}
+.jump{
+    animation: jump 500ms linear;
 }
-
-#quadrado{
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-    position: relative;   
-    top: 130px;
-    left: 480px;
-    animation: quadrado 1s infinite linear;
+@keyframes obstaculo{
+    0%{
+        left: 100vw;;
+    }
+    100%{
+        left: -40px;
+    }
 }
-
-@keyframes quadrado{
-    0%{left: 480px;}
-    100%{left: -40px;}
+@keyframes jump{
+    0%{
+        top: 10vh;
+    }
+    15%{
+        top: 8vh
+    }
+    25%{
+        top: 5vh;
+    }
+    50%{
+        top:2vh;
+    }
+    75%{
+        top: 5vh
+    }
+    85%{
+        top: 8vh
+    }
+    100%{
+        top: 10vh;
+    }
 }
