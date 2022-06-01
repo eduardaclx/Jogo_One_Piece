@@ -1,55 +1,71 @@
 #player > img{
-    width: 40vh;
+    width: 60vh;
+    user-select: none;
 }
 
+
 #obstaculo > img{
-    width: 10vh;
+    width: 8vh;
+}
+#obstaculoVoador > img{
+    width: 8vh;
 }
 #game{
     border: 2px solid black;
+    height: 93vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 #obstaculo{
     left: 100vh;
+    top: 24vh;
+    position: relative;
+    animation: obstaculo 3s infinite linear;
+}
+#obstaculoVoador{
+    left: 100vh;
     top: 0vh;
     position: relative;
-    animation: obstaculo 2s infinite linear;
+    animation: obstaculoVoador 4s infinite linear;
 }
 
 #player{
     position: relative;
-    top: 10vw;
+    top: 25vw;
 }
 .jump{
-    animation: jump 500ms linear;
+    animation: jump 800ms linear;
 }
 @keyframes obstaculo{
     0%{
         left: 100vw;;
     }
     100%{
-        left: -40px;
+        left: -10px;
+    }
+}
+@keyframes obstaculoVoador{
+    0%{
+        left: 150vw;;
+    }
+    100%{
+        left: -10px;
     }
 }
 @keyframes jump{
     0%{
-        top: 10vh;
-    }
-    15%{
-        top: 8vh
+        top: 50vh;
     }
     25%{
-        top: 5vh;
+        top: 44vh;
     }
     50%{
-        top:2vh;
+        top: 40vh;
     }
     75%{
-        top: 5vh
-    }
-    85%{
-        top: 8vh
+        top: 44vh
     }
     100%{
-        top: 10vh;
+        top: 50vh;
     }
 }
