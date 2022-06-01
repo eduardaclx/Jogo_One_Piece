@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" onclick="jump1()">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,19 +8,34 @@
     <title>Jogo</title>
     <link rel="stylesheet" href="css/jogo.css">
 </head>
+
 <body>
+        <!-- Each image is 350px by 233px -->
+        <div class="photobanner">
+            <img class="first" src="./imagens/imagensEditar/arvore.jpg" alt="" />
+            <img src="./imagens/imagensEditar/arvore.jpg" alt="" />
+            <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
+            <img src="./imagens/imagensEditar/arvore.jpg" alt="" />
+            <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
+            <!-- <img src="../introBackground/cachoeira.gif" alt="" /> -->
+    </div>
     <div id="game">
         <div id="player">
-            <img src="../pngFinalizadas/run.gif"/>
+            <img src="../pngFinalizadas/run.gif" />
         </div>
         <div id="obstaculo">
             <img src="../pngFinalizadas/turtle.gif" />
         </div>
         <div id="obstaculoVoador">
-            <img src="../pngFinalizadas/turtle.gif" />
+            <img src="../pngFinalizadas/moeda.gif" />
         </div>
+        <div id="divMoeda">Quantidade de moedas: 0</div>
+        <button onclick="atacar()">Atacar</button>
+        <button onclick="pular()">Pular</button>
+        <button onclick="especial()">Especial   </button>
     </div>
 </body>
+
 </html>
 
 <script src="js/jogo.js"></script>

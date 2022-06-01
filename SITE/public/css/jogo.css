@@ -1,71 +1,172 @@
-#player > img{
-    width: 60vh;
-    user-select: none;
-}
+/* CONFIGURAÇÕES GERAIS */
 
-
-#obstaculo > img{
-    width: 8vh;
-}
-#obstaculoVoador > img{
-    width: 8vh;
-}
-#game{
-    border: 2px solid black;
-    height: 93vh;
+* {
+    margin: 0;
+    padding: 0;
     overflow-y: hidden;
     overflow-x: hidden;
 }
-#obstaculo{
-    left: 100vh;
-    top: 24vh;
-    position: relative;
-    animation: obstaculo 3s infinite linear;
+
+body {
+    background-image: url(../imagens/imagensEditar/cenario.jpg);
+    background-size: 82vw;
+    width: 100vw;
 }
-#obstaculoVoador{
+
+#container {
+    /* width: 98vw; */
+    overflow: hidden;
+    z-index: 0;
+}
+
+/*photobanner*/
+
+.photobanner {
+    position: absolute;
+    height: 500vh;
+    width: 200vw;
+    z-index: 0;
+}
+
+img {
+    display: inline-block;
+    height: 100vh;
+    margin-right: -5vh;
+}
+
+
+/*keyframe animations*/
+.first {
+    animation: bannermove 7s linear infinite;
+    margin-right: -5vh;
+}
+
+@keyframes bannermove {
+    0% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: -200vw;
+    }
+
+}
+
+
+/* CONFIGURAÇÃO DA DIV GAME */
+#game {
+    z-index: 1000;
+    /* border: 2px solid black; */
+    height: 99vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* CONFIGURAÇÃO DO TAMANHO DO PLAYER E OBJETOS */
+#player>img {
+    width: 80vh;
+    user-select: none;
+}
+
+#obstaculo>img {
+    width: 8vh;
+    height: 3vw;
+    user-select: none;
+}
+
+#obstaculoVoador>img {
+    width: 9vh;
+    height: 7vh;
+    user-select: none;
+}
+
+#obstaculo {
+    z-index: 100;
     left: 100vh;
-    top: 0vh;
+    top: -30vh;
+    position: relative;
+    animation: obstaculo 2s infinite linear;
+}
+
+#obstaculoVoador {
+    left: 100vh;
+    top: -60vh;
     position: relative;
     animation: obstaculoVoador 4s infinite linear;
 }
 
-#player{
+#player {
     position: relative;
-    top: 25vw;
+    top: 6vw;
 }
-.jump{
+
+/* CONFIGURAÇÃO DO PULAR */
+.jump {
     animation: jump 800ms linear;
 }
-@keyframes obstaculo{
-    0%{
-        left: 100vw;;
+
+@keyframes obstaculo {
+    0% {
+        left: 100vw;
+        ;
     }
-    100%{
+
+    100% {
         left: -10px;
     }
 }
-@keyframes obstaculoVoador{
-    0%{
-        left: 150vw;;
+
+@keyframes obstaculoVoador {
+    0% {
+        left: 150vw;
+        ;
     }
-    100%{
+
+    100% {
         left: -10px;
     }
 }
-@keyframes jump{
-    0%{
-        top: 50vh;
+
+@keyframes jump {
+    0% {
+        top: 10vh;
     }
-    25%{
-        top: 44vh;
+
+    25% {
+        top: 7vh;
     }
-    50%{
-        top: 40vh;
+
+    50% {
+        top: 5vh;
     }
-    75%{
-        top: 44vh
+
+    75% {
+        top: 7vh
     }
-    100%{
-        top: 50vh;
+
+    100% {
+        top: 10vh;
     }
+}
+
+/* CONFIGURAÇÃO DA DIV DE MOEDAS */
+#divMoeda {
+    position: fixed;
+    background-color: rgb(9, 255, 0);
+    top: 5vh;
+    left: 80vw;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: #eeeeee;
+}
+/* CONFIGURAÇÃO DOS BUTTON */
+button {
+    position: fixed;
+    background-color: rgb(9, 255, 0);
+    top: 3vh;
+    margin-top: 20vh;
+    left: 88vw;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: #eeeeee;
 }
