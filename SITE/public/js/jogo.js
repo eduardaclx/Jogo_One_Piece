@@ -7,6 +7,7 @@ var qntJump = 0
 var qntBatidas = 0
 var tamanho = 0
 var controleBar = false
+var controleMoeda = false
 
 
 function jump1() {
@@ -21,6 +22,7 @@ function jump1() {
                 jump = false
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
                 qntJump++
+
                 if(tamanho < 20){
                     for(var i = 0; i < qntJump; i++){
                         barraCheia.style.display = "flex"
@@ -37,20 +39,33 @@ function dead() {
     console.log("aaa");
     if (obstaculo1 < 400 && jump == false) {
         if(qntBatidas == 0){
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
             vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoCheio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
             qntBatidas ++
+            setTimeout(() => {
+                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+            }, 1000)
+            player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
         } else if (qntBatidas == 1) {
+            player.innerHTML = `<img src="../pngFinalizadas/luffyDano.gif"/>`
             vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
             qntBatidas ++
+            setTimeout(() => {
+                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+            }, 1000)
         } else if (qntBatidas == 2) {
+            player.innerHTML = `<img src="../pngFinalizadas/luffyDano.gif"/>`
             vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoVazio.png" alt="">`
             qntBatidas ++
+            setTimeout(() => {
+                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+            }, 1000)
         } else {
             alert("game over")
             moeda = 0
@@ -60,6 +75,7 @@ function dead() {
             vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoCheio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoCheio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
+            player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
         }
     }
 }
@@ -67,8 +83,12 @@ function dead() {
 function dindin() {
     var obstaculoVoador1 = parseInt(window.getComputedStyle(obstaculoVoador).getPropertyValue("left"))
     if (jump == true && obstaculoVoador1 < 600) {
+        if(controleMoeda == false){
             moeda++
             divMoeda.innerHTML = `<img id="imgMoeda" src="../pngFinalizadas/moeda.gif"/><span>X ${moeda}</span>`
+            controleMoeda = true
+            setTimeout(controleMoeda = false, 1000)
+        }
     }
 }
 
@@ -87,5 +107,5 @@ function iniciar() {
     obstaculo.innerHTML = `<img src="../pngFinalizadas/turtle.gif" />`
     obstaculoVoador.innerHTML = `<img src="../pngFinalizadas/moeda.gif" />`
     setInterval(dindin, 900)
-    setInterval(dead, 500)
+    setInterval(dead, 600)
 }
