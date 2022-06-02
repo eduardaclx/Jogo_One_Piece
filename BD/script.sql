@@ -1,4 +1,7 @@
+-- TABELAS NO SQL WORKBENCH
+
 CREATE DATABASE OneShop;
+
 USE OneShop;
 
 CREATE TABLE Endereco(
@@ -15,12 +18,9 @@ Complemento VARCHAR(30) NOT NULL
 CREATE TABLE Cliente(
 idCliente INT PRIMARY KEY AUTO_INCREMENT,
 nomeCliente VARCHAR(45) NOT NULL,
-CPF CHAR(11) UNIQUE NOT NULL,
-email VARCHAR(45) NOT NULL,
+email VARCHAR(45) NOT NULL UNIQUE,
 telefoneCelular CHAR(11) NOT NULL,
-senha VARCHAR(20) NOT NULL,
-fkEndereco INT,
-FOREIGN KEY (fkEndereco) REFERENCES Endereco(idEndereco)
+senha VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE Compra (
@@ -38,6 +38,11 @@ categoria VARCHAR(25) NOT NULL,
 preco DECIMAL NOT NULL
 );
 
+INSERT INTO Produto VALUES
+(null, "Figure Action Luffy", "Figure Action", 220.0),
+(null, "Figure Action Sabo", "Figure Action", 170.0),
+(null, "Figure Action Ace", "Figure Action", 180.0);
+
 CREATE TABLE Carrinho (
 idCarrinho INT AUTO_INCREMENT,
 fkCliente INT,
@@ -50,3 +55,5 @@ qntProduto INT NOT NULL,
 PRIMARY KEY (idCarrinho, fkCompra, fkProduto)
 );
 
+select * from Produto;
+select * from cliente;
