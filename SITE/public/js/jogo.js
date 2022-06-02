@@ -75,6 +75,7 @@ function dindin() {
 
 function iniciar() {
     barra.style.display = "flex"
+    container.style.filter = "none"
     controleBar = true
     backgroundDinamico.innerHTML = `
     <img class="first" src="./imagens/imagensEditar/cenario.jpg" alt="" />
