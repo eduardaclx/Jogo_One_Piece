@@ -1,4 +1,16 @@
 /* CONFIGURAÇÕES GERAIS */
+@font-face {
+    font-family: dogica;
+    src: url(../fonte/dogica/TTF/dogica.ttf);
+}
+@font-face {
+    font-family: dogica-pixel;
+    src: url(../fonte/dogica/TTF/dogicapixel.ttf);
+}
+@font-face {
+    font-family: dogica-pixel-bold;
+    src: url(../fonte/dogica/TTF/dogicapixelbold.ttf);
+}
 
 * {
     margin: 0;
@@ -6,6 +18,7 @@
     overflow-y: hidden;
     overflow-x: hidden;
     user-select: none;
+    font-family: dogica-pixel;
 }
 
 body {
@@ -22,22 +35,27 @@ body {
 }
 
 #containerJogar{
+    filter: none;
     top: 15vh;
     left: 25vw;
     position: absolute;
-    background-color: rgba(179, 245, 229, 0.7);
     width: 50vw;
     height: 70vh;
     justify-content: center;
     align-items: center;
     display: flex;
     border-radius: 2vw;
+    background-color: rgba(96, 210, 246, 0.5);
 }
 
 #containerJogar button{
+    filter: none;
     position: absolute;
     left: 10vw !important;
-    background-color: rgb(0, 0, 0);
+    background-color: #60d2f6;
+    border:none;
+    color: rgb(0, 0, 0);
+    font-family: dogica-pixel-bold;
 }
 
 #vida {
@@ -195,14 +213,26 @@ img {
 /* CONFIGURAÇÃO DA DIV DE MOEDAS */
 #divMoeda {
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.504);
-    top: 15vh;
-    left: 85vw;
+    /* background-color: rgba(0, 0, 0, 0.504); */
+    top: 0vh;
+    left: 70vw;
     padding: 2vw;
     border-radius: 1vw;
     color: #eeeeee;
+    font-size: 2vw;
     user-select: none;
+    width: 20vw;
+    display: flex;
 }
+#divMoeda img{
+    width: 3vw ;
+    height: 6vh;
+    padding-right: 3vw;
+}
+#divMoeda span{
+    margin-top: 0.6vw;
+}
+
 /* CONFIGURAÇÃO DOS BUTTON */
 button {
     position: fixed;

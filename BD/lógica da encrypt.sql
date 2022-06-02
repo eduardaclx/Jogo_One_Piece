@@ -32,5 +32,6 @@ delete from usuario where id > 0;
 select * from usuario;
 
 rollback;
+
 -- esse é o crtl z do workbanch
 

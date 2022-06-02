@@ -35,9 +35,8 @@ function jump1() {
 function dead() {
     var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"))
     console.log("aaa");
-    if (obstaculo1 < 270 && jump == false) {
+    if (obstaculo1 < 400 && jump == false) {
         if(qntBatidas == 0){
-            alert("game over")
             vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoCheio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
@@ -69,13 +68,14 @@ function dindin() {
     var obstaculoVoador1 = parseInt(window.getComputedStyle(obstaculoVoador).getPropertyValue("left"))
     if (jump == true && obstaculoVoador1 < 600) {
             moeda++
-            divMoeda.innerHTML = `quantidade de moedas: ${moeda}`
+            divMoeda.innerHTML = `<img id="imgMoeda" src="../pngFinalizadas/moeda.gif"/><span>X ${moeda}</span>`
     }
 }
 
 function iniciar() {
     barra.style.display = "flex"
     container.style.filter = "none"
+    containerJogar.style.display = "none"
     controleBar = true
     backgroundDinamico.innerHTML = `
     <img class="first" src="./imagens/imagensEditar/cenario.jpg" alt="" />
@@ -86,6 +86,6 @@ function iniciar() {
     player.innerHTML =` <img id="luffyCorrendo" src="../pngFinalizadas/run.gif" />`
     obstaculo.innerHTML = `<img src="../pngFinalizadas/turtle.gif" />`
     obstaculoVoador.innerHTML = `<img src="../pngFinalizadas/moeda.gif" />`
-    setInterval(dindin, 800)
-    setInterval(dead, 700)
+    setInterval(dindin, 900)
+    setInterval(dead, 500)
 }
