@@ -11,16 +11,11 @@
 
 <body>
         <!-- Each image is 350px by 233px -->
-        <div class="photobanner">
-            <img class="first" src="./imagens/imagensEditar/arvore.jpg" alt="" />
-            <img src="./imagens/imagensEditar/arvore.jpg" alt="" />
-            <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-            <img src="./imagens/imagensEditar/arvore.jpg" alt="" />
-            <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-            <!-- <img src="../introBackground/cachoeira.gif" alt="" /> -->
+        <div class="photobanner" id="backgroundDinamico">
+            
     </div>
     <div id="game">
-        <div id="barra"></div>
+        <div id="barra" style="display: none;"></div>
         <div id="barraCheia"></div>
         
         <div id="vida">
@@ -29,19 +24,18 @@
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">
         </div>
         <div id="player">
-            <img src="../pngFinalizadas/run.gif" />
+            <img id="luffyParado" src="./imagens/luffyParado.gif" />
         </div>
         <div id="obstaculo">
-            <img src="../pngFinalizadas/turtle.gif" />
         </div>
         <div id="obstaculoVoador">
-            <img src="../pngFinalizadas/moeda.gif" />
         </div>
         <div id="divMoeda">Quantidade de moedas: 0</div>
-        <button onclick="atacar()">Atacar</button>
-        <button onclick="pular()">Pular</button>
-        <button onclick="especial()">Especial   </button>
+        <!-- <button onclick="atacar()">Atacar</button> -->
+        <!-- <button onclick="pular()">Pular</button> -->
+        <button onclick="iniciar()">Especial</button>
     </div>
+    div#
 </body>
 
 </html>

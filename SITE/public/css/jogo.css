@@ -5,11 +5,12 @@
     padding: 0;
     overflow-y: hidden;
     overflow-x: hidden;
+    user-select: none;
 }
 
 body {
     background-image: url(../imagens/imagensEditar/cenario.jpg);
-    background-size: 82vw;
+    background-size: 75vw;
     width: 100vw;
 }
 
@@ -75,8 +76,16 @@ img {
 }
 
 /* CONFIGURAÇÃO DO TAMANHO DO PLAYER E OBJETOS */
-#player > img {
+#luffyCorrendo {
     width: 80vh;
+    user-select: none;
+}
+#luffyParado {
+    width: 9vw;
+    height: 26vh;
+    user-select: none;
+    margin-top: 17vw;
+    margin-left: 13vw;
     user-select: none;
 }
 
