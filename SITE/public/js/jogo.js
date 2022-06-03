@@ -1,7 +1,6 @@
 var obstaculo = document.getElementById("obstaculo")
 var obstaculoVoador = document.getElementById("obstaculoVoador")
 var moeda = 0
-var qntJump = 0
 var qntBatidas = 0
 var tamanho = 0
 var runFaster = false
@@ -18,19 +17,19 @@ function jump1() {
             player.innerHTML = `<img src="../pngFinalizadas/jump.gif"/>`
             jump = true
             player.classList.add("jump")
-
+            if (tamanho < 1){
+                tamanho ++
+                barraCheia.style.width = `0vw`
+            } else
             if (tamanho <= 20) {
-                for (var i = 0; i < qntJump; i++) {
                     barraCheia.style.display = "flex"
-                    tamanho = tamanho + 1
+                    tamanho ++
                     barraCheia.style.width = `${tamanho}vw`
-                }
             }
             setTimeout(() => {
                 player.classList.remove("jump")
                 jump = false
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
-                qntJump++
             }, 1000)
         }
     }
@@ -130,7 +129,7 @@ function iniciar() {
 
 function especial() {
     if (controleEspecial == false) {
-        if (tamanho > 2 || tamanho <= 6) {
+        if (tamanho > 2 && tamanho <= 6) {
             tamanho = tamanho - 2
             barraCheia.style.width = `${tamanho}vw`
             player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
@@ -140,8 +139,7 @@ function especial() {
                 controleEspecial = false
                 player.innerHTML = `<img  src="../pngFinalizadas/run.gif"/>`
             }, 900)
-
-        } else if (tamanho > 6 || tamanho <= 10) {
+        } else if (tamanho > 6 && tamanho <= 10) {
             tamanho = tamanho - 4
             barraCheia.style.width = `${tamanho}vw`
 
@@ -149,7 +147,7 @@ function especial() {
                 controleEspecial = false
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
             }, 900)
-        } else if (tamanho > 10 || tamanho <= 15) {
+        } else if (tamanho > 10 && tamanho <= 15) {
             tamanho = tamanho - 6
             barraCheia.style.width = `${tamanho}vw`
 
@@ -157,7 +155,7 @@ function especial() {
                 controleEspecial = false
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
             }, 900)
-        } else if (tamanho > 15 || tamanho <= 20) {
+        } else if (tamanho > 15 && tamanho <= 21) {
             tamanho = tamanho - 10
             barraCheia.style.width = `${tamanho}vw`
 

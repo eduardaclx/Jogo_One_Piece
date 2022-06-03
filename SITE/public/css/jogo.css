@@ -287,9 +287,6 @@ img {
 button {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.389);
-    top: 10vh;
-    margin-top: 20vh;
-    left: 90vw;
     padding: 2vw;
     border-radius: 1vw;
     color: #eeeeee;
@@ -302,7 +299,7 @@ button {
     left: 1vw;
     user-select: none;
     height: 2vw;
-    width: 20vw;
+    width: 21vw;
     border-radius: 2vh;
     border: solid 3px rgba(33, 33, 33, 0.869);
 }
@@ -322,7 +319,25 @@ button {
 
 /* CONFIGURAÇÃO DO BOTÃO */
 #btnEspecial{
-    top: 5vh
+    left: 0;
+    margin: 0;
+    top: 0;
+    position: relative;
 }
-
-
+#btnJump{
+    left: 0;
+    margin: 0;
+    top: 0;
+    position: relative;
+}
+#containerButtons {
+    height: 200px;
+    width: 280px;
+    position: absolute;
+    right: 0;
+    top: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
