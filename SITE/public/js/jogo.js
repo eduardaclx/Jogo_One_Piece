@@ -35,36 +35,45 @@ function jump1() {
     }
 }
 function dead() {
-    var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"))
-    console.log("aaa");
+    var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
     if (obstaculo1 < 400 && jump == false) {
         if(qntBatidas == 0){
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
-            vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
+            a.style.animation = "bannermove 20s linear infinite"
+            player.innerHTML = `
+            <img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            vida.innerHTML = `
+            <img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoCheio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
             qntBatidas ++
             setTimeout(() => {
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                a.style.animation = "bannermove 7s linear infinite"
             }, 1000)
-            player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
         } else if (qntBatidas == 1) {
-            player.innerHTML = `<img src="../pngFinalizadas/luffyDano.gif"/>`
-            vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
+            a.style.animation = "bannermove 20s linear infinite"
+            player.innerHTML = `
+            <img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            vida.innerHTML = `
+            <img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
             qntBatidas ++
             setTimeout(() => {
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `
+                <img src="../pngFinalizadas/run.gif"/>`
+                a.style.animation = "bannermove 7s linear infinite"
             }, 1000)
         } else if (qntBatidas == 2) {
-            player.innerHTML = `<img src="../pngFinalizadas/luffyDano.gif"/>`
+            a.style.animation = "bannermove 20s linear infinite"
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
             vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao2" src="./imagens/coracaoVazio.png" alt="">
             <img id="coracao3" src="./imagens/coracaoVazio.png" alt="">`
             qntBatidas ++
             setTimeout(() => {
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                a.style.animation = "bannermove 7s linear infinite"
             }, 1000)
         } else {
             alert("game over")
@@ -84,10 +93,14 @@ function dindin() {
     var obstaculoVoador1 = parseInt(window.getComputedStyle(obstaculoVoador).getPropertyValue("left"))
     if (jump == true && obstaculoVoador1 < 600) {
         if(controleMoeda == false){
-            moeda++
+            obstaculoVoador.innerHTML = ``
             divMoeda.innerHTML = `<img id="imgMoeda" src="../pngFinalizadas/moeda.gif"/><span>X ${moeda}</span>`
+            moeda++
             controleMoeda = true
             setTimeout(controleMoeda = false, 1000)
+            setTimeout(() => {
+                obstaculoVoador.innerHTML = `<img src="../pngFinalizadas/moeda.gif" />`
+            }, 1000)
         }
     }
 }
@@ -98,14 +111,28 @@ function iniciar() {
     containerJogar.style.display = "none"
     controleBar = true
     backgroundDinamico.innerHTML = `
-    <img class="first" src="./imagens/imagensEditar/cenario.jpg" alt="" />
+    <img id="a" class="first" src="./imagens/imagensEditar/cenario.jpg" alt="" />
     <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-    <img src="./imagens/imagensEditar/arvore.jpg" alt="" />
+    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
+    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
     <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
     <img src="./imagens/imagensEditar/cenario.jpg" alt="" />`
     player.innerHTML =` <img id="luffyCorrendo" src="../pngFinalizadas/run.gif" />`
     obstaculo.innerHTML = `<img src="../pngFinalizadas/turtle.gif" />`
     obstaculoVoador.innerHTML = `<img src="../pngFinalizadas/moeda.gif" />`
+    arvore.innerHTML = `<img src="../pngFinalizadas/arvore.gif" alt="">`
+    abelha.innerHTML = `<img src="../pngFinalizadas/abelha.gif" alt="">`
     setInterval(dindin, 900)
     setInterval(dead, 600)
+}
+
+function especial() {
+    if (tamanho > 2){
+        tamanho = tamanho - 2
+        player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+        setTimeout(() => {
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/run.gif"/>`
+        }, 900)
+
+    }
 }

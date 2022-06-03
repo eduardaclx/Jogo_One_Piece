@@ -19,6 +19,7 @@
     overflow-x: hidden;
     user-select: none;
     font-family: dogica-pixel;
+    image-rendering: pixelated;
 }
 
 body {
@@ -46,6 +47,7 @@ body {
     display: flex;
     border-radius: 2vw;
     background-color: rgba(96, 210, 246, 0.5);
+    z-index: 4;
 }
 
 #containerJogar button{
@@ -91,7 +93,7 @@ img {
 
 
 /*keyframe animations*/
-.first {
+#a {
     animation: bannermove 7s linear infinite;
     margin-right: -5vh;
 }
@@ -102,7 +104,7 @@ img {
     }
 
     100% {
-        margin-left: -200vw;
+        margin-left: -350vw;
     }
 
 }
@@ -128,15 +130,58 @@ img {
     margin-left: 13vw;
     user-select: none;
 }
-#imagemLufyyDano {
-    width: 2vw;
-    height: 5vh;
+#imagemLuffyDano {
+    width: 14vw;
+    height: 26vh;
+    user-select: none;
+    margin-top: 19vw;
+    margin-left: 19vw;
+    user-select: none;
 }
 
 #obstaculo > img {
     width: 8vh;
     height: 3vw;
     user-select: none;
+}
+#arvore > img {
+    position: fixed;
+    width: 80vh;
+    height: 30vw;
+    top: 22vh;
+    user-select: none;
+    z-index: 0;
+    animation: arvore 7s linear infinite;
+}
+@keyframes arvore {
+    0% {
+        left: 200vw;
+        ;
+    }
+
+    100% {
+        left: -500px;
+    }
+}
+#abelha > img {
+    position: fixed;
+    width: 6vh;
+    height: 3vw;
+    top: 45vh;
+    user-select: none;
+    z-index: 0;
+    left: 20vw;
+    animation: arvore 7s linear infinite;
+}
+@keyframes abelha {
+    0% {
+        left: 100vw;
+        ;
+    }
+
+    100% {
+        left: -500px;
+    }
 }
 
 #obstaculoVoador>img {
@@ -162,7 +207,8 @@ img {
 
 #player {
     position: relative;
-    top: 6vw;
+    top: 6.7vw;
+    z-index: 1;
 }
 
 /* CONFIGURAÇÃO DO PULAR */
