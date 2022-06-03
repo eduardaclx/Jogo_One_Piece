@@ -131,6 +131,7 @@ img {
     user-select: none;
 }
 #imagemLuffyDano {
+    position: relative;
     width: 14vw;
     height: 26vh;
     user-select: none;
@@ -218,7 +219,7 @@ img {
 
 @keyframes obstaculo {
     0% {
-        left: 100vw;
+        left: 150vw;
         ;
     }
 
@@ -229,7 +230,7 @@ img {
 
 @keyframes obstaculoVoador {
     0% {
-        left: 150vw;
+        left: 100vw;
         ;
     }
 

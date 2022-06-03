@@ -34,6 +34,19 @@ function jump1() {
         }
     }
 }
+
+function heart(coracao, preto){
+    vida.innerHTML = ""
+    for(var i = 0; i < coracao; i++){
+        vida.innerHTML += `
+        <img id="coracao[i+1]" src="./imagens/coracaoCheio.png" alt="">`
+    }
+    for(var i = 0; i < preto; i++){
+        vida.innerHTML += `
+        <img id="coracao[i+1]" src="./imagens/coracaoVazio.png" alt="">`
+    }
+}
+
 function dead() {
     var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
     if (obstaculo1 < 400 && jump == false) {
@@ -41,10 +54,7 @@ function dead() {
             a.style.animation = "bannermove 20s linear infinite"
             player.innerHTML = `
             <img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
-            vida.innerHTML = `
-            <img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
-            <img id="coracao2" src="./imagens/coracaoCheio.png" alt="">
-            <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
+            heart(2, 1)
             qntBatidas++
             setTimeout(() => {
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
@@ -54,37 +64,25 @@ function dead() {
             a.style.animation = "bannermove 20s linear infinite"
             player.innerHTML = `
             <img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
-            vida.innerHTML = `
-            <img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
-            <img id="coracao2" src="./imagens/coracaoVazio.png" alt="">
-            <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
+            heart(1, 2)
             qntBatidas++
             setTimeout(() => {
                 player.innerHTML = `
                 <img src="../pngFinalizadas/run.gif"/>`
                 a.style.animation = "bannermove 7s linear infinite"
             }, 1000)
-        } else if (qntBatidas == 2) {
-            a.style.animation = "bannermove 20s linear infinite"
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
-            vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoVazio.png" alt="">
-            <img id="coracao2" src="./imagens/coracaoVazio.png" alt="">
-            <img id="coracao3" src="./imagens/coracaoVazio.png" alt="">`
-            qntBatidas++
-            setTimeout(() => {
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
-                a.style.animation = "bannermove 7s linear infinite"
-            }, 1000)
         } else {
-            alert("game over")
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            heart(0, 3)
             moeda = 0
             qntJump = 0
             qntBatidas = 0
             tamanho = 0
-            vida.innerHTML = `<img id="coracao1" src="./imagens/coracaoCheio.png" alt="">
-            <img id="coracao2" src="./imagens/coracaoCheio.png" alt="">
-            <img id="coracao3" src="./imagens/coracaoCheio.png" alt="">`
-            player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+
+            setTimeout(() => {
+                alert("game over")
+                iniciar()
+            }, 600)
         }
     }
 }
@@ -106,6 +104,7 @@ function dindin() {
 }
 
 function iniciar() {
+    heart(3, 0)
     barra.style.display = "flex"
     container.style.filter = "none"
     containerJogar.style.display = "none"
@@ -124,7 +123,7 @@ function iniciar() {
     arvore.innerHTML = `<img src="../pngFinalizadas/arvore.gif" alt="">`
     abelha.innerHTML = `<img src="../pngFinalizadas/abelha.gif" alt="">`
     setInterval(dindin, 900)
-    // setInterval(dead, 600)
+    setInterval(dead, 2000)
 }
 
 function especial() {
@@ -134,28 +133,31 @@ function especial() {
             barraCheia.style.width = `${tamanho}vw`
             player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
             controleEspecial = true
-
+            
             setTimeout(() => {
                 controleEspecial = false
                 player.innerHTML = `<img  src="../pngFinalizadas/run.gif"/>`
             }, 900)
         } else if (tamanho > 6 && tamanho <= 10) {
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
             tamanho = tamanho - 4
             barraCheia.style.width = `${tamanho}vw`
-
+            
             setTimeout(() => {
                 controleEspecial = false
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
             }, 900)
         } else if (tamanho > 10 && tamanho <= 15) {
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
             tamanho = tamanho - 6
             barraCheia.style.width = `${tamanho}vw`
-
+            
             setTimeout(() => {
                 controleEspecial = false
                 player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
             }, 900)
         } else if (tamanho > 15 && tamanho <= 21) {
+            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
             tamanho = tamanho - 10
             barraCheia.style.width = `${tamanho}vw`
 

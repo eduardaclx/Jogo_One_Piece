@@ -7,3 +7,16 @@ ezgif
 lembra de dar save
 
 online gif tools
+
+
+var array = []
+sessionStorage.nomeQueEuQuero = JSON.stringify(array)
+
+mudou de página
+
+var resgataArray = JSON.parse(sessionStorage.nomeQueEuQuero)
+
+parse é dividir, já que todo o array foi transformado em stringify
+
+gifs do especial
+missões
