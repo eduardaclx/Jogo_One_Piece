@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="cumprimentar('bom dia')">Bom dia</button>
+    <button onclick="cumprimentarCaio('caior', 26)">Boa tarde</button>
+</body>
+</html>
+
+<script>
+    function cumprimentar(mensagem){
+        alert(mensagem)
+    }
+    // é um valor padrão para não exibir undefined, caso não vir o valor, o n1 e o n2 assumem o valor de 0
+    function calc(n1 = 0,n2 = 0,operacao = "*") {
+        if (operacao == "+"){
+            alert(n1+n2)
+        }
+    }
+    function cumprimentarCaio(nome, idade){
+       var mensagem = montarMensagem (nome, idade)
+       alert(mensagem)
+    }
+    function montarMensagem(nome, idade){
+        return `${nome}! Sua idade é ${idade}`
+    }
+</script>
