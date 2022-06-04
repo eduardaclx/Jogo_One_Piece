@@ -9,12 +9,20 @@ var controleBar = false
 var controleMoeda = false
 var controleEspecial = false
 
+var personagem = 0
+let runPersonagem = ["../pngFinalizadas/run.gif"]
+let jumpPersonagem = ["../pngFinalizadas/jump.gif"]
+let danoPersonagem = ["../pngFinalizadas/luffyDano.gif"]
+let obstaculoPersonagem = ["../pngFinalizadas/turtle.gif"]
+let obstaculoVoadorPersonagem = ["../pngFinalizadas/carne.gif"]
+let backgroundPersonagem = ["./imagens/imagensEditar/cenario.jpg"]
+
 
 function jump1() {
     var player = document.getElementById("player")
     if (controleBar == true) {
         if (player.className != "jump") {
-            player.innerHTML = `<img src="../pngFinalizadas/jump.gif"/>`
+            player.innerHTML = `<img src="${jumpPersonagem[personagem]}"/>`
             jump = true
             player.classList.add("jump")
             if (tamanho < 1){
@@ -29,7 +37,7 @@ function jump1() {
             setTimeout(() => {
                 player.classList.remove("jump")
                 jump = false
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
             }, 1000)
         }
     }
@@ -39,11 +47,11 @@ function heart(coracao, preto){
     vida.innerHTML = ""
     for(var i = 0; i < coracao; i++){
         vida.innerHTML += `
-        <img id="coracao[i+1]" src="./imagens/coracaoCheio.png" alt="">`
+        <img id="coracao[i+1]" src="./imagens/coracaoCheio.png">`
     }
     for(var i = 0; i < preto; i++){
         vida.innerHTML += `
-        <img id="coracao[i+1]" src="./imagens/coracaoVazio.png" alt="">`
+        <img id="coracao[i+1]" src="./imagens/coracaoVazio.png">`
     }
 }
 
@@ -53,26 +61,28 @@ function dead() {
         if (qntBatidas == 0) {
             a.style.animation = "bannermove 20s linear infinite"
             player.innerHTML = `
-            <img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            <img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             heart(2, 1)
             qntBatidas++
             setTimeout(() => {
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
                 a.style.animation = "bannermove 7s linear infinite"
-            }, 1000)
+            }, 800)
         } else if (qntBatidas == 1) {
             a.style.animation = "bannermove 20s linear infinite"
             player.innerHTML = `
-            <img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            <img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             heart(1, 2)
             qntBatidas++
             setTimeout(() => {
                 player.innerHTML = `
-                <img src="../pngFinalizadas/run.gif"/>`
+                <img src="${runPersonagem[personagem]}"/>`
                 a.style.animation = "bannermove 7s linear infinite"
-            }, 1000)
+            }, 800)
         } else {
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             heart(0, 3)
             moeda = 0
             qntJump = 0
@@ -92,13 +102,13 @@ function dindin() {
     if (jump == true && obstaculoVoador1 < 600) {
         if (controleMoeda == false) {
             obstaculoVoador.innerHTML = ``
-            divMoeda.innerHTML = `<img id="imgMoeda" src="../pngFinalizadas/moeda.gif"/><span>X ${moeda}</span>`
+            divMoeda.innerHTML = `<img id="imgMoeda" src="${obstaculoVoadorPersonagem[personagem]}"/><span>X ${moeda}</span>`
             moeda++
             controleMoeda = true
             setTimeout(controleMoeda = false, 1000)
             setTimeout(() => {
-                obstaculoVoador.innerHTML = `<img src="../pngFinalizadas/moeda.gif" />`
-            }, 1000)
+                obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
+            }, 800)
         }
     }
 }
@@ -109,61 +119,79 @@ function iniciar() {
     container.style.filter = "none"
     containerJogar.style.display = "none"
     controleBar = true
+    obstaculoVoador.style.display = "flex"
+    obstaculo.style.display = "flex"
 
     backgroundDinamico.innerHTML = `
-    <img id="a" class="first" src="./imagens/imagensEditar/cenario.jpg" alt="" />
-    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />
-    <img src="./imagens/imagensEditar/cenario.jpg" alt="" />`
-    player.innerHTML = ` <img id="luffyCorrendo" src="../pngFinalizadas/run.gif" />`
-    obstaculo.innerHTML = `<img src="../pngFinalizadas/turtle.gif" />`
-    obstaculoVoador.innerHTML = `<img src="../pngFinalizadas/moeda.gif" />`
-    arvore.innerHTML = `<img src="../pngFinalizadas/arvore.gif" alt="">`
-    abelha.innerHTML = `<img src="../pngFinalizadas/abelha.gif" alt="">`
+    <img id="a" class="first" src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>`
+    player.innerHTML = ` <img id="luffyCorrendo" src="${runPersonagem[personagem]}" />`
+    obstaculo.innerHTML = `<img src="${obstaculoPersonagem[personagem]}" />`
+    obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
+    arvore.innerHTML = `<img src="../pngFinalizadas/arvore.gif">`
+    abelha.innerHTML = `<img src="../pngFinalizadas/abelha.gif">`
     setInterval(dindin, 900)
-    setInterval(dead, 2000)
+    setInterval(dead, 500)
 }
 
 function especial() {
     if (controleEspecial == false) {
         if (tamanho > 2 && tamanho <= 6) {
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
             tamanho = tamanho - 2
             barraCheia.style.width = `${tamanho}vw`
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             controleEspecial = true
             
             setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
                 controleEspecial = false
-                player.innerHTML = `<img  src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `<img  src="${runPersonagem[personagem]}"/>`
             }, 900)
         } else if (tamanho > 6 && tamanho <= 10) {
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             tamanho = tamanho - 4
             barraCheia.style.width = `${tamanho}vw`
             
             setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
                 controleEspecial = false
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
             }, 900)
         } else if (tamanho > 10 && tamanho <= 15) {
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             tamanho = tamanho - 6
             barraCheia.style.width = `${tamanho}vw`
             
             setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
                 controleEspecial = false
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
             }, 900)
         } else if (tamanho > 15 && tamanho <= 21) {
-            player.innerHTML = `<img id="imagemLuffyDano" src="../pngFinalizadas/luffyDano.gif"/>`
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
             tamanho = tamanho - 10
             barraCheia.style.width = `${tamanho}vw`
 
             setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
                 controleEspecial = false
-                player.innerHTML = `<img src="../pngFinalizadas/run.gif"/>`
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
             }, 900)
         }
 
