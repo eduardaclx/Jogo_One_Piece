@@ -22,28 +22,6 @@
         `
     }
 
-    listaFavoritos = []
-
-    sessionStorage.FAVORITOS_USUARIO = listaFavoritos;
-    
-    function favoritarFigureSabo() {
-        var itemSelecionado = "Figure Action Sabo"
-
-        listaFavoritos.push(itemSelecionado)
-
-    }
-    function favoritarFigureLuffy() {
-        var itemSelecionado = "Figure Action Luffy"
-
-        listaFavoritos.push(itemSelecionado)
-    }
-    function favoritarFigureAce() {
-        var itemSelecionado = "Figure Action Ace"
-
-        listaFavoritos.push(itemSelecionado)
-    }
-
-
 function validarSessao() {
     // aguardar();
 
@@ -98,23 +76,6 @@ function fecharModal() {
     var divModal = document.getElementById("div_modal");
     divModal.style.display = "none";
 }
-
-// <!-- ANIMAÇÃO DA BARRA DE PESQUISA -->
-function pesquisar() {
-    pesquisarInput.style.visibility = "visible";
-    pesquisarInput.style.width = "135vw";
-    pesquisarInput.style.height = "7vh";
-    pesquisarInput.style.border = "none";
-    pesquisarBtn.style.borderRadius = "0px";
-    iconeCoracao.style.marginLeft = "10%";
-    pesquisarBtn.style.borderEndEndRadius = "20px";
-    pesquisarBtn.style.borderTopRightRadius = "20px";
-
-}
-
-
-
-
 
 // function editar() {
 //     fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
@@ -171,58 +132,6 @@ function pesquisar() {
 //             console.log(`#ERRO: ${resposta}`);
 //         });
 //     }
-listarProdutos()
-    function listarProdutos() {
-        //aguardar();
-        fetch("/avisos/listar").then(function (resposta) {
-            if (resposta.ok) {
-                if (resposta.status == 204) {
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "Erro";
-                    
-                    cardErro.appendChild(mensagem);
-                    throw "Nenhum resultado encontrado!!";
-                }
-
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var produto = document.getElementById("produtoSabo");
-                    produto.innerHTML = "";
-                    for (let i = 0; i < resposta.length; i++) {
-                        var publicacao = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
-                        
-
-
-                        produtoSabo.innerHTML = `"<div id="imagemCardVerticalSabo">
-                        <img src="imagens/sabo-figure-action.png">
-                        </div>
-                        <div class="boxPrincipaisProdutos">
-                        <h2>${json.nomeProduto}</h2>
-                        <div class="tamanhoPrincipaisProdutos">
-                        <span id="descricaoPrincipaisProdutos">figure action do<br> Sabo</span>
-                        </div>
-                        <div class="preco">
-                        <span>${json.preco}</span>
-                        <img src="./imagens/coracaoProduto.png" id="coracaoProduto" onclick="favoritarFigureSabo()">
-                        </div>
-                        </div>"`;
-                        
-                    }
-
-                    finalizarAguardar();
-                });
-            } else {
-                throw ('Houve um erro na API!');
-            }
-        }).catch(function (resposta) {
-            console.error(resposta);
-            finalizarAguardar();
-        });
-    }
-
 //     function testar() {
 //         aguardar();
 
@@ -237,24 +146,3 @@ listarProdutos()
 
 //         return false;
 //     }
-
-function pegarValorDigitado() {
-    var pesquisa = pesquisarInput.value;
-    sessionStorage.PRODUTO = pesquisa;
-    divBotao.innerHTML = `
-    <style>
-    .btnStyle{
-        border-end-end-radius: 20px;
-        border-top-rigt-radius: 20px;
-    }
-    </style>
-    <a href="todosItens.html"><button id="pesquisarBtn" onclick="pesquisa()" class="btnStyle"><img src="imagens/lupa.png" id="iconeLupa"></button></a>
-    `
-    pesquisarInput.style.visibility = "visible";
-    pesquisarInput.style.width = "135vw";
-    pesquisarInput.style.height = "7vh";
-    pesquisarInput.style.border = "none";
-    pesquisarBtn.style.borderRadius = "0px";
-    iconeCoracao.style.marginLeft = "10%";
-    
-}

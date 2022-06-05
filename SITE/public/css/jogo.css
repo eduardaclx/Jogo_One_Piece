@@ -30,14 +30,15 @@ body {
 #container{
     width: 100vw;
     height: 100vh;
-    filter: brightness(0.7);
+    filter: brightness(0.7) blur(4px);
     position: absolute;
     z-index: 50;
 }
 
 #containerJogar{
+    position: absolute;
     display: flex;
-    top: 15vh;
+    top: 10vh;
     left: 15vw;
     flex-direction: column;
     position: absolute;
@@ -46,15 +47,21 @@ body {
     justify-content: space-around;
     align-items: flex-start;
     border-radius: 2vw;
-    background-color: rgba(96, 210, 246, 0.5);
+    background-color: rgba(34, 48, 52, 0.7);
     z-index: 100;
+    height: 60vh;
+}
+#containerJogar img{
+    filter: brightness(0.8);
+    position: absolute;
+    left: 20vw;
+    width: 60vw;
+    height: 55vh;
+    z-index: 1;
 }
 
 #containerJogar button {
-    filter: none;
-    margin-top: 20vh;
     margin-right: 20vh;
-    left: 10vw !important;
     background-color: #60d2f6;
     border:none;
     color: white;
@@ -63,6 +70,61 @@ body {
     border-radius: 1vw;
     color: #eeeeee;
     user-select: none;
+    background: linear-gradient(to top, rgba(0, 138, 255, 0.5), rgba(0, 255, 231, 0.5));
+    animation: animacaoRGB 10s linear infinite;
+    transition: 3s;
+}
+@keyframes animacaoRGB{
+    0%, 100%{
+        filter: hue-rotate(0deg);
+        border: none;
+    }
+    50%{
+        filter: hue-rotate(-180deg);
+        border: none;
+    }
+}
+#containerJogar h1 {
+    z-index: 2;
+    position: absolute;
+    left: 44.5vw;
+    top: 25vh;
+    color: white;
+    font-family: dogica-pixel-bold;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: #eeeeee;
+}
+#containerJogar h2 {
+    z-index: 2;
+    position: absolute;
+    left: 45vw;
+    top: 33vh;
+    color: white;
+    font-family: dogica-pixel-bold;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: #eeeeee;
+}
+#containerJogar span {
+    z-index: 2;
+    position: absolute;
+    left: 43vw;
+    top: 42vh;
+    color: white;
+    font-family: dogica-pixel-bold;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: #eeeeee;
+    font-size: 1vw;
+}
+#containerJogar #qntPega {
+    top: 50vh !important;
+}
+#containerJogarRunPiece{
+    top: 10vh !important;
+    left: 2vw !important;
+
 }
 
 #vida {
@@ -250,13 +312,13 @@ body {
     top: 23vw;
     z-index: 1;
     left: 10vw;
+    filter: drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19));
 }
 #player img{
     width: 30vh;
     height: 32vh;
     user-select: none;
 }
-
 /* CONFIGURAÇÃO DO PULAR */
 .jump {
     animation: jump 800ms linear;

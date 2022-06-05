@@ -3,6 +3,7 @@ var obstaculoVoador = document.getElementById("obstaculoVoador")
 var moeda = 0
 var qntBatidas = 0
 var tamanho = 0
+var somaXP = 0
 var runFaster = false
 var jump = false
 var controleBar = false
@@ -10,21 +11,24 @@ var controleMoeda = false
 var controleEspecial = false
 var controleJogando = false
 
+sessionStorage.xpPartida = 0
+
 var personagem = 0
-let runPersonagem = ["../pngFinalizadas/run1.gif"]
-let jumpPersonagem = ["../pngFinalizadas/jump.gif"]
-let danoPersonagem = ["../pngFinalizadas/arvore.gif"]
-let obstaculoPersonagem = ["../pngFinalizadas/bola.gif"]
-let enemys = ["../pngFinalizadas/canhao.gif"]
-let obstaculoVoadorPersonagem = ["../pngFinalizadas/carne.png"]
-let backgroundPersonagem = ["../introBackground/areia.png"]
+let runPersonagem = ["./imagens/gifs/personagemGifs/run1.gif"]
+let jumpPersonagem = ["./imagens/gifs/personagemGifs/jump.gif"]
+let obstaculoPersonagem = ["./imagens/imgEstatica/game/bola.gif"]
+let enemys = ["./imagens/imgEstatica/game/canhao.gif"]
+let obstaculoVoadorPersonagem = ["./imagens/imgEstatica/game/carne.png"]
+let backgroundPersonagem = ["./imagens/imgEstatica/game/areia.png"]
 let cor = ["#D00000"]
-let imagensDecoracao = ["../pngFinalizadas/tubarao.gif", "../introBackground/papagaio.gif", "../introBackground/ship.png", "../introBackground/passaroChao.gif"]
+let especialGif1 = []
+let especialGif2 = []
+let decoracaoFase = ["./imagens/gifs/backgroundGifs/tubarao.gif", "./imagens/gifs/backgroundGifs/papagaio.gif", "./imagens/imgEstatica/game/ship.png", "./imagens/imgEstatica/game/nuvem.png", "./imagens/imgEstatica/game/coqueiro.png", "./imagens/gifs/backgroundGifs/crab.gif"]
 
 function iniciar() {
-    inseto.innerHTML = `<img src="../introBackground/crab.gif">`
-    papagaio.innerHTML = `<img src="${imagensDecoracao[1]}"/>`
-    nuvem.innerHTML = `<img src="../introBackground/nuvem.png"><img src="../introBackground/nuvem.png">`
+    inseto.innerHTML = `<img src="${decoracaoFase[5]}">`
+    papagaio.innerHTML = `<img src="${decoracaoFase[1]}"/>`
+    nuvem.innerHTML = `<img src="${decoracaoFase[3]}"><img src="${decoracaoFase[3]}">`
     backgroundDinamico.innerHTML = `
     <img id="primeiroBanner" class="first" src="${backgroundPersonagem[personagem]}"/>
     <img src="${backgroundPersonagem[personagem]}"/>
@@ -33,11 +37,12 @@ function iniciar() {
     <img src="${backgroundPersonagem[personagem]}"/>
     <img src="${backgroundPersonagem[personagem]}"/>`
 
-    if(controleJogando == false){
+    if (controleJogando == false) {
         primeiroBanner.style.animation = "bannermove 0s linear infinite"
     }
 }
 
+// 0 tubarao, 1 papagaio, 2 navio, 3 nuvem, 4 coqueiro, 5 crab
 function jogar() {
     controleJogando = true
     heart(3, 0)
@@ -53,12 +58,13 @@ function jogar() {
     player.innerHTML = ` <img id="luffyCorrendo" src="${runPersonagem[personagem]}" />`
     obstaculo.innerHTML = `<img src="${obstaculoPersonagem[personagem]}" />`
     obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
-    tubarao.innerHTML = `<img src="${imagensDecoracao[0]}"/>`
-    ship.innerHTML = `<img src="${imagensDecoracao[2]}"/>`
-    arvore.innerHTML = `<img src="../introBackground/coqueiro.png">`
+    tubarao.innerHTML = `<img src="${decoracaoFase[0]}"/>`
+    ship.innerHTML = `<img src="${decoracaoFase[2]}"/>`
+    arvore.innerHTML = `<img src="${decoracaoFase[4]}"/>`
     enemy.innerHTML = `<img src="${enemys[personagem]}"/>`
     setInterval(dindin, 800)
     setInterval(dead, 200)
+    setInterval(ganhar, 200)
 }
 
 function jump1() {
@@ -90,60 +96,87 @@ function heart(coracao, preto) {
     vida.innerHTML = ""
     for (var i = 0; i < coracao; i++) {
         vida.innerHTML += `
-        <img id="coracao[i+1]" src="./imagens/coracaoCheio.png">`
+        <img id="coracao[i+1]" src="./imagens/imgEstatica/game/coracaoCheio.png">`
     }
     for (var i = 0; i < preto; i++) {
         vida.innerHTML += `
-        <img id="coracao[i+1]" src="./imagens/coracaoVazio.png">`
+        <img id="coracao[i+1]" src="./imagens/imgEstatica/game/coracaoVazio.png">`
     }
 }
 
 function dead() {
     var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
+    if(somaXP >= 100){
+        somaXP -= 50
+        sessionStorage.xpPartida = somaXP
+    }
     if (obstaculo1 < 400 && jump == false) {
         if (qntBatidas == 0) {
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
             primeiroBanner.style.animation = "bannermove 20s linear infinite"
-            player.innerHTML = `
-            <img src="${danoPersonagem[personagem]}"/>`
+            player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19)) brightness(0) invert(1)"
             heart(2, 1)
             qntBatidas++
             setTimeout(() => {
                 obstaculoVoador.style.display = "flex"
                 obstaculo.style.display = "flex"
-                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
+                player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19))"
                 primeiroBanner.style.animation = "bannermove 7s linear infinite"
             }, 800)
         } else if (qntBatidas == 1) {
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
             primeiroBanner.style.animation = "bannermove 20s linear infinite"
-            player.innerHTML = `
-            <img src="${danoPersonagem[personagem]}"/>`
+            player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19)) brightness(0) invert(1)"
             heart(1, 2)
             qntBatidas++
             setTimeout(() => {
                 obstaculoVoador.style.display = "flex"
                 obstaculo.style.display = "flex"
-                player.innerHTML = `
-                <img src="${runPersonagem[personagem]}"/>`
+                player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19))"
                 primeiroBanner.style.animation = "bannermove 7s linear infinite"
             }, 800)
         } else {
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
-            player.innerHTML = `<img src="${danoPersonagem[personagem]}"/>`
             heart(0, 3)
-            moeda = 0
+            // moeda = 0
             qntJump = 0
             qntBatidas = 0
             tamanho = 0
 
+            player.innerHTML = ` <img id="luffyCorrendo" src="${jumpPersonagem[personagem]}" />`
+            controleJogando = false
+            barra.style.display = "none"
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            controleBar = false
+            barraCheia.style.backgroundColor = "none"
+            primeiroBanner.style.animation = "bannermove 0s linear infinite"
+            
+            obstaculo.innerHTML = ``
+            obstaculoVoador.innerHTML = ``
+            tubarao.innerHTML = ``
+            ship.innerHTML = ``
+            arvore.innerHTML = ``
+            enemy.innerHTML = ``
+            barraCheia.style.display = ``
+            setInterval(dindin, 800)
+            setInterval(dead, 200)
+
             setTimeout(() => {
-                alert("game over")
-                iniciar()
-            }, 600)
+                containerJogar.innerHTML = `<h1 id="containerJogarRunPiece">RUN PIECE</h1>
+                XP GANHO: ${sessionStorage.xpPartida}
+                <h1>FASE 1</h1> <h2>MISSÃO</h2>
+                <span>PEGUE 5 CARNES</span>
+                <span id="qntPega">VOCÊ PEGOU: ${moeda}</span>
+                </div>
+                <img src="./imagens/imgEstatica/game/quadro.png" alt="">
+                <a href="JOGO.html"><button>RETRY</button></a>
+                <a href="index.html"><button>INÍCIO</button></a>`
+                containerJogar.style.display = "flex"
+            }, 2000)
         }
     }
 }
@@ -152,11 +185,15 @@ function dindin() {
     var obstaculoVoador1 = parseInt(window.getComputedStyle(obstaculoVoador).getPropertyValue("left"))
     if (jump == true && obstaculoVoador1 < 800) {
         if (controleMoeda == false) {
+            somaXP += 100
+            sessionStorage.xpPartida = somaXP
             obstaculoVoador.innerHTML = ``
+            moeda = moeda + 1
             divMoeda.innerHTML = `<img id="imgMoeda" src="${obstaculoVoadorPersonagem[personagem]}"/><span>X ${moeda}</span>`
-            moeda++
             controleMoeda = true
+
             setTimeout(controleMoeda = false, 1000)
+
             setTimeout(() => {
                 obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
             }, 800)
@@ -221,6 +258,48 @@ function especial3() {
     }
 }
 
+function ganhar() {
+    if (personagem == 0){
+        if(moeda == 1){
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+
+            player.innerHTML = ` <img id="luffyCorrendo" src="${jumpPersonagem[personagem]}" />`
+            controleJogando = false
+            barra.style.display = "none"
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            controleBar = false
+            barraCheia.style.backgroundColor = "none"
+            primeiroBanner.style.animation = "bannermove 0s linear infinite"
+            
+            obstaculo.innerHTML = ``
+            obstaculoVoador.innerHTML = ``
+            tubarao.innerHTML = ``
+            ship.innerHTML = ``
+            arvore.innerHTML = ``
+            enemy.innerHTML = ``
+            barraCheia.style.display = ``
+            setInterval(dindin, 800)
+            setInterval(dead, 200)
+
+            setTimeout(() => {
+                containerJogar.innerHTML = `<h1 id="containerJogarRunPiece">RUN PIECE</h1>
+                XP GANHO: ${sessionStorage.xpPartida}
+                <h1>FASE 1</h1> <h2>MISSÃO</h2>
+                <span>PEGUE 5 CARNES</span>
+                <span id="qntPega">VOCÊ PEGOU: ${moeda}</span>
+                </div>
+                <img src="./imagens/imgEstatica/game/quadro.png" alt="">
+                <button onclick="mudarPersonagem()">CONTINUAR</button>
+                <a href="JOGO.html"><button>RETRY</button></a>
+                <a href="index.html"><button>INÍCIO</button></a>`
+                containerJogar.style.display = "flex"
+            }, 2000)
+        }
+    }
+}
+
 document.addEventListener('keypress', function (event) {
     if (event.code == "Space") {
         jump1()
@@ -235,3 +314,7 @@ document.addEventListener('keypress', function (event) {
         especial3()
     }
 });
+
+function mudarPersonagem() {
+    alert("a fazer")
+}
