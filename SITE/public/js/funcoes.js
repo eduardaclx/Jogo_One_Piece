@@ -3,7 +3,6 @@
 
     if (sessionStorage.ID_USUARIO == undefined || sessionStorage.ID_USUARIO == "" ){
         iconeSair.style.display = "none";
-        iconeCoracao.style.display = "none";
         
     } else{
         iconeSair.style.display = "flex";

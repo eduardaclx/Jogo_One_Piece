@@ -132,9 +132,9 @@ body {
 }
 #arvore > img {
     position: absolute;
-    width: 150vh;
-    height: 80vw;
-    top: 20vh;
+    width: 80vh;
+    height: 40vw;
+    top: 50vh;
     user-select: none;
     z-index: 15;
     animation: arvore 8s linear infinite;
