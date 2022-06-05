@@ -9,42 +9,52 @@
     <link rel="stylesheet" href="css/jogo.css">
 </head>
 
-<body>
+<body onload="iniciar()">
     <div id="container">
-
         <!-- Each image is 350px by 233px -->
         <div class="photobanner" id="backgroundDinamico">
-            
         </div>
         <div id="game">
             <div id="barra" style="display: none;"></div>
             <div id="barraCheia"></div>
-            
             <div id="vida">
             </div>
             <div id="player">
-                <img id="luffyParado" src="./imagens/luffyParado.gif" />
+                <img id="luffyParado" src="../pngFinalizadas/luffyParado.gif" />
             </div>
-            <div id="obstaculo"></div>
+            <div id="obstaculo">
+            </div>
+            <div id="nuvem">
+            </div>
             <div id="arvore">
             </div>
-            <div id="abelha">
+            <div id="inseto">
+            </div>
+            <div id="papagaio">
+            </div>
+            <div id="ship">
             </div>
             <div id="obstaculoVoador">
+            </div>
+            <div id="tubarao">
+            </div>
+            <div id="enemy">
+            </div>
+            <div id="divMoeda">
+                <img id="imgMoeda" src="../pngFinalizadas/carne.png" /><span>X 0</span>
+            </div>
+            <div id="containerMissao">
+            </div>
         </div>
-        <div id="divMoeda">
-            <img id="imgMoeda" src="../pngFinalizadas/carne.gif"/><span>X 0</span>
-        </div>
-        <div id="containerButtons">
-            <!-- <button onclick="atacar()">Atacar</button> -->
-            <button id="btnJump" onclick="jump1()" style="z-index: 5;">Pular</button>
-            <button id="btnEspecial" onclick="especial()" style="z-index: 100;">Especial</button>
+        <div id="containerJogar">
+            <div id="boxTexto">
+                Fase 1 - Luffy
+            </div>
+            <div id="missao">Sua missão é:</div>
+            <button onclick="instrucoes()">Como Jogar</button>
+            <button onclick="jogar()">Jogar</button>
         </div>
     </div>
-    <div id="containerJogar">
-        <button onclick="iniciar()">Jogar</button>
-    </div>
-</div>
 </body>
 
 </html>

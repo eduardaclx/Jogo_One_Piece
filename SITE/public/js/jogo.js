@@ -8,15 +8,58 @@ var jump = false
 var controleBar = false
 var controleMoeda = false
 var controleEspecial = false
+var controleJogando = false
 
 var personagem = 0
-let runPersonagem = ["../pngFinalizadas/run.gif"]
+let runPersonagem = ["../pngFinalizadas/run1.gif"]
 let jumpPersonagem = ["../pngFinalizadas/jump.gif"]
-let danoPersonagem = ["../pngFinalizadas/luffyDano.gif"]
-let obstaculoPersonagem = ["../pngFinalizadas/turtle.gif"]
-let obstaculoVoadorPersonagem = ["../pngFinalizadas/carne.gif"]
-let backgroundPersonagem = ["./imagens/imagensEditar/cenario.jpg"]
+let danoPersonagem = ["../pngFinalizadas/arvore.gif"]
+let obstaculoPersonagem = ["../pngFinalizadas/bola.gif"]
+let enemys = ["../pngFinalizadas/canhao.gif"]
+let obstaculoVoadorPersonagem = ["../pngFinalizadas/carne.png"]
+let backgroundPersonagem = ["../introBackground/areia.png"]
+let cor = ["#D00000"]
+let imagensDecoracao = ["../pngFinalizadas/tubarao.gif", "../introBackground/papagaio.gif", "../introBackground/ship.png", "../introBackground/passaroChao.gif"]
 
+function iniciar() {
+    inseto.innerHTML = `<img src="../introBackground/crab.gif">`
+    papagaio.innerHTML = `<img src="${imagensDecoracao[1]}"/>`
+    nuvem.innerHTML = `<img src="../introBackground/nuvem.png"><img src="../introBackground/nuvem.png">`
+    backgroundDinamico.innerHTML = `
+    <img id="primeiroBanner" class="first" src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>
+    <img src="${backgroundPersonagem[personagem]}"/>`
+
+    if(controleJogando == false){
+        primeiroBanner.style.animation = "bannermove 0s linear infinite"
+    }
+}
+
+function jogar() {
+    controleJogando = true
+    heart(3, 0)
+    container.style.filter = "none"
+    containerJogar.style.display = "none"
+    barra.style.display = "flex"
+    obstaculoVoador.style.display = "flex"
+    obstaculo.style.display = "flex"
+    controleBar = true
+    barraCheia.style.backgroundColor = cor[personagem]
+    primeiroBanner.style.animation = "bannermove 7s linear infinite"
+
+    player.innerHTML = ` <img id="luffyCorrendo" src="${runPersonagem[personagem]}" />`
+    obstaculo.innerHTML = `<img src="${obstaculoPersonagem[personagem]}" />`
+    obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
+    tubarao.innerHTML = `<img src="${imagensDecoracao[0]}"/>`
+    ship.innerHTML = `<img src="${imagensDecoracao[2]}"/>`
+    arvore.innerHTML = `<img src="../introBackground/coqueiro.png">`
+    enemy.innerHTML = `<img src="${enemys[personagem]}"/>`
+    setInterval(dindin, 800)
+    setInterval(dead, 200)
+}
 
 function jump1() {
     var player = document.getElementById("player")
@@ -25,31 +68,31 @@ function jump1() {
             player.innerHTML = `<img src="${jumpPersonagem[personagem]}"/>`
             jump = true
             player.classList.add("jump")
-            if (tamanho < 1){
-                tamanho ++
+            if (tamanho < 1) {
+                tamanho++
                 barraCheia.style.width = `0vw`
             } else
-            if (tamanho <= 20) {
+                if (tamanho <= 20) {
                     barraCheia.style.display = "flex"
-                    tamanho ++
+                    tamanho++
                     barraCheia.style.width = `${tamanho}vw`
-            }
+                }
             setTimeout(() => {
                 player.classList.remove("jump")
                 jump = false
-                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
+                player.innerHTML = `<img class="geral" src="${runPersonagem[personagem]}"/>`
             }, 1000)
         }
     }
 }
 
-function heart(coracao, preto){
+function heart(coracao, preto) {
     vida.innerHTML = ""
-    for(var i = 0; i < coracao; i++){
+    for (var i = 0; i < coracao; i++) {
         vida.innerHTML += `
         <img id="coracao[i+1]" src="./imagens/coracaoCheio.png">`
     }
-    for(var i = 0; i < preto; i++){
+    for (var i = 0; i < preto; i++) {
         vida.innerHTML += `
         <img id="coracao[i+1]" src="./imagens/coracaoVazio.png">`
     }
@@ -59,30 +102,38 @@ function dead() {
     var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
     if (obstaculo1 < 400 && jump == false) {
         if (qntBatidas == 0) {
-            a.style.animation = "bannermove 20s linear infinite"
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            primeiroBanner.style.animation = "bannermove 20s linear infinite"
             player.innerHTML = `
-            <img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
+            <img src="${danoPersonagem[personagem]}"/>`
             heart(2, 1)
             qntBatidas++
             setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
                 player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
-                a.style.animation = "bannermove 7s linear infinite"
+                primeiroBanner.style.animation = "bannermove 7s linear infinite"
             }, 800)
         } else if (qntBatidas == 1) {
-            a.style.animation = "bannermove 20s linear infinite"
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            primeiroBanner.style.animation = "bannermove 20s linear infinite"
             player.innerHTML = `
-            <img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
+            <img src="${danoPersonagem[personagem]}"/>`
             heart(1, 2)
             qntBatidas++
             setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
                 player.innerHTML = `
                 <img src="${runPersonagem[personagem]}"/>`
-                a.style.animation = "bannermove 7s linear infinite"
+                primeiroBanner.style.animation = "bannermove 7s linear infinite"
             }, 800)
         } else {
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
-            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
+            player.innerHTML = `<img src="${danoPersonagem[personagem]}"/>`
             heart(0, 3)
             moeda = 0
             qntJump = 0
@@ -99,7 +150,7 @@ function dead() {
 
 function dindin() {
     var obstaculoVoador1 = parseInt(window.getComputedStyle(obstaculoVoador).getPropertyValue("left"))
-    if (jump == true && obstaculoVoador1 < 600) {
+    if (jump == true && obstaculoVoador1 < 800) {
         if (controleMoeda == false) {
             obstaculoVoador.innerHTML = ``
             divMoeda.innerHTML = `<img id="imgMoeda" src="${obstaculoVoadorPersonagem[personagem]}"/><span>X ${moeda}</span>`
@@ -113,77 +164,12 @@ function dindin() {
     }
 }
 
-function iniciar() {
-    heart(3, 0)
-    barra.style.display = "flex"
-    container.style.filter = "none"
-    containerJogar.style.display = "none"
-    controleBar = true
-    obstaculoVoador.style.display = "flex"
-    obstaculo.style.display = "flex"
-
-    backgroundDinamico.innerHTML = `
-    <img id="a" class="first" src="${backgroundPersonagem[personagem]}"/>
-    <img src="${backgroundPersonagem[personagem]}"/>
-    <img src="${backgroundPersonagem[personagem]}"/>
-    <img src="${backgroundPersonagem[personagem]}"/>
-    <img src="${backgroundPersonagem[personagem]}"/>
-    <img src="${backgroundPersonagem[personagem]}"/>`
-    player.innerHTML = ` <img id="luffyCorrendo" src="${runPersonagem[personagem]}" />`
-    obstaculo.innerHTML = `<img src="${obstaculoPersonagem[personagem]}" />`
-    obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
-    arvore.innerHTML = `<img src="../pngFinalizadas/arvore.gif">`
-    abelha.innerHTML = `<img src="../pngFinalizadas/abelha.gif">`
-    setInterval(dindin, 900)
-    setInterval(dead, 500)
-}
-
-function especial() {
+function especial1() {
     if (controleEspecial == false) {
-        if (tamanho > 2 && tamanho <= 6) {
+        if (tamanho > 2) {
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
-            tamanho = tamanho - 2
-            barraCheia.style.width = `${tamanho}vw`
-            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
-            controleEspecial = true
-            
-            setTimeout(() => {
-                obstaculoVoador.style.display = "flex"
-                obstaculo.style.display = "flex"
-                controleEspecial = false
-                player.innerHTML = `<img  src="${runPersonagem[personagem]}"/>`
-            }, 900)
-        } else if (tamanho > 6 && tamanho <= 10) {
-            obstaculoVoador.style.display = "none"
-            obstaculo.style.display = "none"
-            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
-            tamanho = tamanho - 4
-            barraCheia.style.width = `${tamanho}vw`
-            
-            setTimeout(() => {
-                obstaculoVoador.style.display = "flex"
-                obstaculo.style.display = "flex"
-                controleEspecial = false
-                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
-            }, 900)
-        } else if (tamanho > 10 && tamanho <= 15) {
-            obstaculoVoador.style.display = "none"
-            obstaculo.style.display = "none"
-            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
-            tamanho = tamanho - 6
-            barraCheia.style.width = `${tamanho}vw`
-            
-            setTimeout(() => {
-                obstaculoVoador.style.display = "flex"
-                obstaculo.style.display = "flex"
-                controleEspecial = false
-                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
-            }, 900)
-        } else if (tamanho > 15 && tamanho <= 21) {
-            obstaculoVoador.style.display = "none"
-            obstaculo.style.display = "none"
-            player.innerHTML = `<img id="imagemLuffyDano" src="${danoPersonagem[personagem]}"/>`
+            player.innerHTML = `<img src="${danoPersonagem[personagem]}"/>`
             tamanho = tamanho - 10
             barraCheia.style.width = `${tamanho}vw`
 
@@ -194,6 +180,58 @@ function especial() {
                 player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
             }, 900)
         }
-
     }
 }
+
+function especial2() {
+    if (controleEspecial == false) {
+        if (tamanho > 4) {
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            player.innerHTML = `<img src="${danoPersonagem[personagem]}"/>`
+            tamanho = tamanho - 10
+            barraCheia.style.width = `${tamanho}vw`
+
+            setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
+                controleEspecial = false
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
+            }, 900)
+        }
+    }
+}
+
+function especial3() {
+    if (controleEspecial == false) {
+        if (tamanho > 10) {
+            obstaculoVoador.style.display = "none"
+            obstaculo.style.display = "none"
+            player.innerHTML = `<img src="${danoPersonagem[personagem]}"/>`
+            tamanho = tamanho - 10
+            barraCheia.style.width = `${tamanho}vw`
+
+            setTimeout(() => {
+                obstaculoVoador.style.display = "flex"
+                obstaculo.style.display = "flex"
+                controleEspecial = false
+                player.innerHTML = `<img src="${runPersonagem[personagem]}"/>`
+            }, 900)
+        }
+    }
+}
+
+document.addEventListener('keypress', function (event) {
+    if (event.code == "Space") {
+        jump1()
+    }
+    if (event.code == "Digit1") {
+        especial1()
+    }
+    if (event.code == "Digit2") {
+        especial2()
+    }
+    if (event.code == "Digit3") {
+        especial3()
+    }
+});

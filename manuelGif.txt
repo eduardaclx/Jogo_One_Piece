@@ -20,3 +20,26 @@ parse é dividir, já que todo o array foi transformado em stringify
 
 gifs do especial
 missões
+
+
+document.addEventListener('keypress', function (event) {
+    var name = event.key;
+    var code = event.code;
+    // Alert the key name and key code on keydown
+    // alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+    if (event.code == "Space") {
+        jump1()
+    }
+    if (event.code == "Digit1") {
+        especial1()
+    }
+    if (event.code == "Digit2") {
+        especial2()
+    }
+    if (event.code == "Digit3") {
+        especial3()
+    }
+    if (event.code == "Digit4") {
+        especial4()
+    }
+});

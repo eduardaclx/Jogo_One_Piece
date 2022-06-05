@@ -23,41 +23,46 @@
 }
 
 body {
-    background-image: url(../imagens/imagensEditar/cenario.jpg);
-    background-size: 75vw;
+    background: #5fdcfd;
+    background-size: 126vw;
     width: 100vw;
 }
 #container{
     width: 100vw;
     height: 100vh;
-    filter: brightness(0.6);
+    filter: brightness(0.7);
     position: absolute;
-    z-index: 10000;
+    z-index: 50;
 }
 
 #containerJogar{
-    filter: none;
-    top: 15vh;
-    left: 25vw;
-    position: absolute;
-    width: 50vw;
-    height: 70vh;
-    justify-content: center;
-    align-items: center;
     display: flex;
+    top: 15vh;
+    left: 15vw;
+    flex-direction: column;
+    position: absolute;
+    padding: 5vw;
+    padding-right: 45vw;
+    justify-content: space-around;
+    align-items: flex-start;
     border-radius: 2vw;
     background-color: rgba(96, 210, 246, 0.5);
-    z-index: 4;
+    z-index: 100;
 }
 
-#containerJogar button{
+#containerJogar button {
     filter: none;
-    position: absolute;
+    margin-top: 20vh;
+    margin-right: 20vh;
     left: 10vw !important;
     background-color: #60d2f6;
     border:none;
-    color: rgb(0, 0, 0);
+    color: white;
     font-family: dogica-pixel-bold;
+    padding: 2vw;
+    border-radius: 1vw;
+    color: #eeeeee;
+    user-select: none;
 }
 
 #vida {
@@ -80,22 +85,24 @@ body {
 
 .photobanner {
     position: absolute;
+    padding-left: -5vw;
     height: 500vh;
-    width: 200vw;
+    width: 800vw;
     z-index: 0;
+    top: 45vh;
 }
 
-img {
+#backgroundDinamico img {
     display: inline-block;
-    height: 100vh;
-    margin-right: -5vh;
+    height: 55vh;
+    width: 100vw;
+    margin-right: -10vh;
 }
 
 
-/*keyframe animations*/
-#a {
+/*PRIMEIRA IMAGEM DO BANNER PRECISA NECESSARIAMENTE DISSO*/
+#primeiroBanner {
     animation: bannermove 7s linear infinite;
-    margin-right: -5vh;
 }
 
 @keyframes bannermove {
@@ -104,7 +111,7 @@ img {
     }
 
     100% {
-        margin-left: -350vw;
+        margin-left: -400vw;
     }
 
 }
@@ -117,42 +124,20 @@ img {
     overflow-x: hidden;
 }
 
-/* CONFIGURAÇÃO DO TAMANHO DO PLAYER E OBJETOS */
-#luffyCorrendo {
-    width: 80vh;
-    user-select: none;
-}
-#luffyParado {
-    width: 9vw;
-    height: 26vh;
-    user-select: none;
-    margin-top: 17vw;
-    margin-left: 13vw;
-    user-select: none;
-}
-#imagemLuffyDano {
-    position: relative;
-    width: 14vw;
-    height: 26vh;
-    user-select: none;
-    margin-top: 19vw;
-    margin-left: 19vw;
-    user-select: none;
-}
-
+/* CONFIGURAÇÃO DO TAMANHO DO PLAYER E OBSTACULOS */
 #obstaculo > img {
-    width: 8vh;
+    width: 6vh;
     height: 3vw;
     user-select: none;
 }
 #arvore > img {
-    position: fixed;
-    width: 80vh;
-    height: 30vw;
-    top: 22vh;
+    position: absolute;
+    width: 150vh;
+    height: 80vw;
+    top: 20vh;
     user-select: none;
-    z-index: 0;
-    animation: arvore 7s linear infinite;
+    z-index: 15;
+    animation: arvore 8s linear infinite;
 }
 @keyframes arvore {
     0% {
@@ -161,65 +146,141 @@ img {
     }
 
     100% {
-        left: -500px;
+        left: -50vw;
     }
 }
-#abelha > img {
+#inseto > img {
     position: fixed;
     width: 6vh;
     height: 3vw;
-    top: 45vh;
+    top: 85vh;
     user-select: none;
-    z-index: 0;
-    left: 20vw;
-    animation: arvore 7s linear infinite;
+    animation: inseto 7s linear infinite;
 }
-@keyframes abelha {
+@keyframes inseto {
     0% {
-        left: 100vw;
+        left: 150vw;
         ;
     }
 
     100% {
-        left: -500px;
+        left: -50vw;
     }
 }
 
-#obstaculoVoador>img {
-    width: 9vh;
-    height: 7vh;
-    user-select: none;
-}
 
 #obstaculo {
-    z-index: 100;
-    left: 100vh;
-    top: -30vh;
+    top: 35vh;
     position: relative;
     animation: obstaculo 2s infinite linear;
 }
 
 #obstaculoVoador {
+    z-index: 15;
     left: 100vh;
-    top: -70vh;
+    top: -20vh;
     position: relative;
-    animation: obstaculoVoador 4s infinite linear;
+    animation: obstaculoVoador 5s infinite linear;
+}
+#obstaculoVoador>img {
+    width: 9vh;
+    height: 7vh;
+    user-select: none;
+}
+#tubarao {
+    z-index: 0;
+    top: 0vh;
+    position: relative;
+    animation: tubarao 20s infinite linear;
+}
+#tubarao > img {
+    width: 9vh;
+    height: 7vh;
+    user-select: none;
+}
+#ship {
+    z-index: 0;
+    top: -5vh;
+    position: relative;
+    animation: ship 63s infinite linear;
+}
+#ship > img {
+    width: 4vh;
+    height: 3vh;
+    user-select: none;
+}
+#nuvem {
+    z-index: 0;
+    top: 10vh;
+    width: 180vw;
+    position: absolute;
+    animation: nuvem 20s infinite linear;
+    display: flex;
+    justify-content: space-evenly;
+}
+#nuvem > img {
+    width: 40vh;
+    height: 20vw;
+    user-select: none;
+}
+#papagaio {
+    z-index: 0;
+    top: -10vh;
+    position: relative;
+    animation: papagaio 15s infinite linear;
+}
+#papagaio > img {
+    width: 12vh;
+    height: 9vh;
+    user-select: none;
+}
+#enemy {
+    top: 60vh;
+    left: 85vw;
+    position: absolute;
+}
+#enemy > img {
+    width: 20vh;
+    height: 16vh;
+    user-select: none;
 }
 
 #player {
     position: relative;
-    top: 6.7vw;
+    top: 23vw;
     z-index: 1;
+    left: 10vw;
+}
+#player img{
+    width: 30vh;
+    height: 32vh;
+    user-select: none;
 }
 
 /* CONFIGURAÇÃO DO PULAR */
 .jump {
     animation: jump 800ms linear;
 }
-
+/* ANIMAÇÕES DOS DETALHES E OBSTACULOS */
 @keyframes obstaculo {
     0% {
-        left: 150vw;
+        left: 90vw;
+    }
+    100% {
+        left: -10px;
+    }
+}
+@keyframes nuvem {
+    0% {
+        left: 70vw;
+    }
+    100% {
+        left: -130vw;
+    }
+}
+@keyframes ship {
+    0% {
+        left: 800vw;
         ;
     }
 
@@ -227,10 +288,28 @@ img {
         left: -10px;
     }
 }
+@keyframes papagaio {
+    0% {
+        left: 230vw;
+    }
+    100% {
+        left: -10px;
+    }
+}
 
 @keyframes obstaculoVoador {
     0% {
-        left: 100vw;
+        left: 250vw;
+        ;
+    }
+
+    100% {
+        left: -10px;
+    }
+}
+@keyframes tubarao {
+    0% {
+        left: 700vw;
         ;
     }
 
@@ -241,23 +320,23 @@ img {
 
 @keyframes jump {
     0% {
-        top: 10vh;
+        top: 23vh;
     }
 
     25% {
-        top: 3vh;
+        top: 21vh;
     }
 
     50% {
-        top: -5vh;
+        top: 19vh;
     }
 
     75% {
-        top: 3vh
+        top: 21vh
     }
 
     100% {
-        top: 10vh;
+        top: 23vh;
     }
 }
 
@@ -284,15 +363,6 @@ img {
     margin-top: 0.6vw;
 }
 
-/* CONFIGURAÇÃO DOS BUTTON */
-button {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.389);
-    padding: 2vw;
-    border-radius: 1vw;
-    color: #eeeeee;
-    user-select: none;
-}
 #barra {
     position: fixed;
     background-color: transparent;
@@ -302,13 +372,11 @@ button {
     height: 2vw;
     width: 21vw;
     border-radius: 2vh;
-    border: solid 3px rgba(33, 33, 33, 0.869);
+    border: solid 3px rgba(255, 255, 255, 0.869);
 }
 #barraCheia {
     display: none;
     position: fixed;
-    background-color: transparent;
-    background-color: rgb(25, 222, 222);
     margin-top: 7.2vh;
     left: 1.1vw;
     padding: 0.15vh;
@@ -318,20 +386,8 @@ button {
     border-radius: 2vh;
 }
 
-/* CONFIGURAÇÃO DO BOTÃO */
-#btnEspecial{
-    left: 0;
-    margin: 0;
-    top: 0;
-    position: relative;
-}
-#btnJump{
-    left: 0;
-    margin: 0;
-    top: 0;
-    position: relative;
-}
-#containerButtons {
+/* CONFIGURAÇÃO DE MISSÕES */
+#containerMissao {
     height: 200px;
     width: 280px;
     position: absolute;
