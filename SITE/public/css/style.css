@@ -1,15 +1,15 @@
-/* FONTES */
+/* CONFIGURAÇÕES GERAIS */
 @font-face {
-    font-family: raleway-regular;
-    src: url(../fonte/Raleway-Regular.ttf);
+    font-family: dogica;
+    src: url(../fonte/dogica/TTF/dogica.ttf);
 }
 @font-face {
-    font-family: raleway-semi-bold;
-    src: url(../fonte/Raleway-SemiBold.ttf);
+    font-family: dogica-pixel;
+    src: url(../fonte/dogica/TTF/dogicapixel.ttf);
 }
 @font-face {
-    font-family: raleway;
-    src: url(../fonte/Raleway-Medium.ttf);
+    font-family: dogica-pixel-bold;
+    src: url(../fonte/dogica/TTF/dogicapixelbold.ttf);
 }
 
 
@@ -17,10 +17,10 @@
 * {
     padding: 0;
     margin: 0;
-    font-size: 3vh;
+    font-size: 2.2vh;
     color: white;
     background-color: #DAA167;
-    font-family: raleway-regular;
+    font-family: dogica-pixel;
 }
 * img {
     background: transparent;
@@ -86,7 +86,6 @@ a {
 }
 .header ::placeholder {
     color: rgba(255, 255, 255, 0.3);
-    font-family: raleway-regular;
 }
 .header button {
     border: none;
@@ -159,7 +158,6 @@ a {
 }
 .footer span {
     font-size: medium;
-    font-family: raleway-regular;
     background: transparent;
 }
 .footer img {
@@ -182,7 +180,6 @@ a {
 }
 .footerComum span {
     font-size: medium;
-    font-family: raleway-regular;
     background: transparent;
 }
 .footerComum img {
@@ -376,7 +373,6 @@ a {
 }
 .boxCadastro ::placeholder {
     color: rgba(255, 255, 255, 0.15);
-    font-family: raleway-regular;
     font-size: 2.4vh;
 }
 .containerCadastroLogin button {
@@ -427,7 +423,6 @@ a {
 }
 .boxLogin ::placeholder {
     color: rgba(255, 255, 255, 0.3);
-    font-family: raleway-regular;
     font-size: 2.4vh;
 }
 .containerLoginLogin button {

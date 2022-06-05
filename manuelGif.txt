@@ -1,13 +1,6 @@
 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
 
 https://www.spriters-resource.com/custom_edited/mariocustoms/sheet/172976/
-spriters-resource
-ezgif
-
-lembra de dar save
-
-online gif tools
-
 
 var array = []
 sessionStorage.nomeQueEuQuero = JSON.stringify(array)
@@ -43,3 +36,8 @@ document.addEventListener('keypress', function (event) {
         especial4()
     }
 });
+
+#5FDCFD azul mais forte
+#34AAFF azul mais claro
+#F3FDFE braco simpatico
+#F4CF9B areia
