@@ -11,8 +11,6 @@ var controleMoeda = false
 var controleEspecial = false
 var controleJogando = false
 
-sessionStorage.xpPartida = 0
-
 var personagem = 0
 let runPersonagem = ["./imagens/gifs/personagemGifs/run1.gif"]
 let jumpPersonagem = ["./imagens/gifs/personagemGifs/jump.gif"]
@@ -20,6 +18,10 @@ let obstaculoPersonagem = ["./imagens/imgEstatica/game/bola.gif"]
 let enemys = ["./imagens/imgEstatica/game/canhao.gif"]
 let obstaculoVoadorPersonagem = ["./imagens/imgEstatica/game/carne.png"]
 let backgroundPersonagem = ["./imagens/imgEstatica/game/areia.png"]
+let losePersonagem = ["./imagens/gifs/personagemGifs/lose.gif"]
+let loseParadoPersonagem = ["./imagens/gifs/personagemGifs/loseParado.gif"]
+let winPersonagem = ["./imagens/gifs/personagemGifs/win.gif"]
+let winParadoPersonagem = ["./imagens/gifs/personagemGifs/winParado.gif"]
 
 let cor = ["#D00000"]
 let especialGif1 = []
@@ -66,7 +68,7 @@ function jogar() {
     enemy.innerHTML = `<img src="${enemys[personagem]}"/>`
     setInterval(dindin, 800)
     setInterval(dead, 200)  
-    setInterval(ganhar, 200)
+    setInterval(ganhar, 500)
 }
 
 function jump1() {
@@ -111,7 +113,6 @@ function dead() {
     if (obstaculo1 < 400 && jump == false) {
         if(somaXP >= 100){
             somaXP -= 50
-            sessionStorage.xpPartida = somaXP
         }
         if(obstaculo1 > 50){
             if (qntBatidas == 0) {
@@ -148,8 +149,8 @@ function dead() {
             qntJump = 0
             qntBatidas = 0
             tamanho = 0
+            moeda = 0
 
-            player.innerHTML = ` <img id="luffyCorrendo" src="${jumpPersonagem[personagem]}" />`
             controleJogando = false
             barra.style.display = "none"
             obstaculoVoador.style.display = "none"
@@ -158,6 +159,13 @@ function dead() {
             barraCheia.style.backgroundColor = "none"
             primeiroBanner.style.animation = "bannermove 0s linear infinite"
             
+            setTimeout(() => {
+                player.innerHTML = ` <img id="luffyCorrendo" src="${losePersonagem[personagem]}" />`
+            },100)
+            setTimeout(() => {
+                player.innerHTML = ` <img id="luffyCorrendo" src="${loseParadoPersonagem[personagem]}" />`
+            },500)
+            
             obstaculo.innerHTML = ``
             obstaculoVoador.innerHTML = ``
             tubarao.innerHTML = ``
@@ -165,14 +173,13 @@ function dead() {
             arvore.innerHTML = ``
             enemy.innerHTML = ``
             barraCheia.style.display = ``
-            setInterval(dindin, 800)
-            setInterval(dead, 200)
-
+            
             setTimeout(() => {
+                sessionStorage.xpPartida = Number(sessionStorage.xpPartida) + somaXP
                 containerJogar.innerHTML = `
                 <div id="boxTexto">
                 <h1 style="left: 15vw;">---GAME OVER---</h1> 
-                <h2>XP GANHO: ${sessionStorage.xpPartida}</h2>
+                <h2>XP GANHO: ${somaXP}</h2>
                 <span>VOCÊ PEGOU: ${moeda}</span>
                 </div>
                 <button id="btnJogar" onclick="jogar()">RETRY</button>
@@ -180,6 +187,7 @@ function dead() {
                 container.style.filter = "brightness(0.7) blur(4px)"
                 containerJogar.style.display = "flex"
                 imagemContainerJogar.style.display = "flex"
+                somaXP = 0
             }, 2000)
         }
     }
@@ -191,7 +199,6 @@ function dindin() {
     if (jump == true && obstaculoVoador1 < 700) {
         if (controleMoeda == false) {
             somaXP += 200
-            sessionStorage.xpPartida = somaXP
             obstaculoVoador.innerHTML = ``
             moeda = moeda + 1
             divMoeda.innerHTML = `<img id="imgMoeda" src="${obstaculoVoadorPersonagem[personagem]}"/><span>X ${moeda}</span>`
@@ -265,11 +272,10 @@ function especial3() {
 
 function ganhar() {
     if (personagem == 0){
-        if(moeda == 5){
+        if(moeda >= 5 && jump == false){
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
 
-            player.innerHTML = ` <img id="luffyCorrendo" src="${jumpPersonagem[personagem]}"/>`
             controleJogando = false
             barra.style.display = "none"
             obstaculoVoador.style.display = "none"
@@ -285,24 +291,28 @@ function ganhar() {
             arvore.innerHTML = ``
             enemy.innerHTML = ``
             barraCheia.style.display = ``
-            setInterval(dindin, 800)
-            setInterval(dead, 200)
+            
+            setTimeout(() => {
+                player.innerHTML = ` <img id="luffyCorrendo" src="${winPersonagem[personagem]}"/>`
+            },100)
 
             setTimeout(() => {
                 containerJogar.innerHTML = `
                 <div id="boxTexto">
-            <h1>---PARABÉNS---</h1> 
-            <h2>VOCÊ DESBLOQUEOU A FASE 2!</h2>
-            <span>APERTE EM CONTINUAR PARA JOGAR</span>
-        </div>
-        <button id="btnMudar" onclick="mudarPersonagem()">CONTINUAR</button>
-        <a href="index.html"><button id="btnInicio">INÍCIO</button></a>
-        <a href="JOGO.html"><button id="btnRetry">RETRY</button></a>
+                <h1>---PARABÉNS---</h1> 
+                <h2>VOCÊ DESBLOQUEOU A FASE 2!</h2>
+                <span>APERTE EM CONTINUAR PARA JOGAR</span>
+                </div>
+                <button id="btnMudar" onclick="mudarPersonagem()">CONTINUAR</button>
+                <a href="index.html"><button id="btnInicio">INÍCIO</button></a>
+                <a href="JOGO.html"><button id="btnRetry">RETRY</button></a>
                 `
                 container.style.filter = "brightness(0.7) blur(4px)"
                 containerJogar.style.display = "flex"
                 imagemContainerJogar.style.display = "flex"
                 containerJogar.style.display = "flex"
+                sessionStorage.xpPartida = Number(sessionStorage.xpPartida) + somaXP
+                somaXP = 0
             }, 2000)
         }
     }
