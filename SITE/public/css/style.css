@@ -285,8 +285,8 @@ a {
 }
 #textoSobre {
     font-size: 2.5vh;
-    line-height: 5vh;
-    width: 45vw;
+    line-height: 5.5vh;
+    width: 41vw;
     position: absolute;
     top: 130vh;
     left: 5vw;
@@ -299,7 +299,7 @@ a {
 }
 #textoContexto {
     font-size: 2.5vh;
-    line-height: 5vh;
+    line-height: 5.5vh;
     width: 45vw;
     position: absolute;
     top: 190vh;
@@ -308,9 +308,9 @@ a {
 }
 #imgConexto img{
     position: absolute;
-    top: 170vh;
+    top: 140vh;
     width: 3vw;
-    left: 10vw;
+    left: 80vw;
 }
 #containerTecnologia {
     position: absolute;
@@ -321,16 +321,48 @@ a {
 }
 #tituloTecnologia{
     font-size: 3vw;
-    left: 61vw;
+    left: 55vw;
     position: absolute;
-    top: 160vh;
-    line-height: 4vw;
+    top: 148vh;
+    line-height: 5vw;
 }
 #imgTecnologia img {
     position: absolute;
     left: 20vw;
+    z-index: 100;
     width:30vh;
     top: 190vh;
+}
+#containerTecnologia img {
+    position: absolute;
+    left: 90vw;
+    z-index: 10;
+    width: 20vh;
+    top: 70vh;
+}
+#imagensLinguagens {
+    width: 100vw;
+    left: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    top: 80vh;
+}
+#imagensLinguagens #imgJS {
+    width: 7vw;
+    margin-left: 5vw;
+    border-radius: 1vw;
+}
+#imagensLinguagens #imgHTML {
+    margin-left: 33vw;
+    width: 7vw;
+    border-radius: 1vw;
+}
+#imagensLinguagens #imgCSS {
+    margin-left: 20vw;
+    width: 7vw;
+    border-radius: 1vw;
 }
 
 /* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE CADASTRO -------------------------------------------- */
