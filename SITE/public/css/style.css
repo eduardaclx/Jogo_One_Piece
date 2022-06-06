@@ -346,6 +346,7 @@ a {
     z-index: 1;
     top: 160vh;
     z-index: 10;
+    width: 40vw;
 }
 #containerTecnologia img {
     position: absolute;
