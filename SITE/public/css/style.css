@@ -57,15 +57,17 @@ a {
     position: fixed;
     top: 0;
     z-index: 1000;
-    background-color: #5fdbfd80;
+    background-color: #5fdbfde9;
 }
 .logo {
     display: flex;
     padding-right: 5%;
     padding-left: 3%;
     background: transparent;
+    z-index: 100;
 }
 .logo h4 {
+    color: #000;
     align-items: center;
     padding-left: 1vw;
     background: transparent;
@@ -148,19 +150,23 @@ a {
     height: 13vh;
     align-items: center;
     justify-content: space-around;
-    margin-top: 195vh;
+    margin-top: 220vh;
+    z-index: 100;
 }
 .conteudoFooter {
     background: transparent;
+    z-index: 100;
 }
 .footer span {
-    font-size: medium;
     background: transparent;
+    z-index: 100;
+    color: black;
 }
 .footer img {
-    width: 2.5vw;
-    height: 5vh;
+    width: 3vw;
+    height: 6vh;
     filter: brightness(0);
+    z-index: 100;
 }
 
 /* CONFIGURAÇÃO DO FOOTER GERAL */
@@ -181,8 +187,14 @@ a {
     background: transparent;
 }
 .footerComum img {
-    width: 2.5vw;
+    width: 3vw;
     height: 5vh;
+}
+#imagemFooter img {
+    position: absolute;
+    width: 99.7vw;
+    top: 260vh;
+    z-index: 0;
 }
 
 /* CONFIGURAÇÃO DO CARD DE ERROS */
@@ -319,19 +331,21 @@ a {
     line-height: 10vh;
     height: 70vh;
 }
-#tituloTecnologia{
+#tituloTecnologia {
     font-size: 3vw;
     left: 55vw;
     position: absolute;
     top: 148vh;
     line-height: 5vw;
+    z-index: 100;
+    background-color: transparent;
 }
 #imgTecnologia img {
     position: absolute;
-    left: 20vw;
-    z-index: 100;
-    width:30vh;
-    top: 190vh;
+    left: 10vw;
+    z-index: 1;
+    top: 160vh;
+    z-index: 10;
 }
 #containerTecnologia img {
     position: absolute;
@@ -363,6 +377,10 @@ a {
     margin-left: 20vw;
     width: 7vw;
     border-radius: 1vw;
+}
+#imgMato {
+    top: 170vh !important;
+    left: 135vw !important;
 }
 
 /* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE CADASTRO -------------------------------------------- */
