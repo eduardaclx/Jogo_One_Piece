@@ -29,6 +29,9 @@ a {
     border: none;
     text-decoration: none;
 }
+.rotateY {
+    transform: rotateY(180deg);
+}
 
 
 /* CONFIGURAÇÃO DO SCROLL */

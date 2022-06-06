@@ -31,7 +31,7 @@ let decoracaoFase = ["./imagens/gifs/backgroundGifs/tubarao.gif", "./imagens/gif
 function iniciar() {
     inseto.innerHTML = `<img src="${decoracaoFase[5]}">`
     papagaio.innerHTML = `<img src="${decoracaoFase[1]}"/>`
-    nuvem.innerHTML = `<img src="${decoracaoFase[3]}"><img src="${decoracaoFase[3]}">`
+    nuvem.innerHTML = `<img src="${decoracaoFase[3]}"><img src="${decoracaoFase[3]}" class="rotateY">`
     backgroundDinamico.innerHTML = `
     <img id="primeiroBanner" class="first" src="${backgroundPersonagem[personagem]}"/>
     <img src="${backgroundPersonagem[personagem]}"/>
