@@ -22,8 +22,8 @@ let losePersonagem = ["./imagens/gifs/personagemGifs/lose.gif"]
 let loseParadoPersonagem = ["./imagens/gifs/personagemGifs/loseParado.gif"]
 let winPersonagem = ["./imagens/gifs/personagemGifs/win.gif"]
 let winParadoPersonagem = ["./imagens/gifs/personagemGifs/winParado.gif"]
-
 let cor = ["#D00000"]
+
 let especialGif1 = []
 let especialGif2 = []
 let decoracaoFase = ["./imagens/gifs/backgroundGifs/tubarao.gif", "./imagens/gifs/backgroundGifs/papagaio.gif", "./imagens/imgEstatica/game/ship.png", "./imagens/imgEstatica/game/nuvem.png", "./imagens/imgEstatica/game/coqueiro.png", "./imagens/gifs/backgroundGifs/crab.gif"]

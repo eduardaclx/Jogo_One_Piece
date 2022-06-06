@@ -10,10 +10,10 @@
     <link rel="icon" href="./imagens/imgEstatica/site/icone-marca.png">
 </head>
 
-<body>
-    <section class="header">
-        <div class=" header navMask">
+<body onload="mudarFundo()">
+    <div id="imagemFundo"></div>
 
+        <section id="headerPag" class="header">
             <div class="logo">
                 <!-- <img src="imagens/icone-marca.png" id="icone-marca"> -->
                 <a href="index.html">
@@ -21,35 +21,29 @@
                 </a>
             </div>
             <div class="header icones">
-                <span id="mudarCarrinho" style="background-color: transparent;"><a id="jaLogin" href="login.html">Já tem
-                        Login?</a></span>
+                <span id="mudarCarrinho" style="background-color: transparent;"><a id="jaLogin" href="login.html">JÁ TEM LOGIN?</a></span>
                 <img src="./imagens/imgEstatica/site/sair.png" class="icone" id="iconeSair" onclick="limparSessao()">
-                <span id="trocaImagem"><a id="jaCadastro" href="cadastro.html">Cadastre-se</span></a>
+                <span id="trocaImagem"><a id="jaCadastro" href="cadastro.html">CADASTRE-SE</span></a>
             </div>
-        </div>
-    </section>
-
-    <div class="containerCadastroLogin">
-
-        <div class="cointainerImgCadastro">
-            <img src="./imagens/imgEstatica/site/zoro-fundo.png" alt="">
-        </div>
-
+        </section>
+        
+        <div class="containerCadastroLogin">
+            
         <div class="containerCadastro">
             <div class="boxCadastro">
-                <h3>Cadastre-se</h3>
-                <span>Nome:</span>
-                <input type="text" id="input_nome" placeholder="Digite seu nome...">
-                <span>E-mail:</span>
-                <input type="text" id="input_email" placeholder="Digite seu email...">
-                <span>Celular:</span>
+                <h3>CADASTRE-SE</h3>
+                <span>NOME:</span>
+                <input type="text" id="input_nome" placeholder="SEU NOME...">
+                <span>E-MAIL:</span>
+                <input type="text" id="input_email" placeholder="SEU E-MAIL...">
+                <span>CELULAR:</span>
                 <input type="number" id="input_telefone" placeholder="(00) 00000-0000">
-                <span>Senha:</span>
-                <input type="text" id="input_senha" placeholder="Digite sua senha...">
-                <span>Confirme sua senha:</span>
-                <input type="text" id="input_confirmacao_senha" placeholder="Digite novamente sua senha...">
+                <span>SENHA:</span>
+                <input type="text" id="input_senha" placeholder="SEU SENHA...">
+                <span>CONFIRME SUA SENHA:</span>
+                <input type="text" id="input_confirmacao_senha" placeholder="SUA SENHA NOVAMENTE...">
             </div>
-            <button onclick="cadastrar()">Cadastrar</button>
+            <button onclick="cadastrar()">CADASTRAR</button>
             <div id="div_aguardar" class="loading-div-cadastro">
                 <img src="./imagens/gifs/backgroundGifs/loading.gif" id="loading-gif">
             </div>
@@ -58,7 +52,7 @@
         <div id="cardErro" class="cardErro" style="display: none;">
             <div id="mensagem_erro"></div>
         </div>
-
+        
         <div id="div_erros_login">
         </div>
     </div>
@@ -68,12 +62,11 @@
             <div class="logo">
                 <a href="index.html"><h4>RUN<br>PIECE</h4></a>
             </div>
-                <span>feito por: Eduarda Calixto</span>
+            <span>feito por: Eduarda Calixto</span>
             <a href="https://github.com/eduardaclx"><img src="imagens/imgEstatica/site/github.png"></a>
             <a href="https://www.linkedin.com/in/eduarda-calixto/"><img src="imagens/imgEstatica/site/linkedin.png"></a>
         </div>
     </section>
-
 </body>
 
 </html>
@@ -82,8 +75,8 @@
 
 <script>
     function cadastrar() {
-
-
+        
+        
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var nomeVar = input_nome.value;
@@ -203,4 +196,8 @@
         cardErro.style.display = "none"
     }
 
+    function mudarFundo() {
+        imagemFundo.style.display = `flex` 
+
+}
 </script>
