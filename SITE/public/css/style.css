@@ -46,8 +46,20 @@ a {
 /* CONFIGURAÇÃO DO HEADER */
 .header {
     display: flex;
-    width: 100%;
+    width: 40vw;
     height: 18vh;
+    background-color: #398498 !important;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    z-index: 100;
+    position: absolute;
+}
+.headerIndex {
+    display: flex;
+    width: 99.7vw;
+    height: 18vh;
+    background-color: #34AAFF;
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
@@ -56,12 +68,15 @@ a {
 }
 #imagemFundo {
     width: 99.7vw;
-    height: 99.7vh;
+    height: 100vh;
     position: absolute;
-    z-index: 0;
+    z-index: -1;
     display: none;
+    background-size: cover;
+    filter: brightness(0.6);
+    background: url(../imagens/imgEstatica/game/bannerJogo.PNG);
 }
-.header .navMask {
+.headerIndex .navMask {
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -93,9 +108,6 @@ a {
     border-bottom-left-radius: 3vh;
     padding-left: 2vh;
     transition: 2s;
-}
-.header ::placeholder {
-    color: rgba(255, 255, 255, 0.3);
 }
 .header button {
     border: none;
@@ -219,20 +231,23 @@ a {
     width: 12vw;
     position: fixed;
     border-radius: 1vw;
+    line-height: 5vh;
     text-align: center;
     padding: 1.5vw;
     margin-left: 75vw;
     margin-top: 3vw;
     background: linear-gradient(to top, #5FDCFD, #F4CF9B);
     animation: animacaoRGB 10s linear infinite;
-  }
+}
   
   .cardErro #mensagem_erro{
+    line-height: 5vh;
     font-weight: 500;
     font-size: 20px;
     background-color: transparent;
-  }
-  #div_erros_login{
+}
+#div_erros_login{
+    line-height: 5vh;
     display: none;
     color: white;
     width: 12vw;
@@ -244,8 +259,9 @@ a {
     margin-top: 3vw;
     background: linear-gradient(to top, #5FDCFD, #F4CF9B);
     animation: animacaoRGB 10s linear infinite;
-  }
-  #div_aguardar{
+}
+#div_aguardar{
+    line-height: 5vh;
     display: none;
     color: white;
     width: 12vw;
@@ -421,20 +437,21 @@ a {
     /* border: red 2px solid; */
 }
 .containerCadastro {
-    margin-top: 15vh;
+    margin-top: 10vh;
     display: flex;
     width: 30vw;
-    height: 78vh;
+    height: 85vh;
     border-radius: 2vw;
-    background: rgba(35, 35, 35, 0.6);
+    background: rgba(35, 35, 35, 1);
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin-right: 10vw;
+    margin-left: 40vw;
 }
 .boxCadastro {
     width: 18vw;
     height: 52vh;
+    margin-bottom: 20vh;
     background: transparent;
 }
 .boxCadastro h3 {
@@ -446,6 +463,8 @@ a {
     display: flex;
     padding-bottom: 2vh;
     background: transparent;
+    color: #56C6E4;
+    margin-bottom: 2vh;
 }
 .boxCadastro input{
     display: flex;
@@ -457,21 +476,35 @@ a {
     display: flex;
     border: none;
     font-size: 2vh;
+    color: black;
 }
-.boxCadastro ::placeholder {
-    color: rgba(255, 255, 255, 0.15);
-    font-size: 2.4vh;
+#btnCadastrar {
+    position: absolute;
+    top: 70vh;
+    right: 20vw;
+}
+#btnLogin {
+    top: 70vh;
+    position: absolute;
+    right: 32.5vw;
+    
+}
+.boxCadastro ::placeholder {    
+    color:rgba(0, 0, 0, 0.5);
+    font-size: 1.8vh;
 }
 .containerCadastroLogin button {
     display: flex;
     justify-items: center;
-    margin-top: 13vh;
+    margin-top: 15vh;
     padding: 1.5vh;
-    padding-left: 2.5vw;
-    padding-right: 2.5vw;
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
     border-radius: 1vw;
     border: none;
+    background-color: #56C6E4;
 }
+
 .containerCadastroLogin button:hover {
     background: linear-gradient(to top, rgba(0, 138, 255, 0.8), rgba(0, 255, 231, 0.8));
     animation: animacaoRGB 10s linear infinite;
@@ -480,7 +513,7 @@ a {
 /* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE LOGIN ------------------------ */
 .boxLogin {
     width: 18vw;
-    height: 50vh;
+    height: 60vh;
     background: transparent;
     display: flex;
     flex-direction: column;
@@ -491,6 +524,8 @@ a {
     background: transparent;
 }
 .boxLogin span{
+    color: #56C6E4;
+    margin-top: 6vh;
     font-size: 2.5vh;
     display: flex;
     padding-bottom: 2vh;
@@ -507,15 +542,16 @@ a {
     display: flex;
     border: none;
     font-size: 2vh;
+    color: #000;
 }
 .boxLogin ::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(0, 0, 0, 0.4);
     font-size: 2.4vh;
 }
 .containerLoginLogin button {
     display: flex;
     justify-items: center;
-    margin-top: 12vh;
+    margin-top: 10vh;
     padding: 1.5vh;
     padding-left: 2.5vw;
     padding-right: 2.5vw;

@@ -1,138 +1,121 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="./imagens/imgEstatica/site/icone-marca.png" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Shop</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="./imagens/imgEstatica/site/icone-marca.png">
-</head>
-<body>
+  <body onload="mudarFundo()">
+    <div id="imagemFundo"></div>
+    
     <section class="header" >
         <div class=" header navMask">
 
             <div class="logo">
-                <!-- <img src="imagens/icone-marca.png" id="icone-marca"> -->
                 <a href="index.html"><h4 id="teste">RUN<br>PIECE</h4></a>
-            </div>
-            <div class="header  icones">
-                <span id="mudarCarrinho"><a id="jaLogin" href="login.html">Já tem Login?</a></span>
-                <img src="./imagens/imgEstatica/site/sair.png" class="icone" id="iconeSair" onclick="limparSessao()">
-                <span id="trocaImagem"><a id="jaCadastro" href="cadastro.html">Cadastre-se</span></a>
             </div>
         </div>
     </section>
 
     <div class="containerCadastroLogin">
-
-        <div class="cointainerImgCadastro">
-            <img src="./imagens/imgEstatica/site/chopper-fundo-verde-strong-world.png">
+      <div class="containerCadastro">
+        <div class="boxLogin">
+          <span>JÁ TEM CADASTRO?</span>
+          <h3>E-MAIL:</h3>
+          <input type="text" name="" id="input_email" placeholder="E-MAIL..." />
+          <h3>SENHA:</h3>
+          <input type="text" name="" id="input_senha" placeholder="SENHA..." />
         </div>
+        <button onclick="logar()">LOGAR</button>
+      </div>
 
-        <div class="containerCadastro">
-            <div class="boxLogin">
-                <h3>Já tem cadastro?</h3>
-                <span>E-mail:</span>
-                <input type="text" name="" id="input_email" placeholder="Digite seu email...">
-                <span>Senha:</span>
-                <input type="text" name="" id="input_senha" placeholder="Digite sua senha...">
-            </div>
-            <button onclick="logar()">Logar</button>
-        </div>
-    
-        <div id="div_aguardar" class="loading-div">
-            <img src="./imagens/gifs/backgroundGifs/loading.gif" id="loading-gif">
-        </div>
+      <div id="div_aguardar" class="loading-div">
+        <img src="./imagens/gifs/backgroundGifs/loading.gif" id="loading-gif" />
+      </div>
 
-    <div id="cardErro" class="cardErro" style="display: none;">
+      <div id="cardErro" class="cardErro" style="display: none">
         <div id="mensagem_erro"></div>
-    </div>
+      </div>
 
-    <div id="div_erros_login">
+      <div id="div_erros_login"></div>
     </div>
-
-    </div>
-
-    <section title="footerComum">
-        <div class="footerComum">
-            <div class="logo">
-                <a href="index.html"><h4>RUN<br>PIECE</h4></a>
-            </div>
-                <span>feito por: Eduarda Calixto</span>
-            <a href="https://github.com/eduardaclx"><img src="imagens/imgEstatica/site/github.png"></a>
-            <a href="https://www.linkedin.com/in/eduarda-calixto/"><img src="imagens/imgEstatica/site/linkedin.png"></a>
-        </div>
-    </section>
-</body>
+  </body>
 </html>
 
 <script src="js/funcoes.js"></script>
 <script>
-    function logar() {
-        aguardar();
+  function logar() {
+    aguardar();
 
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos!";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nomeCliente;
-                    sessionStorage.ID_USUARIO = json.idCliente;
-                    sessionStorage.TELEFONE_USUARIO = json.telefoneCelular;
-                    sessionStorage.xpPartida = 0
-
-                    setTimeout(function () {
-                        window.location = "index.html";
-                    }, 1000); // apenas para exibir o loading
-                });
-            } else {
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+    if (emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "PREENCHA TODOS OS CAMPOS!  ";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-</script> 
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
+
+        if (resposta.ok) {
+          console.log(resposta);
+
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+
+            sessionStorage.EMAIL_USUARIO = json.email;
+            sessionStorage.NOME_USUARIO = json.nomeCliente;
+            sessionStorage.ID_USUARIO = json.idCliente;
+            sessionStorage.TELEFONE_USUARIO = json.telefoneCelular;
+            sessionStorage.xpPartida = 0;
+
+            setTimeout(function () {
+              window.location = "index.html";
+            }, 1000); // apenas para exibir o loading
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
+
+          resposta.text().then((texto) => {
+            console.error(texto);
+            finalizarAguardar(texto);
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+
+  function mudarFundo() {
+    imagemFundo.style.display = `flex`;
+  }
+</script>

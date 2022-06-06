@@ -5,45 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Shop</title>
+    <title>CADASTRO</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="./imagens/imgEstatica/site/icone-marca.png">
 </head>
 
 <body onload="mudarFundo()">
-    <div id="imagemFundo"></div>
+    <div id="imagemFundo">
+    </div>
+    <section class="header" >
+        <div class=" header navMask">
 
-        <section id="headerPag" class="header">
             <div class="logo">
-                <!-- <img src="imagens/icone-marca.png" id="icone-marca"> -->
-                <a href="index.html">
-                    <h4 id="teste">RUN<br>PIECE</h4>
-                </a>
+                <a href="index.html"><h4 id="teste">RUN<br>PIECE</h4></a>
             </div>
-            <div class="header icones">
-                <span id="mudarCarrinho" style="background-color: transparent;"><a id="jaLogin" href="login.html">JÁ TEM LOGIN?</a></span>
-                <img src="./imagens/imgEstatica/site/sair.png" class="icone" id="iconeSair" onclick="limparSessao()">
-                <span id="trocaImagem"><a id="jaCadastro" href="cadastro.html">CADASTRE-SE</span></a>
-            </div>
-        </section>
+        </div>
+    </section>
         
         <div class="containerCadastroLogin">
             
         <div class="containerCadastro">
             <div class="boxCadastro">
-                <h3>CADASTRE-SE</h3>
-                <span>NOME:</span>
+                <span>CADASTRE-SE</span>
+                <h3>NOME:</h3>
                 <input type="text" id="input_nome" placeholder="SEU NOME...">
-                <span>E-MAIL:</span>
+                <h3>E-MAIL:</h3>
                 <input type="text" id="input_email" placeholder="SEU E-MAIL...">
-                <span>CELULAR:</span>
+                <h3>CELULAR:</h3>
                 <input type="number" id="input_telefone" placeholder="(00) 00000-0000">
-                <span>SENHA:</span>
+                <h3>SENHA:</h3>
                 <input type="text" id="input_senha" placeholder="SEU SENHA...">
-                <span>CONFIRME SUA SENHA:</span>
-                <input type="text" id="input_confirmacao_senha" placeholder="SUA SENHA NOVAMENTE...">
+                <h3>CONFIRME SUA SENHA:</h3>
+                <input type="text" id="input_confirmacao_senha" placeholder="CONFIRME...">
             </div>
-            <button onclick="cadastrar()">CADASTRAR</button>
+            <button id="btnCadastrar" onclick="cadastrar()">CADASTRAR</button>
+            <a href="login.html"><button id="btnLogin" onclick="logar()">LOGIN</button></a>
             <div id="div_aguardar" class="loading-div-cadastro">
                 <img src="./imagens/gifs/backgroundGifs/loading.gif" id="loading-gif">
             </div>
@@ -57,16 +53,6 @@
         </div>
     </div>
 
-    <section title="footerComum">
-        <div class="footerComum">
-            <div class="logo">
-                <a href="index.html"><h4>RUN<br>PIECE</h4></a>
-            </div>
-            <span>feito por: Eduarda Calixto</span>
-            <a href="https://github.com/eduardaclx"><img src="imagens/imgEstatica/site/github.png"></a>
-            <a href="https://www.linkedin.com/in/eduarda-calixto/"><img src="imagens/imgEstatica/site/linkedin.png"></a>
-        </div>
-    </section>
 </body>
 
 </html>
@@ -87,14 +73,14 @@
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos!";
+            mensagem_erro.innerHTML = "PREENCHA TODOS OS CAMPOS!";
 
             finalizarAguardar();
             return false;
 
         } else if (nomeVar.length < 3) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Nome inválido";
+            mensagem_erro.innerHTML = "NOME INVÁLIDO";
             input_nome.style.border = "red 2px solid"
 
             input_email.style.border = "none"
@@ -107,7 +93,7 @@
 
         } else if (emailVar.indexOf("@") < 0 || emailVar.length < 4) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "E-mail inválido!";
+            mensagem_erro.innerHTML = "E-MAIL INVÁLIDO!";
             input_email.style.border = "red 2px solid"
 
 
@@ -121,7 +107,7 @@
 
         } else if (telefoneVar.length < 11 || telefoneVar.length > 11) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Telefone Inválido! Não se esqueça do DDD";
+            mensagem_erro.innerHTML = "TELEFONE INVÁLIDO! NÃO SE ESQUEÇA DO DDD";
             input_telefone.style.border = "red 2px solid"
 
             input_nome.style.border = "none"
@@ -133,7 +119,7 @@
             return false;
         } else if (senhaVar != confirmacaoSenhaVar) {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Senhas diferentes!";
+            mensagem_erro.innerHTML = "SENHAS DIFERENTES!";
             input_senha.style.border = "red 2px solid"
             input_confirmacao_senha.style.border = "red 2px solid"
 
@@ -172,7 +158,7 @@
             if (resposta.ok) {
 
                 cardErro.style.display = "block";
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso!";
+                mensagem_erro.innerHTML = "CADASTRO REALIZADO COM SUCESSO!";
 
 
                 setTimeout(() => {
@@ -198,6 +184,5 @@
 
     function mudarFundo() {
         imagemFundo.style.display = `flex` 
-
 }
 </script>
