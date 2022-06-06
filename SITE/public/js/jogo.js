@@ -20,6 +20,7 @@ let obstaculoPersonagem = ["./imagens/imgEstatica/game/bola.gif"]
 let enemys = ["./imagens/imgEstatica/game/canhao.gif"]
 let obstaculoVoadorPersonagem = ["./imagens/imgEstatica/game/carne.png"]
 let backgroundPersonagem = ["./imagens/imgEstatica/game/areia.png"]
+
 let cor = ["#D00000"]
 let especialGif1 = []
 let especialGif2 = []
@@ -48,6 +49,7 @@ function jogar() {
     heart(3, 0)
     container.style.filter = "none"
     containerJogar.style.display = "none"
+    imagemContainerJogar.style.display = "none"
     barra.style.display = "flex"
     obstaculoVoador.style.display = "flex"
     obstaculo.style.display = "flex"
@@ -63,7 +65,7 @@ function jogar() {
     arvore.innerHTML = `<img src="${decoracaoFase[4]}"/>`
     enemy.innerHTML = `<img src="${enemys[personagem]}"/>`
     setInterval(dindin, 800)
-    setInterval(dead, 200)
+    setInterval(dead, 200)  
     setInterval(ganhar, 200)
 }
 
@@ -106,26 +108,27 @@ function heart(coracao, preto) {
 
 function dead() {
     var obstaculo1 = parseInt(window.getComputedStyle(obstaculo).getPropertyValue("left"));
-    if(somaXP >= 100){
-        somaXP -= 50
-        sessionStorage.xpPartida = somaXP
-    }
     if (obstaculo1 < 400 && jump == false) {
-        if (qntBatidas == 0) {
-            obstaculoVoador.style.display = "none"
-            obstaculo.style.display = "none"
-            primeiroBanner.style.animation = "bannermove 20s linear infinite"
-            player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19)) brightness(0) invert(1)"
-            heart(2, 1)
-            qntBatidas++
-            setTimeout(() => {
-                obstaculoVoador.style.display = "flex"
-                obstaculo.style.display = "flex"
-                player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19))"
-                primeiroBanner.style.animation = "bannermove 7s linear infinite"
-            }, 800)
-        } else if (qntBatidas == 1) {
-            obstaculoVoador.style.display = "none"
+        if(somaXP >= 100){
+            somaXP -= 50
+            sessionStorage.xpPartida = somaXP
+        }
+        if(obstaculo1 > 50){
+            if (qntBatidas == 0) {
+                obstaculoVoador.style.display = "none"
+                obstaculo.style.display = "none"
+                primeiroBanner.style.animation = "bannermove 20s linear infinite"
+                player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19)) brightness(0) invert(1)"
+                heart(2, 1)
+                qntBatidas++
+                setTimeout(() => {
+                    obstaculoVoador.style.display = "flex"
+                    obstaculo.style.display = "flex"
+                    player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19))"
+                    primeiroBanner.style.animation = "bannermove 7s linear infinite"
+                }, 800)
+            } else if (qntBatidas == 1) {
+                obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
             primeiroBanner.style.animation = "bannermove 20s linear infinite"
             player.style.filter = "drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.19)) brightness(0) invert(1)"
@@ -166,26 +169,28 @@ function dead() {
             setInterval(dead, 200)
 
             setTimeout(() => {
-                containerJogar.innerHTML = `<h1 id="containerJogarRunPiece">RUN PIECE</h1>
-                XP GANHO: ${sessionStorage.xpPartida}
-                <h1>FASE 1</h1> <h2>MISSÃO</h2>
-                <span>PEGUE 5 CARNES</span>
-                <span id="qntPega">VOCÊ PEGOU: ${moeda}</span>
+                containerJogar.innerHTML = `
+                <div id="boxTexto">
+                <h1 style="left: 15vw;">---GAME OVER---</h1> 
+                <h2>XP GANHO: ${sessionStorage.xpPartida}</h2>
+                <span>VOCÊ PEGOU: ${moeda}</span>
                 </div>
-                <img src="./imagens/imgEstatica/game/quadro.png" alt="">
-                <a href="JOGO.html"><button>RETRY</button></a>
-                <a href="index.html"><button>INÍCIO</button></a>`
+                <button id="btnJogar" onclick="jogar()">RETRY</button>
+                <a href="instrucoes.html"><button id="btnComo">COMO JOGAR</button></a>`
+                container.style.filter = "brightness(0.7) blur(4px)"
                 containerJogar.style.display = "flex"
+                imagemContainerJogar.style.display = "flex"
             }, 2000)
         }
     }
 }
+}
 
 function dindin() {
     var obstaculoVoador1 = parseInt(window.getComputedStyle(obstaculoVoador).getPropertyValue("left"))
-    if (jump == true && obstaculoVoador1 < 800) {
+    if (jump == true && obstaculoVoador1 < 700) {
         if (controleMoeda == false) {
-            somaXP += 100
+            somaXP += 200
             sessionStorage.xpPartida = somaXP
             obstaculoVoador.innerHTML = ``
             moeda = moeda + 1
@@ -260,11 +265,11 @@ function especial3() {
 
 function ganhar() {
     if (personagem == 0){
-        if(moeda == 1){
+        if(moeda == 5){
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
 
-            player.innerHTML = ` <img id="luffyCorrendo" src="${jumpPersonagem[personagem]}" />`
+            player.innerHTML = ` <img id="luffyCorrendo" src="${jumpPersonagem[personagem]}"/>`
             controleJogando = false
             barra.style.display = "none"
             obstaculoVoador.style.display = "none"
@@ -284,16 +289,19 @@ function ganhar() {
             setInterval(dead, 200)
 
             setTimeout(() => {
-                containerJogar.innerHTML = `<h1 id="containerJogarRunPiece">RUN PIECE</h1>
-                XP GANHO: ${sessionStorage.xpPartida}
-                <h1>FASE 1</h1> <h2>MISSÃO</h2>
-                <span>PEGUE 5 CARNES</span>
-                <span id="qntPega">VOCÊ PEGOU: ${moeda}</span>
-                </div>
-                <img src="./imagens/imgEstatica/game/quadro.png" alt="">
-                <button onclick="mudarPersonagem()">CONTINUAR</button>
-                <a href="JOGO.html"><button>RETRY</button></a>
-                <a href="index.html"><button>INÍCIO</button></a>`
+                containerJogar.innerHTML = `
+                <div id="boxTexto">
+            <h1>---PARABÉNS---</h1> 
+            <h2>VOCÊ DESBLOQUEOU A FASE 2!</h2>
+            <span>APERTE EM CONTINUAR PARA JOGAR</span>
+        </div>
+        <button id="btnMudar" onclick="mudarPersonagem()">CONTINUAR</button>
+        <a href="index.html"><button id="btnInicio">INÍCIO</button></a>
+        <a href="JOGO.html"><button id="btnRetry">RETRY</button></a>
+                `
+                container.style.filter = "brightness(0.7) blur(4px)"
+                containerJogar.style.display = "flex"
+                imagemContainerJogar.style.display = "flex"
                 containerJogar.style.display = "flex"
             }, 2000)
         }

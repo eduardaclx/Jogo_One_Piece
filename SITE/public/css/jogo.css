@@ -20,6 +20,7 @@
     user-select: none;
     font-family: dogica-pixel;
     image-rendering: pixelated;
+    line-height: 3vh;
 }
 
 body {
@@ -35,11 +36,11 @@ body {
     z-index: 50;
 }
 
-#containerJogar{
+#containerJogar {
     position: absolute;
     display: flex;
     top: 10vh;
-    left: 15vw;
+    left: 20vw;
     flex-direction: column;
     position: absolute;
     padding: 5vw;
@@ -47,48 +48,41 @@ body {
     justify-content: space-around;
     align-items: flex-start;
     border-radius: 2vw;
-    background-color: rgba(34, 48, 52, 0.7);
+    /* background-color: rgba(34, 48, 52, 0.7); */
     z-index: 100;
     height: 60vh;
 }
-#containerJogar img{
-    filter: brightness(0.8);
+#imagemContainerJogar {
+    filter: brightness(0.9) hue-rotate(340deg);
     position: absolute;
-    left: 20vw;
-    width: 60vw;
-    height: 55vh;
-    z-index: 1;
+    left: -16vw;
+    bottom: 3vh;
+    width: 130vw;
+    height: 100vh;
+    z-index: 99;
 }
-
 #containerJogar button {
-    margin-right: 20vh;
-    background-color: #60d2f6;
-    border:none;
+    font-size: 1vw;
+    background-color: #296579;
+    border: none;
     color: white;
     font-family: dogica-pixel-bold;
     padding: 2vw;
-    border-radius: 1vw;
+    border-radius: 0.9vw;
     color: #eeeeee;
+    position: absolute;
+    left: 40vw;
+    /* top: 30vh; */
     user-select: none;
-    background: linear-gradient(to top, rgba(0, 138, 255, 0.5), rgba(0, 255, 231, 0.5));
-    animation: animacaoRGB 10s linear infinite;
-    transition: 3s;
 }
-@keyframes animacaoRGB{
-    0%, 100%{
-        filter: hue-rotate(0deg);
-        border: none;
-    }
-    50%{
-        filter: hue-rotate(-180deg);
-        border: none;
-    }
+#containerJogar button:hover {
+    background-color: #60d2f6;
 }
 #containerJogar h1 {
     z-index: 2;
     position: absolute;
-    left: 44.5vw;
-    top: 25vh;
+    left: 16vw;
+    top: 8vh;
     color: white;
     font-family: dogica-pixel-bold;
     padding: 2vw;
@@ -98,8 +92,8 @@ body {
 #containerJogar h2 {
     z-index: 2;
     position: absolute;
-    left: 45vw;
-    top: 33vh;
+    left: 4.9vw;
+    top: 25vh;
     color: white;
     font-family: dogica-pixel-bold;
     padding: 2vw;
@@ -109,22 +103,46 @@ body {
 #containerJogar span {
     z-index: 2;
     position: absolute;
-    left: 43vw;
-    top: 42vh;
+    left: 5vw;
+    top: 35vh;
     color: white;
     font-family: dogica-pixel-bold;
     padding: 2vw;
     border-radius: 1vw;
     color: #eeeeee;
     font-size: 1vw;
+    width: 15vw;
 }
 #containerJogar #qntPega {
     top: 50vh !important;
 }
-#containerJogarRunPiece{
-    top: 10vh !important;
-    left: 2vw !important;
-
+#containerBtn {
+    display: flex;
+    width: 40vw;
+    height: 60vh;
+    justify-content: space-around;
+}
+#btnJogar {
+    top: 28vh;
+    left: 36.5vw !important;
+}
+#btnRetry {
+    top: 55vh;
+    left: 40vw !important;
+}
+#btnComo {
+    width: 18vw;
+    top: 35vh;
+    left: 32vw !important;
+    margin-top: 10vh;
+}
+#btnMudar {
+    top: 40vh;
+    left: 36.5vw !important;
+}
+#btnInicio {
+    top: 25vh;
+    left: 40vw !important;
 }
 
 #vida {
@@ -143,8 +161,7 @@ body {
     height: 4.5vh;
 }
 
-/*photobanner*/
-
+/*CONFIGURAÇÃO DA FOTO DO BANNER*/
 .photobanner {
     position: absolute;
     padding-left: -5vw;
@@ -177,15 +194,12 @@ body {
     }
 
 }
-
-
 /* CONFIGURAÇÃO DA DIV GAME */
 #game {
     height: 99vh;
     overflow-y: hidden;
     overflow-x: hidden;
 }
-
 /* CONFIGURAÇÃO DO TAMANHO DO PLAYER E OBSTACULOS */
 #obstaculo > img {
     width: 6vh;
@@ -239,7 +253,7 @@ body {
 
 #obstaculoVoador {
     z-index: 15;
-    left: 100vh;
+    /* left: 70vh; */
     top: -20vh;
     position: relative;
     animation: obstaculoVoador 5s infinite linear;
