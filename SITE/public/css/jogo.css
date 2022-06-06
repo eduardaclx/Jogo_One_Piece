@@ -1,15 +1,11 @@
 /* CONFIGURAÇÕES GERAIS */
 @font-face {
-    font-family: dogica;
-    src: url(../fonte/dogica/TTF/dogica.ttf);
-}
-@font-face {
     font-family: dogica-pixel;
-    src: url(../fonte/dogica/TTF/dogicapixel.ttf);
+    src: url(../fonte/Pixeled.ttf);
 }
 @font-face {
     font-family: dogica-pixel-bold;
-    src: url(../fonte/dogica/TTF/dogicapixelbold.ttf);
+    src: url(../fonte/Pixeled.ttf);
 }
 
 * {
@@ -20,7 +16,7 @@
     user-select: none;
     font-family: dogica-pixel;
     image-rendering: pixelated;
-    line-height: 3vh;
+    line-height: 3.5vh;
 }
 
 body {

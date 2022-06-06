@@ -145,11 +145,11 @@ function dead() {
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
             heart(0, 3)
-            // moeda = 0
+            moeda = 0
             qntJump = 0
             qntBatidas = 0
             tamanho = 0
-            moeda = 0
+
 
             controleJogando = false
             barra.style.display = "none"
@@ -182,7 +182,7 @@ function dead() {
                 <h2>XP GANHO: ${somaXP}</h2>
                 <span>VOCÊ PEGOU: ${moeda}</span>
                 </div>
-                <button id="btnJogar" onclick="jogar()">RETRY</button>
+                <a href="jogo.html"><button id="btnJogar" onclick="jogar()">RETRY</button></a>
                 <a href="instrucoes.html"><button id="btnComo">COMO JOGAR</button></a>`
                 container.style.filter = "brightness(0.7) blur(4px)"
                 containerJogar.style.display = "flex"
