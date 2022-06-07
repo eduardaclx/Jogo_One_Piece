@@ -1,5 +1,9 @@
 /* CONFIGURAÇÕES GERAIS */
 @font-face {
+    font-family: dogica;
+    src: url(../fonte/dogica/TTF/dogica.ttf);
+}
+@font-face {
     font-family: dogica-pixel;
     src: url(../fonte/Pixeled.ttf);
 }
@@ -422,13 +426,14 @@ a {
 #totalPlayer{
     position: absolute;
     z-index: 101;
-    top: 30vh;
+    top: 13vh;
     font-size: 5px !important;
     right: 4vw;
     filter: opacity(0.8);
 }
 #textoTotalPlayer{
     font-size: 3vw !important;
+    line-height: 2;
 }
 
 /* ------------------------------------ CONFIGURAÇÃO DA PÁGINA DE CADASTRO -------------------------------------------- */
@@ -487,11 +492,13 @@ a {
     height: 4vh;
     margin-bottom: 2.5vh;
     padding-left: 1vw;
+    padding: 0.3vh;
     border-radius: 3vh;
     display: flex;
     border: none;
     font-size: 2vh;
     color: black;
+    font-family: dogica;
 }
 #btnCadastrar {
     position: absolute;
@@ -553,11 +560,13 @@ a {
     height: 4vh;
     margin-bottom: 2vh;
     padding-left: 1vw;
+    padding: 2vh;
     border-radius: 3vh;
     display: flex;
     border: none;
     font-size: 2vh;
     color: #000;
+    font-family: dogica;
 }
 .boxLogin ::placeholder {
     color: rgba(0, 0, 0, 0.4);

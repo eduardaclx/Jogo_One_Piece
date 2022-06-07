@@ -135,6 +135,12 @@ body {
     top: 35vh;
     left: 32vw !important;
     margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 6vh !important;
+    pointer-events: none;
 }
 #btnMudar {
     top: 40vh;
@@ -247,8 +253,7 @@ body {
 
 #obstaculo {
     top: 35vh;
-    position: relative;
-    animation: obstaculo 2s infinite linear;
+    position: relative;    
 }
 
 #obstaculoVoador {

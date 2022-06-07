@@ -61,6 +61,7 @@ function jogar() {
 
     player.innerHTML = ` <img id="luffyCorrendo" src="${runPersonagem[personagem]}" />`
     obstaculo.innerHTML = `<img src="${obstaculoPersonagem[personagem]}" />`
+    obstaculo.style.animation = "obstaculo 2s infinite linear";
     obstaculoVoador.innerHTML = `<img src="${obstaculoVoadorPersonagem[personagem]}" />`
     tubarao.innerHTML = `<img src="${decoracaoFase[0]}"/>`
     ship.innerHTML = `<img src="${decoracaoFase[2]}"/>`
@@ -183,7 +184,7 @@ function dead() {
                 <span>VOCÊ PEGOU: ${moeda}</span>
                 </div>
                 <a href="jogo.html"><button id="btnJogar" onclick="jogar()">RETRY</button></a>
-                <a href="instrucoes.html"><button id="btnComo">COMO JOGAR</button></a>`
+                `
                 container.style.filter = "brightness(0.7) blur(4px)"
                 containerJogar.style.display = "flex"
                 imagemContainerJogar.style.display = "flex"
@@ -272,7 +273,7 @@ function especial3() {
 
 function ganhar() {
     if (personagem == 0){
-        if(moeda >= 5 && jump == false){
+        if(moeda >= 2 && jump == false){
             obstaculoVoador.style.display = "none"
             obstaculo.style.display = "none"
 
@@ -300,7 +301,7 @@ function ganhar() {
                 containerJogar.innerHTML = `
                 <div id="boxTexto">
                 <h1>---PARABÉNS---</h1> 
-                <h2>VOCÊ DESBLOQUEOU A FASE 2!</h2>
+                <h2>XP GANHO: ${sessionStorage.xpPartida}</h2>
                 <span>APERTE EM CONTINUAR PARA JOGAR</span>
                 </div>
                 <button id="btnMudar" onclick="mudarPersonagem()">CONTINUAR</button>
