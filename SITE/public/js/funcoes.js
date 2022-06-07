@@ -6,20 +6,8 @@
         
     } else{
         iconeSair.style.display = "flex";
-        iconeCoracao.style.display = "flex";
-        mudarCarrinho.innerHTML = `<a href="carrinho.html"><img src="imagens/carrinho.png" class="icone" id="iconeCarrinho"></a>`
-
-        trocaImagem.innerHTML = `<img src="./imagens/luffy-icon.jpg" class="icone" id="iconeUser">
-        <style>
-            #iconeUser{
-                height: 10vh;
-                width: 5vw;
-                margin-right: 4vw;
-                border-radius: 20vw;
-            }
-        </style>
-
-        `
+        mudarCarrinho.style.display = "none"
+        trocaImagem.innerHTML = `<a id="jaCadastro" href="jogo.html">JOGAR</span></a>`
     }
 
 function validarSessao() {

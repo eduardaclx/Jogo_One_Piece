@@ -11,7 +11,7 @@
     <link rel="icon" href="./imagens/imgEstatica/site/icone-marca.png">
 </head>
 
-<body>
+<body onload="qntPlayers()">
     <section class="headerIndex" >
         <div class=" headerIndex navMask">
 
@@ -25,6 +25,10 @@
             </div>
         </div>
     </section>
+
+    <div id="totalPlayer">
+        <p id="textoTotalPlayer"></p>
+    </div>
 
     <section class="banner" style="background-color: #ccc">
         <a href="jogo.html"><img src="imagens/imgEstatica/game/bannerJogo.PNG"></a>
@@ -90,7 +94,8 @@
 
 </html>
 
+
 <script src="./js/funcoes.js"></script>
-<!-- <script src="./js/funcoesIndex.js"></script> -->
+<script src="./js/index.js"></script>
 
 
